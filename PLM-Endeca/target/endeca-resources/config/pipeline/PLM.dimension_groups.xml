@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE DIMENSION_GROUPS SYSTEM "dimension_groups.dtd">
+<DIMENSION_GROUPS>
+
+  <DIMENSION_GROUP NAME="Personal Information">
+    <DIMNAME>Ethnicity</DIMNAME>
+    <DIMNAME>Eye Color</DIMNAME>
+    <DIMNAME>Gender</DIMNAME>
+    <DIMNAME>Hair Color</DIMNAME>
+    <DIMNAME>Res County</DIMNAME>
+    <DIMNAME>Res City</DIMNAME>
+    <DIMNAME>SMT Code</DIMNAME>
+    <DIMNAME>Parolee Age (+/- 3 yrs)</DIMNAME>
+    <DIMNAME>Birth Year</DIMNAME>
+    <DIMNAME>Height (+/- 2 inches)</DIMNAME>
+    <DIMNAME>Weight (+/- 10 lb)</DIMNAME>
+  </DIMENSION_GROUP>
+
+  <DIMENSION_GROUP NAME="Parole Data">
+    <DIMNAME>Parole Date Range</DIMNAME>
+    <DIMNAME>Parole State</DIMNAME>
+    <DIMNAME>Parole Year</DIMNAME>
+    <DIMNAME>Supervision Level</DIMNAME>
+    <DIMNAME>Parole Status</DIMNAME>
+    <DIMNAME>Commitment Offense</DIMNAME>
+    <DIMNAME>Parole Unit</DIMNAME>
+    <DIMNAME>CountyOfLastLegalResidence</DIMNAME>
+  </DIMENSION_GROUP>
+
+  <DIMENSION_GROUP NAME="Vehicle Information">
+    <DIMNAME>Vehicle Class</DIMNAME>
+    <DIMNAME>Vehicle Year</DIMNAME>
+    <DIMNAME>Vehicle Model</DIMNAME>
+    <DIMNAME>Vehicle Style</DIMNAME>
+    <DIMNAME>Vehicle Make</DIMNAME>
+    <DIMNAME>Vehicle Color1</DIMNAME>
+    <DIMNAME>Vehicle Color2</DIMNAME>
+    <DIMNAME>Vehicle State</DIMNAME>
+  </DIMENSION_GROUP>
+
+</DIMENSION_GROUPS>

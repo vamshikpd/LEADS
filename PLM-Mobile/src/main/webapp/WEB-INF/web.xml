@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+		 version="3.1"
+		 metadata-complete="true">
+
+	<display-name>Parole LEADS2.0 Mobile Web Application</display-name>
+	<welcome-file-list>
+		<welcome-file>plmmobileredirect</welcome-file>
+	</welcome-file-list>
+
+	<!-- Added for SSO integration 
+	<login-config>
+		<auth-method>CLIENT-CERT,FORM</auth-method>
+		<realm-name>NetPointRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/plmweb/login.htm</form-login-page>
+			<form-error-page>/plmweb/authfailure.htm</form-error-page>
+		</form-login-config>
+	</login-config> -->
+
+	<!-- Start IDCS setup -->
+	
+	<!-- <security-constraint>
+  		<web-resource-collection>
+    		<web-resource-name>ProtectedPages</web-resource-name>
+    		<url-pattern>/*</url-pattern>
+  		</web-resource-collection>
+  		<auth-constraint>
+    		<role-name>allowedGroups</role-name>
+  		</auth-constraint>
+	</security-constraint>
+	<login-config>
+  		<auth-method>CLIENT-CERT</auth-method>
+	</login-config>
+	<security-role>
+  		<role-name>allowedGroups</role-name>
+	</security-role> -->
+	
+	<!-- End -->
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+	<!-- Excel Output mappings -->
+	<servlet>
+		<servlet-name>xmlQuery</servlet-name>
+		<servlet-class>com.endeca.ui.ENEQueryServlet</servlet-class>
+	</servlet>
+	<!--<servlet>
+		<servlet-name>cities</servlet-name>
+		<servlet-class>com.plm.servlets.PLMGetCities</servlet-class>
+	</servlet>-->
+	<servlet>
+		<servlet-name>mobilecities</servlet-name>
+		<servlet-class>com.plm.servlets.PLMGetCities</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>pc290Auditing</servlet-name>
+		<servlet-class>com.plm.servlets.PLMLogPc290Results</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>email</servlet-name>
+		<servlet-class>com.endeca.ui.export.EmailServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>rss</servlet-name>
+		<servlet-class>com.endeca.ui.export.RssServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>plmMobileRedirectPage</servlet-name>
+		<jsp-file>/plm_mobile_controller.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>plmMobileRedirectServlet</servlet-name>
+		<servlet-class>com.plm.servlets.PlmMobileRedirectServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>mobilelogout</servlet-name>
+		<servlet-class>com.plm.servlets.PLMMobileLogoutServlet</servlet-class>
+	</servlet>
+	
+	<!--<servlet>
+		<servlet-name>cpRedirectservlet</servlet-name>
+		<jsp-file>/welcome_cp_screen_rd.jsp</jsp-file>
+	</servlet>-->
+	<servlet-mapping>
+		<servlet-name>xmlQuery</servlet-name>
+		<url-pattern>/xmlQuery</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>mobilecities</servlet-name>
+		<url-pattern>/getCities</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>pc290Auditing</servlet-name>
+		<url-pattern>/pc290Audit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>email</servlet-name>
+		<url-pattern>/email</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>rss</servlet-name>
+		<url-pattern>/rss</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>plmMobileRedirectServlet</servlet-name>
+		<url-pattern>/plmmobileredirect</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>mobilelogout</servlet-name>
+		<url-pattern>/mobilelogout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>plmMobileRedirectPage</servlet-name>
+		<url-pattern>/goToPLMMobileMainPage</url-pattern>
+	</servlet-mapping>
+	<error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.jsp</location>
+    </error-page>   
+	<mime-mapping>
+		<extension>html</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>txt</extension>
+		<mime-type>text/plain</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>css</extension>
+		<mime-type>text/css</mime-type>
+	</mime-mapping>
+
+	<context-param>
+		<param-name>sourceType</param-name>
+		<param-value>xls</param-value>
+	</context-param>
+</web-app>

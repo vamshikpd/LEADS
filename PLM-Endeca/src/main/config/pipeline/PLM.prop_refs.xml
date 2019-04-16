@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE PROP_REFS SYSTEM "prop_refs.dtd">
+<PROP_REFS>
+
+  <PROP_REF NAME="CDC Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Last Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="First Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Middle Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Sex" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Race" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Eyecolor" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="P_Height" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="P_Weight" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Haircolor" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Classification Description" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Agent Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Agent Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PC 290 REQ" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PC 457 REQ" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PC 3058 REQ" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="CII Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="FBI Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SSA Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Vehicle Information" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Address Effective Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Care of (live with)" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Street" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="City" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="County Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="County Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Zip" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Full_Phone" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SMT Description" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SMT Picture" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SMT Text" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="State Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Zip4" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Moniker Info" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Offense Information" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Unit Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Control Discharg Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Discharged Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Classification Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="HS REQ" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="HS DATE" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PC 290 DATE" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PC 457 DATE" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Driver License Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Birth State Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Problem Area - Narcotic" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Problem Area - Alcohol" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Problem Area - Assault" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Problem Area - Sex" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Problem Area - Other" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SMT Information" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Special Condition Information" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Alias Info" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Status" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Birth_Yr" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Parole Yr" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Revocation Release Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SMT Cd" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Offense Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Birth Date Display" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Parole Date Display" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="geocode" TYPE="GEOCODE"/>
+
+  <PROP_REF NAME="Height Feet" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Height Inches" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Tattoo_Pict_Text" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Parole_Date_Search" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Map" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Message Phone" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Comments" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Race Cd" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Eyecolor Cd" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Haircolor Cd" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="ANT REQ" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="POC REQ" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PC 3058 DATE" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="County Commit" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Status Cd" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="USINS Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Parole Last Chg Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Action Date Display" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Action Type" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Address Changed Date Display" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Agent Email" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Has Address Changed" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Sequence Number" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="HRSO" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="GPS" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Primary_Dim_Prop" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Agent Phone" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Sorted Prev Address" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Group Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="No Alcohol" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Parole Data Change Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Action Date Search" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Address Changed Date Search" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Birth Date Search" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Sorted Employer Information" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Veh_Year" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Revocation_Release_Date_Search" TYPE="INTEGER"/>
+
+  <PROP_REF NAME="Unit Code" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Alias First Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Alias Last Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Alias Middle Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Birth State Name" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Vehicle License Plate" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Address Last Change Date" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="SMT_Detail" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Jurisdiction_Counties" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="CountyOfLLR" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PendingPAL" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="PendingPALDate" TYPE="ALPHA"/>
+
+  <PROP_REF NAME="Resident Status" TYPE="ALPHA"/>
+
+</PROP_REFS>

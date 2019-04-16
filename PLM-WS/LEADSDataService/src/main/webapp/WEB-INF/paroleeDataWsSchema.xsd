@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.plm/ws/mtom/data" xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+	elementFormDefault="qualified" targetNamespace="http://www.plm/ws/mtom/data"
+	xmlns="http://www.plm/ws/mtom/data">
+
+	<xs:element name="InternalParoleeDataRequest" type="internalParoleeDataRequest" />
+	<xs:element name="InternalParoleeDataResponse" type="internalParoleeDataResponse" />
+	
+	<xs:complexType name="internalParoleeDataRequest">
+		<xs:sequence>
+			<xs:element ref="tns:SearchCriteria" minOccurs="1" maxOccurs="1" />
+			<xs:element name="CaseNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="Reason" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="IncludeAttachment" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="Username" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="ResponseFieldsReturned" type="xs:string" minOccurs="0" maxOccurs="1">			
+				<xs:annotation>
+					<xs:documentation>
+						Possible values would be ADD, JOB, PAR.RACE_CODE and so on. 
+						ADD - Address History, JOB - Job History, ALI - Alias, MON - Moniker, OFF - Offense, PAR - Parolee Information, SMT - Scars, Marks and Tattoos, SPC - Special Conditions of Parole, VEH - Vehicle History.
+						For individual fields in the Parolee Information the user specifies PAR.RACE_CODE. 
+						Refer to the PAROLE LEADS DATA DOWNLOAD GUIDE for more information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncludeStateWidePAL" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Possible values Y or N \n
+						Y to include State wide parolees who are PAL
+						N to eliminate State wide parolees who are PAL
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="SearchCriteria">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="LastUpdateDate" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="City" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="County" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Possible values would be ALA,ALP,AMA where ALA stands for ALAMEDA. Following is the list of all counties.
+							ALA - ALAMEDA,ALP - ALPINE,AMA - AMADOR,BUT - BUTTE,CAL - CALAVERAS,CC - CONTRA COSTA,COL - COLUSA,DN - DEL NORTE,ED - EL DORADO,FRE - FRESNO,GLE - GLENN,HUM - HUMBOLDT,IMP - IMPERIAL,INY - INYO,KER - KERN,KIN - KINGS,LA - LOS ANGELES,LAK - LAKE,LAS - LASSEN,MAD - MADERA,MAR - MARIN,MEN - MENDOCINO,MER - MERCED,MNO - MONO,MOD - MODOC,MON - MONTEREY,MPA - MARIPOSA,NAP - NAPA,NEV - NEVADA,ORA - ORANGE,PLA - PLACER,PLU - PLUMAS,RIV - RIVERSIDE,SAC - SACRAMENTO,SB - SANTA BARBARA,SBD - SAN BERNARDINO,SBT - SAN BENITO,SCL - SANTA CLARA,SCR - SANTA CRUZ,SD - SAN DIEGO,SF - SAN FRANCISCO,SHA - SHASTA,SIE - SIERRA,SIS - SISKIYOU,SJ - SAN JOAQUIN,SLO - SAN LUIS OBISPO,SM - SAN MATEO,SOL - SOLANO,SON - SONOMA,STA - STANISLAUS,SUT - SUTTER,TEH - TEHAMA,TRI - TRINITY,TUL - TULARE,TUO - TUOLUMNE,VEN - VENTURA,YOL - YOLO,YUB - YUBA
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IsParoleePAL" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Possible values Y or N \n
+							Y to specify that the Parolee is a PAL
+							N to specify that the Parolee is not a PAL
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CDCNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="LastName" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="FirstName" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="MiddleName" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="AliasLastName" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="AliasFirstName" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Moniker" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Zip" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="BirthState" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="HeightInInches" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Weight" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="SSN" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="CIINumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="FBINumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="LicensePlate" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="DateOfBirth" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:ParoleeReleaseDate" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:VehicleYear" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Ethnicity" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+						<xs:documentation>
+							Possible values 
+							WHI--WHITE
+							BLA--BLACK
+							HIS--HISPANIC
+							CHI--CHINESE
+							JPN--JAPANESE
+							AMI--AMERICAN INDIAN
+							FIL--FILIPINO
+							HAW--HAWAIIAN
+							OTH--OTHER
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="HairColor" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+						<xs:documentation>
+							Possible values 
+							BAL--BALD
+							BLK--BLACK
+							BLN--BLN/STRWBY
+							BRO--BROWN
+							GRY--GRAY/PRTLY
+							RED--RED/AUBURN
+							SDY--SANDY
+							WHI--WHITE
+							XXX--UK/BALD
+							BLU--BLUE
+							GRN--GREEN
+							ONG--ORANGE
+							PLE--PURPLE
+							PNK--PINK
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PC290SexOff" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+						<xs:documentation>
+							Possible values Y or N
+							Y to specify that the Parolee is a PC290 Sex offender
+							N to specify that the Parolee is not a PC290 Sex offender
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PC4571Arson" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+						<xs:documentation>
+							Possible values Y or N
+							Y to specify that the Parolee has a PC4571 Arson Violation
+							N to specify that the Parolee does not have a PC4571 Arson Violation
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PC11590Drugs" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+						<xs:documentation>
+							Possible values Y or N
+							Y to specify that the Parolee has a PC11590 Violation
+							N to specify that the Parolee does not have a PC11590 Violation
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PC30586FelonyViolation" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+						<xs:documentation>
+							Possible values Y or N
+							Y to specify that the Parolee has a PC30586 FelonyViolation
+							N to specify that the Parolee does not have a PC30586 FelonyViolation
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="tns:SMT" minOccurs="0" maxOccurs="1" />
+				<xs:element name="CommitmentOffense" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="CountyOfLLR" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="UnitCode" type="xs:string" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="ParoleeReleaseDate">
+		<xs:annotation>
+			<xs:documentation>Enter Dates in YYYYMMDD Format</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FromDate" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="ToDate" type="xs:string" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="VehicleYear">
+		<xs:annotation>
+			<xs:documentation>Enter Year in YYYY Format</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="FromYear" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="ToYear" type="xs:string" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="SMT">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TypeOrLocation" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="PictureOfTattoo" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="TextOfTattoo" type="xs:string" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="IncludeAttachment" type="xs:string" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Search Include Attachment as Response</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:complexType name="internalParoleeDataResponse">
+		<xs:sequence>
+			<xs:element name="TxnStatus" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="tns:DataAttachment" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="tns:Error" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="DataAttachment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="filename" type="xs:string" />
+				<xs:element name="data" type="xs:base64Binary" xmime:expectedContentTypes="application/octet-stream" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="Error">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ErrorCode" type="xs:string" />
+				<xs:element name="ErrorMessage" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://niem.gov/niem/ansi-nist/2.0" version="1" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:ansi-nist="http://niem.gov/niem/ansi-nist/2.0" xmlns:i="http://niem.gov/niem/appinfo/2.0">
+  <xsd:annotation>
+    <xsd:documentation>ANSI/NIST Fingerprint and Biometric standard.</xsd:documentation>
+    <xsd:appinfo>
+      <i:ConformantIndicator>true</i:ConformantIndicator>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:import schemaLocation="../../structures/2.0/structures.xsd" namespace="http://niem.gov/niem/structures/2.0"/>
+  <xsd:import schemaLocation="../../appinfo/2.0/appinfo.xsd" namespace="http://niem.gov/niem/appinfo/2.0"/>
+  <xsd:import schemaLocation="../../niem-core/2.0/niem-core.xsd" namespace="http://niem.gov/niem/niem-core/2.0"/>
+  <xsd:simpleType name="PCCCodeSimpleType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:namespace="http://niem.gov/niem/structures/2.0" i:name="Object"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="HUMAN">
+        <xsd:annotation>
+          <xsd:documentation>Human Forms and Features</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="ABSTRACT">
+        <xsd:annotation>
+          <xsd:documentation>Abstractions</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="FLAG">
+        <xsd:annotation>
+          <xsd:documentation>Flags</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="SYMBOL">
+        <xsd:annotation>
+          <xsd:documentation>Insignias &amp; Symbols</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="ANIMAL">
+        <xsd:annotation>
+          <xsd:documentation>Animals and Animal Features</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="OTHER">
+        <xsd:annotation>
+          <xsd:documentation>Other Images</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="PLANT">
+        <xsd:annotation>
+          <xsd:documentation>Plants</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="OBJECT">
+        <xsd:annotation>
+          <xsd:documentation>Objects</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PCCCodeType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:namespace="http://niem.gov/niem/structures/2.0" i:name="Object"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="ansi-nist:PCCCodeSimpleType">
+        <xsd:attributeGroup ref="s:SimpleObjectAttributeGroup"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="PhysicalFeatureDescriptionType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:namespace="http://niem.gov/niem/structures/2.0" i:name="Object"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="s:ComplexObjectType">
+        <xsd:sequence>
+          <xsd:element ref="ansi-nist:PhysicalFeatureCategoryCode" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="ansi-nist:PhysicalFeatureClassCode" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="ansi-nist:PhysicalFeatureDescriptionText" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="SMDCodeSimpleType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:namespace="http://niem.gov/niem/structures/2.0" i:name="Object"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="SCAR">
+        <xsd:annotation>
+          <xsd:documentation>Healed scar tissue that was the result an accident or medical procedure.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="MARK">
+        <xsd:annotation>
+          <xsd:documentation>Pattern resulting from needle or "Track" marks.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="CUT">
+        <xsd:annotation>
+          <xsd:documentation>Image caused by an incision of the skin.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="CHEMICAL">
+        <xsd:annotation>
+          <xsd:documentation>Image created by the use of chemicals to burn the image into the skin.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="TATTOO">
+        <xsd:annotation>
+          <xsd:documentation>A common tattoo or indelible image resulting from the pricking of the skin with a coloring matter.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="BRANDED">
+        <xsd:annotation>
+          <xsd:documentation>Image burned into the skin using a branding iron or other form of heat.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="SMDCodeType">
+    <xsd:annotation>
+      <xsd:appinfo>
+        <i:Base i:namespace="http://niem.gov/niem/structures/2.0" i:name="Object"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="ansi-nist:SMDCodeSimpleType">
+        <xsd:attributeGroup ref="s:SimpleObjectAttributeGroup"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:element name="PhysicalFeatureCategoryCode" type="ansi-nist:SMDCodeType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the source of the image as being a scar, a mark, or a tattoo.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="PhysicalFeatureClassCode" type="ansi-nist:PCCCodeType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the human tattoo class of an SMT, OTHER if not tattoo.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="PhysicalFeatureDescriptionText" type="nc:TextType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>Additional free text qualifiers describing the contents of the image.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="clientData" abstract="true">    	
+        <property name="defaultUri" value="${clientdata.defaulturi}"/>
+    </bean>
+
+    <bean id="axiomDataClient" class="org.springframework.ws.soap.axiom.AxiomMtomClient" parent="clientData">
+        <constructor-arg index="0">
+            <bean class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="clientPhoto" abstract="true">    	
+        <property name="defaultUri" value="${clientphoto.defaulturi}"/>
+    </bean>
+    
+    <bean id="axiomPhotoClient" class="org.springframework.ws.soap.axiom.AxiomMtomClient" parent="clientPhoto">
+        <constructor-arg index="0">
+            <bean class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"/>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="clientDataCheck" abstract="true">    	
+        <property name="defaultUri" value="${clientdatacheck.defaulturi}"/>
+    </bean>
+
+    <bean id="axiomDataCheckClient" class="org.springframework.ws.soap.axiom.AxiomMtomClient" parent="clientDataCheck">
+        <constructor-arg index="0">
+            <bean class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"/>
+        </constructor-arg>
+    </bean>
+
+</beans>

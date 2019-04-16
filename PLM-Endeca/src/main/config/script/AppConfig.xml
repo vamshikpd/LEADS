@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ##########################################################################
+  # This file contains settings for an EAC application.
+  #
+-->
+<spr:beans xmlns:spr="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns="http://www.endeca.com/schema/eacToolkit"
+  xsi:schemaLocation="
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+      http://www.endeca.com/schema/eacToolkit http://www.endeca.com/schema/eacToolkit/eacToolkit.xsd">
+
+  <!--
+    ########################################################################
+    # Global variables
+    #
+  -->
+  <app appName="PLM" eacHost="${itl.host}" eacPort="8888" 
+      dataPrefix="PLM" sslEnabled="false" lockManager="LockManager">
+    <working-dir>${ENDECA_PROJECT_DIR}</working-dir>
+    <log-dir>./logs</log-dir>
+  </app>
+
+
+  <!--
+    ########################################################################
+    # Servers/hosts
+    #
+  -->
+  <host id="ITLHost" hostName="${itl.host}" port="8888" />
+  <host id="MDEXHost1" hostName="${mdex.host1}" port="8888" />
+${comment.start}
+  <host id="MDEXHost2" hostName="${mdex.host2}" port="8888" /> 
+${comment.end}
+<host id="webstudio" hostName="${webstudio.host}" port="8888" >
+    <directories>
+      <directory name="webstudio-report-dir">./reports</directory>
+    </directories>
+  </host>
+  <!--
+    ########################################################################
+    # Lock manager, used to set/remove/test flags and obtain/release locks
+    #
+  -->
+  <lock-manager id="LockManager" releaseLocksOnFailure="true" />
+<!--
+    ########################################################################
+    # Script to perform initial setup tasks, like uploading initial config
+    # to Web Studio, if integration is enabled. This script is invoked by
+    # initialize_services.bat/.sh, so any setup activities can be added here.
+    #
+  -->
+  <script id="InitialSetup">
+    <bean-shell-script>
+      <![CDATA[ 
+    if (ConfigManager.isWebStudioEnabled()) {
+      log.info("Updating Oracle Endeca Workbench configuration...");
+      ConfigManager.updateWsConfig();
+      log.info("Finished updating Oracle Endeca Workbench.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+
+  <!--
+    ########################################################################
+    # Baseline update script
+    #
+  -->
+	<script id="BaselineUpdate">
+		<log-dir>./logs/provisioned_scripts</log-dir>
+		<provisioned-script-command>./control/baseline_update.bat</provisioned-script-command>
+		<bean-shell-script>
+		<![CDATA[ 
+			log.info("Starting baseline update script.");
+			// obtain lock
+			if (LockManager.acquireLock("update_lock")) {
+				// test if data is ready for processing
+				if (Forge.isDataReady()) {
+					try {
+						log.info("data is ready for Forge.");
+						if (ConfigManager.isWebStudioEnabled()) {
+          				// get Web Studio config, merge with Dev Studio config
+         					ConfigManager.downloadWsConfig();
+          					ConfigManager.fetchMergedConfig();
+       					 } else {
+          					ConfigManager.fetchDsConfig();
+        				}
+
+						log.info("cleaning directories.");
+						// clean directories
+						Forge.cleanDirs();
+						PartialForge.cleanCumulativePartials();
+						Dgidx.cleanDirs();
+
+						log.info("fetching extracted data files to forge input.");
+						// fetch extracted data files to forge input
+						Forge.getIncomingData();
+						LockManager.removeFlag("baseline_data_ready");
+
+						log.info("fetching config files to forge input.");
+						// fetch config files to forge input
+						Forge.getConfig();
+
+						log.info("archiving logs and running ITL.");
+						// archive logs and run ITL
+						Forge.archiveLogDir();
+						Forge.run();
+						Dgidx.archiveLogDir();
+						Dgidx.run();
+
+						log.info("distributed index and dgraphs getting updates.");
+						// distributed index, update Dgraphs
+						DistributeIndexAndApply.run();
+
+						log.info("updating web studio with latest dimensions.");
+						// update Web Studio with latest dimensions      
+						// if Web Studio is integrated, update Web Studio with latest 
+        				// dimension values
+        				if (ConfigManager.isWebStudioEnabled()) {
+          						ConfigManager.cleanDirs();
+		  						log.info("Starting get the post forge dimensions.");
+          						Forge.getPostForgeDimensions();
+          						ConfigManager.updateWsDimensions();
+       					}
+
+						log.info("archiving state files and index.");
+						// archive state files, index
+						Forge.archiveState();
+						Dgidx.archiveIndex();
+
+						log.info("cycling logserver.");
+						// cycle LogServer
+						LogServer.cycle();  
+						Mailer.sendSimpleMsg("Production - Full Baseline Update Successful", "Production - The complete baseline update was successful.");
+					} catch (Exception e) {
+						Mailer.sendExceptionMsg("Production - Error running Baseline Update", e);
+						throw e; // re-throw exception so the caller will be alerted
+					}
+				} else {
+					Mailer.sendSimpleMsg("Production - Baseline data not ready for processing.","Production - Baseline data not ready for processing.");
+					log.warning("Baseline data not ready for processing.");
+				}
+				// release lock
+				LockManager.releaseLock("update_lock");
+				log.info("Baseline update script finished.");
+			} else {
+				Mailer.sendUrgentSimpleMsg("Production - Baseline Failed to obtain lock..","Production - Baseline Failed to obtain lock..");
+				LockManager.releaseLock("update_lock");
+				log.warning("Failed to obtain lock.");
+			}
+		]]>
+		</bean-shell-script>
+	</script>
+
+
+
+  <!--
+    ########################################################################
+    # Script to distribute index to dgraph servers, then update dgraphs
+    # with the distributed index. This script can be called to update or
+    # refresh the index of the dgraph cluster in case a server fails, a
+    # new dgraph is added, or the index simply needs to be updated.
+    #
+  -->
+  <script id="DistributeIndexAndApply">
+    <bean-shell-script>
+      <![CDATA[ 
+    DgraphCluster.cleanDirs();
+    DgraphCluster.copyIndexToDgraphServers();
+    DgraphCluster.applyIndex();
+      ]]>
+    </bean-shell-script>
+  </script>
+
+  <!--
+    ########################################################################
+    # Partial update script
+    #
+  -->
+	<script id="PartialUpdate">
+		<log-dir>./logs/provisioned_scripts</log-dir>
+		<provisioned-script-command>./control/partial_update.bat</provisioned-script-command>
+		<bean-shell-script>
+		<![CDATA[ 
+			log.info("Starting partial update script.");
+			// obtain lock
+			if (LockManager.acquireLock("update_lock")) {
+				// test if data is ready for processing
+				if (PartialForge.isPartialDataReady()) {
+					try {
+					// archive logs
+					PartialForge.archiveLogDir();
+
+					// clean directories
+					PartialForge.cleanDirs();
+
+					// fetch extracted data files to forge input
+					PartialForge.getPartialIncomingData();
+
+					// fetch config files to forge input
+					PartialForge.getConfig();
+
+					// run ITL
+					PartialForge.run();
+
+					// timestamp partial, save to cumulative partials dir
+					PartialForge.timestampPartials();
+					PartialForge.fetchPartialsToCumulativeDir();
+
+					// distribute partial update, update Dgraphs
+					DgraphCluster.cleanLocalPartialsDirs();
+					DgraphCluster.copyPartialUpdateToDgraphServers();
+					DgraphCluster.applyPartialUpdates();
+
+					// archive partials
+					PartialForge.archiveCumulativePartials();
+					} catch (Exception e) {
+						Mailer.sendExceptionMsg("Production - Error running Partial Update", e);
+						throw e; // re-throw exception so the caller will be alerted
+					}
+				} else {
+					Mailer.sendSimpleMsg("Production - Partial data not ready for processing.","Production - Partial data not ready for processing.");
+					log.warning("No partial update data ready for processing.");
+				}
+				// release lock
+				LockManager.releaseLock("update_lock");
+				log.info("Partial update script finished.");
+			} else {
+				Mailer.sendUrgentSimpleMsg("Production - Partial Failed to obtain lock..","Production - Partial Failed to obtain lock..");
+				LockManager.releaseLock("update_lock");
+				log.warning("Failed to obtain lock.");
+			}
+		]]>
+		</bean-shell-script>
+	</script>
+
+
+  <!--
+    ########################################################################
+    # Script to distribute cumulative partials to dgraph servers, then 
+    # update dgraphs with the distributed partials. This script can be 
+    # called to update or refresh the state of the dgraph cluster in case a 
+    # server fails, a new dgraph is added, or the index simply needs to be 
+    # updated. If a refresh is required between baselines, this script will
+    # distribute all partial updates that represent the changes to the index
+    # since the last baseline.
+    #
+  -->
+  <script id="DistributePartialsAndApply">
+    <bean-shell-script>
+      <![CDATA[ 
+    DgraphCluster.cleanLocalPartialsDirs();
+    DgraphCluster.copyCumulativePartialUpdatesToDgraphServers();
+    DgraphCluster.applyPartialUpdates();
+      ]]>
+    </bean-shell-script>
+  </script>
+
+<!--
+    ########################################################################
+    # Script to distribute XQuery modules to dgraph servers, then 
+    # reload services on those dgraphs.
+    #
+  -->
+  <script id="LoadXQueryModules">
+    <bean-shell-script>
+      <![CDATA[ 
+    DgraphCluster.cleanLocalXQueryDirs();
+    DgraphCluster.copyXQueryToDgraphServers();
+    DgraphCluster.reloadXqueryModules();
+      ]]>
+    </bean-shell-script>
+  </script>
+
+  <!--
+    ########################################################################
+    # Dgraph config update script. Retrieves configuration from Web Studio,
+    # distributes it to all dgraph servers and applies it to the dgraphs,
+    # flushing the dynamic cache of each graph to ensure new config is
+    # active.
+    #
+  -->
+  <script id="ConfigUpdate">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.bat ConfigUpdate run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting dgraph config update script.");
+   if (ConfigManager.isWebStudioEnabled()) {
+      ConfigManager.downloadWsDgraphConfig();
+      DgraphCluster.cleanLocalDgraphConfigDirs();
+      DgraphCluster.copyDgraphConfigToDgraphServers();
+      DgraphCluster.applyConfigUpdate();
+    } else {
+      log.warning("Web Studio integration is disabled. No action will be taken.");
+    }
+    log.info("Finished updating dgraph config.");
+      ]]>
+    </bean-shell-script>
+  </script>
+
+
+  <!--
+    ########################################################################
+    # Config Manager. Manages Dev Studio and Web Studio config sources.
+    # Default behavior: files configured here as "Web Studio maintained files"
+    # are downloaded from Web Studio and overwrite the version of that file
+    # maintained in Dev Studio. Any number of files can be maintained in
+    # Web Studio by adding additional properties with the prefix 
+    # "webStudioMaintainedFile" (and a unique suffix).
+    #
+    # Deployments that do not use Web Studio can remove all references to
+    # the ConfigManager component in the Baseline script, and should also
+    # update Forge configuration to set its configDir to ./config/pipeline,
+    # so that only Dev Studio files are retrieved by Forge.
+    #
+  -->
+  <custom-component id="ConfigManager" host-id="ITLHost" class="com.endeca.soleng.eac.toolkit.component.ConfigManagerComponent">
+    <properties>
+    	<property name="webStudioEnabled" value="true" />
+      <property name="webStudioHost" value="${webstudio.host}" />
+      <property name="webStudioPort" value="8006" />
+      <property name="webStudioMaintainedFile1" value="thesaurus.xml" />
+      <property name="webStudioMaintainedFile2" value="merch_rule_group_default.xml" />
+      <property name="webStudioMaintainedFile3" value="merch_rule_group_default_redirects.xml" />
+    </properties>
+    <directories>
+      <directory name="devStudioConfigDir">./config/pipeline</directory>
+      <directory name="webStudioConfigDir">./data/web_studio/config</directory>
+      <directory name="webStudioDgraphConfigDir">./data/web_studio/dgraph_config</directory>
+      <directory name="mergedConfigDir">./data/complete_index_config</directory>
+      <directory name="webStudioTempDir">./data/web_studio/temp</directory>
+    </directories>
+  </custom-component>
+
+ <!-- [MGM 06-02-10]-Added Custom component for implementing Mailing facility from Endeca -->
+  <custom-component id="Mailer" host-id="ITLHost" class="com.endeca.esource.dtmailerutility.MailNotificationComponent">
+    <properties>
+      <property name="smtpHost" value="${smtp.host}" />
+      <property name="srcAddr" value="${source.address}" />
+      <property name="destAddr" value="${dest.address}" /> 
+    </properties>
+    <directories>
+      <directory name="savedMsgDir">./logs/saved_msgs</directory>
+    </directories>
+  </custom-component>
+  <!--
+    ########################################################################
+    # Forge
+    #
+  -->
+  <forge id="Forge" host-id="ITLHost">
+    <properties>
+      <property name="numStateBackups" value="10" />
+      <property name="numLogBackups" value="10" />
+    </properties>
+    <directories>
+      <directory name="incomingDataDir">./data/incoming</directory>
+      <directory name="configDir">./data/complete_index_config</directory>
+      <directory name="wsTempDir">./data/web_studio/temp</directory>
+    </directories>
+    <args>
+      <arg>-vw</arg>
+	  <arg>--javaClasspath</arg>
+	  <arg>./config/lib/java/PLMJavaManipulator.jar</arg>
+    </args>
+    <log-dir>./logs/forges/Forge</log-dir>
+    <input-dir>./data/processing</input-dir>
+    <output-dir>./data/forge_output</output-dir>
+    <state-dir>./data/state</state-dir>
+    <temp-dir>./data/temp</temp-dir>
+    <num-partitions>1</num-partitions>
+    <pipeline-file>./data/processing/pipeline.epx</pipeline-file>
+  </forge>
+
+
+  <!--
+    ########################################################################
+    # Partial update Forge
+    #
+  -->
+  <forge id="PartialForge" host-id="ITLHost">
+    <properties>
+      <property name="numLogBackups" value="10" />
+      <property name="numPartialsBackups" value="5" />
+    </properties>
+    <directories>
+      <directory name="incomingDataDir">./data/partials/incoming</directory>
+      <directory name="configDir">./config/pipeline</directory>
+      <directory name="cumulativePartialsDir">./data/partials/cumulative_partials</directory>
+    </directories>
+    <args>
+      <arg>-vw</arg>
+	  <arg>--javaClasspath</arg>
+	  <arg>./config/lib/java/PLMJavaManipulator.jar</arg>
+    </args>
+    <log-dir>./logs/forges/PartialForge</log-dir>
+    <input-dir>./data/partials/processing</input-dir>
+    <output-dir>./data/partials/forge_output</output-dir>
+    <state-dir>./data/state</state-dir>
+    <temp-dir>./data/temp</temp-dir>
+    <num-partitions>1</num-partitions>
+    <pipeline-file>./data/partials/processing/partial_pipeline.epx</pipeline-file>
+  </forge>
+
+
+  <!--
+    ########################################################################
+    # Dgidx
+    #
+  -->
+  <dgidx id="Dgidx" host-id="ITLHost">
+    <properties>
+      <property name="numLogBackups" value="10" />
+      <property name="numIndexBackups" value="3" />
+    </properties>
+    <args>
+      <arg>-v</arg>
+    </args>
+    <log-dir>./logs/dgidxs/Dgidx</log-dir>
+    <input-dir>./data/forge_output</input-dir>
+    <output-dir>./data/dgidx_output</output-dir>
+    <temp-dir>./data/temp</temp-dir>
+    <run-aspell>true</run-aspell>
+  </dgidx>
+
+
+  <!--
+    ########################################################################
+    # Dgraph Cluster
+    #
+  -->
+  <dgraph-cluster id="DgraphCluster" getDataInParallel="true">
+    <dgraph ref="Dgraph1" />
+${comment.start}
+    <dgraph ref="Dgraph2" />
+	<dgraph ref="Dgraph3" />
+	<dgraph ref="Dgraph4" />
+${comment.end}
+  </dgraph-cluster>
+
+
+  <!--
+    ########################################################################
+    # Global Dgraph settings, inherited by all dgraphs
+    #
+  -->
+  <dgraph-defaults>
+    <properties>
+      <property name="srcIndexDir" value="./data/dgidx_output" />
+      <property name="srcIndexHostId" value="ITLHost" />
+      <property name="srcPartialsDir" value="./data/partials/forge_output" />
+      <property name="srcPartialsHostId" value="ITLHost" />
+      <property name="srcCumulativePartialsDir" value="./data/partials/cumulative_partials" />
+      <property name="srcCumulativePartialsHostId" value="ITLHost" />
+      <property name="srcDgraphConfigDir" value="./data/web_studio/dgraph_config" />
+      <property name="srcDgraphConfigHostId" value="ITLHost" />
+      <property name="srcXQueryDir" value="./config/lib/xquery" />
+      <property name="numLogBackups" value="10" />
+      <property name="shutdownTimeout" value="30" />
+      <property name="numIdleSecondsAfterStop" value="0" />
+    </properties>
+    <directories>
+      <directory name="localIndexDir">./data/dgraphs/local_dgraph_input</directory>
+      <directory name="localCumulativePartialsDir">./data/dgraphs/local_cumulative_partials</directory>
+      <directory name="localDgraphConfigDir">./data/dgraphs/local_dgraph_config</directory>
+      <directory name="localXQueryDir">./data/dgraphs/local_xquery</directory>
+    </directories>
+    <args>
+      <arg>--threads</arg>
+      <arg>2</arg>
+      <arg>--spl</arg>
+      <arg>--dym</arg>
+      <arg>--xquery_path</arg>
+      <arg>./data/dgraphs/local_xquery</arg>
+	 
+    </args>
+    <startup-timeout>120</startup-timeout>
+  </dgraph-defaults>
+
+
+  <!--
+    ########################################################################
+    # Dgraphs
+    #
+  -->
+  <dgraph id="Dgraph1" host-id="MDEXHost1" port="15100">
+    <properties>
+      <property name="restartGroup" value="A" />
+    </properties>
+    <args>
+		<arg>--back_compat</arg>
+		<arg>614</arg>
+	</args>
+    <log-dir>./logs/dgraphs/Dgraph1</log-dir>
+    <input-dir>./data/dgraphs/Dgraph1/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/Dgraph1/dgraph_input/updates</update-dir>
+  </dgraph>
+${comment.start}
+  <dgraph id="Dgraph2" host-id="MDEXHost2" port="15100">
+    <properties>
+      <property name="restartGroup" value="A" />
+    </properties>
+    <args>
+		<arg>--back_compat</arg>
+		<arg>614</arg>
+	</args>
+    <log-dir>./logs/dgraphs/Dgraph2</log-dir>
+    <input-dir>./data/dgraphs/Dgraph2/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/Dgraph2/dgraph_input/updates</update-dir>
+  </dgraph>
+
+  <dgraph id="Dgraph3" host-id="MDEXHost1" port="15200">
+    <properties>
+      <property name="restartGroup" value="B" />
+    </properties>
+    <args>
+		<arg>--back_compat</arg>
+		<arg>614</arg>
+	</args>
+    <log-dir>./logs/dgraphs/Dgraph3</log-dir>
+    <input-dir>./data/dgraphs/Dgraph3/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/Dgraph3/dgraph_input/updates</update-dir>
+  </dgraph>
+
+  <dgraph id="Dgraph4" host-id="MDEXHost2" port="15200">
+    <properties>
+      <property name="restartGroup" value="B" />
+    </properties>
+    <args>
+		<arg>--back_compat</arg>
+		<arg>614</arg>
+	</args>
+    <log-dir>./logs/dgraphs/Dgraph4</log-dir>
+    <input-dir>./data/dgraphs/Dgraph4/dgraph_input</input-dir>
+    <update-dir>./data/dgraphs/Dgraph4/dgraph_input/updates</update-dir>
+  </dgraph>
+${comment.end}
+
+
+  <!--
+    ########################################################################
+    # LogServer
+    #
+  -->
+  <logserver id="LogServer" host-id="ITLHost" port="15010">
+    <properties>
+      <property name="numLogBackups" value="10" />
+      <property name="targetReportGenDir" value="./reports/input" />
+      <property name="targetReportGenHostId" value="ITLHost" />
+    </properties>
+    <log-dir>./logs/logservers/LogServer</log-dir>
+    <output-dir>./logs/logserver_output</output-dir>
+    <startup-timeout>120</startup-timeout>
+    <gzip>false</gzip>
+  </logserver>
+  
+  <!--
+    ########################################################################
+    # Daily Web Studio report generation script.
+    #
+  -->
+  <script id="DailyReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.bat DailyReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting daily Web Studio report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      DailyReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.yesterdayIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl();
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyYesterdayLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file, as required by Web Studio
+      DailyReportGenerator.updateProvisioningForYesterdayReport();
+      
+      if (DailyReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        DailyReportGenerator.archiveLogDir();
+        
+        // generate report
+        DailyReportGenerator.run();
+      
+        // copy generated report and charts to web studio directory defined
+        // in "webstudio" host and its "webstudio-report-dir" directory
+        reportHost = "webstudio";
+        absDestDir = PathUtils.getAbsolutePath(webstudio.getWorkingDir(), webstudio.getDirectory("webstudio-report-dir"));
+        isDaily = true;
+        DailyReportGenerator.copyReportToWebStudio(reportHost, absDestDir, isDaily);
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished daily Web Studio report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Weekly Web Studio report generation script.
+    #
+  -->
+  <script id="WeeklyReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.bat WeeklyReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting weekly Web Studio report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      WeeklyReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.weekEndingYesterdayIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl();
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyWeekEndingYesterdayLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file, as required by Web Studio
+      WeeklyReportGenerator.updateProvisioningForWeekEndingYesterdayReport();
+      
+      if (WeeklyReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        WeeklyReportGenerator.archiveLogDir();
+      
+        // generate report
+        WeeklyReportGenerator.run();
+      
+        // copy generated report and charts to web studio directory defined
+        // in "webstudio" host and its "webstudio-report-dir" directory
+        reportHost = "webstudio";
+        absDestDir = PathUtils.getAbsolutePath(webstudio.getWorkingDir(), webstudio.getDirectory("webstudio-report-dir"));
+        isDaily = false;
+        WeeklyReportGenerator.copyReportToWebStudio(reportHost, absDestDir, isDaily);
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished weekly Web Studio report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Daily HTML report generation script.
+    #
+  -->
+  <script id="DailyHtmlReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.bat DailyHtmlReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting daily HTML report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      DailyHtmlReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.yesterdayIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl();
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyYesterdayLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file
+      DailyHtmlReportGenerator.updateProvisioningForYesterdayReport();
+      
+      if (DailyHtmlReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        DailyHtmlReportGenerator.archiveLogDir();
+        
+        // generate report
+        DailyHtmlReportGenerator.run();
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished daily HTML report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Weekly HTML Web Studio report generation script.
+    #
+  -->
+  <script id="WeeklyHtmlReports">
+    <log-dir>./logs/provisioned_scripts</log-dir>
+    <provisioned-script-command>./control/runcommand.bat WeeklyHtmlReports run</provisioned-script-command>
+    <bean-shell-script>
+      <![CDATA[ 
+    log.info("Starting weekly HTML report generation script.");
+    
+    if (LockManager.acquireLock("report_generator_lock")) {
+      // clean report gen input dir
+      WeeklyHtmlReportGenerator.cleanInputDir();
+      
+      // roll the logserver, if the report requires the active log file
+      if (LogServer.isActive() && LogServer.lastWeekIncludesLatestLogFile()) {
+        LogServer.callLogserverRollUrl();
+      }
+      
+      // retrieve required log files for processing
+      LogServer.copyLastWeekLogFilesToTargetDir();
+      
+      // update report generator to the appropriate dates, time series and to
+      // output a timestamped file
+      WeeklyHtmlReportGenerator.updateProvisioningForLastWeekReport();
+      
+      if (WeeklyHtmlReportGenerator.reportInputDirContainsFiles()) {
+        // archive logs
+        WeeklyHtmlReportGenerator.archiveLogDir();
+        
+        // generate report
+        WeeklyHtmlReportGenerator.run();
+      }
+      else {
+        log.warning("No log files for report generator to process.");
+      }
+      
+      LockManager.releaseLock("report_generator_lock");
+      log.info("Finished weekly HTML report generation.");
+    }
+    else {
+      log.warning("Failed to obtain lock.");
+    }
+      ]]>
+    </bean-shell-script>
+  </script>
+  
+  <!--
+    ########################################################################
+    # Web Studio XML Report Generators
+    #
+  -->
+  <report-generator id="WeeklyReportGenerator" host-id="ITLHost">
+    <properties>
+      <property name="webStudioReportDir" value="D:\Endeca\PlatformServices\workspace/reports/PLM" />
+      <property name="webStudioReportHostId" value="ITLHost" />
+    </properties>
+    <log-dir>./logs/report_generators/WeeklyReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/weekly/report.xml</output-file>
+    <stylesheet-file>./config/report_templates/tools_report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>LastWeek</time-range>
+    <time-series>Daily</time-series>
+    <charts-enabled>true</charts-enabled>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+  
+  <report-generator id="DailyReportGenerator" host-id="ITLHost">
+    <properties>
+      <property name="webStudioReportDir" value="D:\Endeca\PlatformServices\workspace/reports/PLM" />
+      <property name="webStudioReportHostId" value="ITLHost" />
+    </properties>
+    <log-dir>./logs/report_generators/DailyReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/daily/report.xml</output-file>
+    <stylesheet-file>./config/report_templates/tools_report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>Yesterday</time-range>
+    <time-series>Hourly</time-series>
+    <charts-enabled>true</charts-enabled>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+  
+  
+  <!--
+    ########################################################################
+    # HTML Report Generators
+    #
+  -->
+  <report-generator id="WeeklyHtmlReportGenerator" host-id="ITLHost">
+    <properties>
+      <property name="numLogBackups" value="3" />
+    </properties>
+    <log-dir>./logs/report_generators/WeeklyHtmlReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/weekly/report.html</output-file>
+    <stylesheet-file>./config/report_templates/report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>LastWeek</time-range>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+  
+  <report-generator id="DailyHtmlReportGenerator" host-id="ITLHost">
+    <properties>
+      <property name="numLogBackups" value="3" />
+    </properties>
+    <log-dir>./logs/report_generators/DailyHtmlReportGenerator</log-dir>
+    <input-dir>./reports/input</input-dir>
+    <output-file>./reports/daily/report.html</output-file>
+    <stylesheet-file>./config/report_templates/report_stylesheet.xsl</stylesheet-file>
+    <settings-file>./config/report_templates/report_settings.xml</settings-file>
+    <time-range>Yesterday</time-range>
+    <java-options>
+      <java-option>-Xmx1G</java-option>
+    </java-options>  
+  </report-generator>
+
+</spr:beans>

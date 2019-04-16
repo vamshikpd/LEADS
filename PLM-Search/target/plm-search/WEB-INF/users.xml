@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="test"/>
+  <user username="guest" password="guest" roles="test"/>
+  <user username="scottc" password="scottc" roles="test"/>
+  <user username="melvinc" password="melvinc" roles="test"/>
+  <user username="rayc" password="rayc" roles="test"/>
+  <user username="gregp" password="gregp" roles="test"/>
+  <user username="alphan" password="alphan" roles="test"/>
+  <user username="nancyd" password="nancyd" roles="test"/>
+  <user username="kellyt" password="kellyt" roles="test"/>
+  <user username="bfrutchey" password="bfrutchey" roles="test"/>
+</tomcat-users>
+

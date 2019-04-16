@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Tushar (Skillnet Inc) -->
+<xsd:schema xmlns:lns="http://plm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:fbi="http://niem.gov/niem/fbi/2.0" xmlns:scr="http://niem.gov/niem/domains/screening/2.1" targetNamespace="http://plm" version="1">
+	<xsd:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="niem-core/2.0/niem-core.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/domains/jxdm/4.1" schemaLocation="domains/jxdm/4.1/jxdm.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/domains/screening/2.1" schemaLocation="domains/screening/2.1/screening.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/fbi/2.0" schemaLocation="fbi/2.0/fbi.xsd"/>
+	<xsd:element name="ParoleeList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- 
+				<xsd:element name="Parolee" type="lns:Parolee" minOccurs="1" maxOccurs="unbounded"/>
+				 -->
+				<xsd:element ref="lns:Parolee" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Parolee">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="lns:CdcNumber">
+					<xsd:annotation>
+						<xsd:documentation>Parolee CDC Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="nc:PersonGivenName"/>
+				<xsd:element ref="nc:PersonMiddleName"/>
+				<xsd:element ref="nc:PersonSurName"/>
+				<!-- Race Code has different Codes then the CalParole Race Codes.
+				<xsd:element ref="nc:PersonEyeColorCode"/>
+				-->
+				<xsd:element ref="lns:LnsPersonEyeColorCode"/>
+				<xsd:element ref="lns:Agent">
+					<xsd:annotation>
+						<xsd:documentation>Agent</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Setting date in nc cause the problem    Need to generate proper element
+				<xsd:element ref="nc:PersonBirthDate"/>
+				-->
+				
+				<xsd:element ref="lns:LnsPersonBirthDate"/>
+				<xsd:element ref="j:PersonBirthPlaceCode"/>
+				<xsd:element ref="nc:PersonSexCode"/>
+				<!-- Race Code has different Codes then the CalParole Race Codes.
+				<xsd:element ref="nc:PersonRaceCode"/>
+				-->
+				<xsd:element ref="lns:LnsPersonRaceCode"/>
+				
+				<!-- <xsd:element ref="nc:PersonRace"/> 
+				<xsd:element ref="nc:PersonEyeColor"/> -->
+				<xsd:element ref="lns:PersonHeight"/>
+				<xsd:element ref="lns:PersonWeight"/>
+				<!-- Race Code has different Codes then the CalParole Race Codes.
+				<xsd:element ref="nc:PersonHairColorCode"/>
+				-->
+				<xsd:element ref="lns:LnsPersonHairColorCode"/>
+				<!-- <xsd:element ref="nc:PersonHairColorText"/> -->
+				<xsd:element ref="lns:LnsParoleDate"/>
+				<xsd:element ref="lns:ClassificationCode"/>
+				<xsd:element ref="lns:CIINumber"/>
+				<xsd:element ref="lns:FBINumber"/>
+				<xsd:element ref="lns:SSANumber"/>
+				<xsd:element ref="nc:DriverLicenseIdentification"/>
+				<xsd:element ref="lns:HSRequired"/>
+				<xsd:element ref="lns:PC290Required" minOccurs="0" maxOccurs="1"/> 
+				<xsd:element ref="lns:PC457Required"/>
+				<xsd:element ref="lns:PC3058Required"/>
+				<xsd:element ref="lns:POCRequired"/>
+				<xsd:element ref="lns:AntRequired"/>
+				<xsd:element ref="lns:HSDate"/>
+				<xsd:element ref="lns:PC290Date" minOccurs="0" maxOccurs="1"/>
+				<xsd:element ref="lns:PC457Date"/>
+				<xsd:element ref="lns:PC3058Date"/>
+				<!--<xsd:element ref="lns:Comments" minOccurs="0" maxOccurs="1"/>-->
+				<xsd:element ref="lns:CountyCommit"/>
+				<xsd:element ref="lns:ControlDischargeDate"/>
+				<xsd:element ref="lns:DischargedDate"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+				<xsd:element ref="lns:NoAlcohol"/>
+				<xsd:element ref="lns:ProblemAreaNarcotic"/>
+				<xsd:element ref="lns:ProblemAreaAlcohol"/>
+				<xsd:element ref="lns:ProblemAreaAssault"/>
+				<xsd:element ref="lns:ProblemAreaSex"/>
+				<xsd:element ref="lns:ProblemAreaOther"/>
+				<xsd:element ref="lns:Address" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="lns:Alias" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="lns:Moniker" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="lns:Job" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="lns:Offense" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="lns:SMT" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="lns:Vehicles" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="lns:SpecialConditions" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PC_290_Req" abstract="false">
+		<xsd:annotation>
+			<xsd:documentation>Parolee PC 290 Required (Boolean Text - Y/N)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CdcNumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:IdentificationID">
+					<xsd:annotation>
+						<xsd:documentation>Parolee CDC Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Agent">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="j:EnforcementUnitIdentification">
+					<xsd:annotation>
+						<xsd:documentation>Unit Code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="j:EnforcementOfficialBadgeIdentification">
+					<xsd:annotation>
+						<xsd:documentation>Agent Code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="j:EnforcementUnitName">
+					<xsd:annotation>
+						<xsd:documentation>Agent Name</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="nc:TelephoneAreaCodeID"/>
+				<xsd:element ref="nc:TelephoneNumberID"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="PersonHeight">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="lns:LnsPersonHeightValue" minOccurs="0" maxOccurs="1"/>
+				<xsd:element ref="nc:PersonHeightMeasure">
+					<xsd:annotation>
+						<xsd:documentation>Parolee Height Feet</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="PersonWeight">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="lns:LnsPersonWeightValue" minOccurs="0" maxOccurs="1"/>
+				<xsd:element ref="nc:PersonWeightMeasure"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- 
+	<xsd:element name="ParoleDate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:StatusDate">
+					<xsd:annotation>
+						<xsd:documentation>Parole Date</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	 -->
+	<xsd:element name="ClassificationCode">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="j:SupervisionCautionText">
+					<xsd:annotation>
+						<xsd:documentation>Classification Code</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CIINumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:IdentificationID">
+					<xsd:annotation>
+						<xsd:documentation>Parolee CII Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FBINumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:IdentificationID">
+					<xsd:annotation>
+						<xsd:documentation>Parolee FBI Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SSANumber">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:IdentificationID">
+					<xsd:annotation>
+						<xsd:documentation>Parolee SSA Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="HSRequired" type="nc:TextType"> 
+		<xsd:annotation>
+			<xsd:documentation>HS Required</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="HSDate" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>HS Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PC290Required" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>PC 290 Required</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PC290Date" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>PC 290 Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PC457Required" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>PC 457 Required</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PC457Date" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>PC 457 Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PC3058Required" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>PC 3058 Required</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PC3058Date" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>PC 3058 Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="AntRequired" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>ANT Required</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="POCRequired" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>POC Required</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Comments">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:CommentText">
+					<xsd:annotation>
+						<xsd:documentation>Parolee general comment</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CountyCommit" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>County Commit</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ControlDischargeDate" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>Control Discharge Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DischargedDate" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>Discharged Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="LastChangedDate" type="nc:TextType"> <!-- type="nc:DateType"> -->
+		<xsd:annotation>
+			<xsd:documentation>Last Changed Date</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NoAlcohol" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>No Alcohol</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ProblemAreaNarcotic" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>Problem area narcotic</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ProblemAreaAlcohol" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>Problem area alcohol</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ProblemAreaAssault" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>Problem area assault</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ProblemAreaSex" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>Problem area sex</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ProblemAreaOther" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>Problem area other</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	
+	<xsd:element name="Address">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>A data type for an address.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="nc:EffectiveDate"/>
+				<xsd:element ref="nc:AddressRecipientName"/>
+				<xsd:element ref="nc:StreetName"/>
+				<xsd:element ref="nc:LocationCityName"/>
+				<xsd:element ref="nc:LocationStateName"/>
+				<xsd:element ref="nc:LocationCountryName"/>
+				<xsd:element ref="nc:LocationPostalCode"/>
+				<xsd:element ref="nc:LocationPostalExtensionCode"/>
+				<xsd:element ref="nc:TelephoneAreaCodeID"/>
+				<xsd:element ref="nc:TelephoneNumberID"/>
+				<!-- 
+			<xsd:element ref="nc:LocationCountyCode" minOccurs="1" maxOccurs="unbounded"/>
+			<xsd:element ref="nc:LocationPostalExtensionCode" minOccurs="1" maxOccurs="unbounded"/>
+			 -->
+			</xsd:sequence>
+				<!-- 
+			<xsd:attribute name="type" type="xsd:string" use="required"/>
+			 -->
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Alias">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee alias</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="nc:PersonGivenName"/>
+				<xsd:element ref="nc:PersonMiddleName"/>
+				<xsd:element ref="nc:PersonSurName"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Moniker">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee moniker</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="nc:PersonGivenName"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Job">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee Job Details</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="nc:Employer"/>
+				<xsd:element ref="nc:StreetName"/>
+				<xsd:element ref="nc:LocationCityName"/>
+				<xsd:element ref="nc:LocationStateName"/>
+				<xsd:element ref="nc:LocationCountryName"/>
+				<xsd:element ref="nc:LocationPostalCode"/>
+				<xsd:element ref="nc:LocationPostalExtensionCode"/>
+				<xsd:element ref="nc:TelephoneAreaCodeID"/>
+				<xsd:element ref="nc:TelephoneNumberID"/>
+				<xsd:element ref="lns:EmployerAware"/>
+				<xsd:element ref="lns:StartDate"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Offense">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee Offense</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="j:OffenseCategoryText"/>
+				<xsd:element ref="j:OffenseSeverityLevelText"/>
+				<xsd:element ref="j:OffenseAttemptedIndicator"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SMT">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee SMT (Scar, Mark, Tattoo) details</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="lns:SMTCode"/>
+				<xsd:element ref="lns:SMTPicture"/>
+				<xsd:element ref="lns:SMTText"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Vehicles">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee all vehicle details</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="lns:Vehicle" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Vehicle">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee vehicle details</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="lns:LnsVehicleMakeCode"/>
+				<xsd:element ref="lns:LnsVehicleModelCode"/>
+				<xsd:element ref="lns:LnsVehicleStyleCode"/>
+				<xsd:element ref="lns:LnsVehicleCategoryCode"/>
+				<xsd:element ref="lns:LnsItemModelYearDate"/>
+				<xsd:element ref="lns:LnsVehicleColorPrimaryCode"/>
+				<xsd:element ref="lns:LnsVehicleColorSecondaryCode"/>
+				<!-- 
+				<xsd:element ref="nc:VehicleMakeCode"/>
+				<xsd:element ref="nc:VehicleModelCode"/>
+				<xsd:element ref="nc:VehicleStyleCode"/>
+				<xsd:element ref="scr:VehicleCategoryCode"/>
+				<xsd:element ref="nc:ItemModelYearDate"/>
+				<xsd:element ref="nc:VehicleColorPrimaryCode"/>
+				<xsd:element ref="nc:VehicleColorSecondaryCode"/>
+				-->
+				<xsd:element ref="nc:ConveyanceRegistrationPlateIdentification"/>
+				<!--<xsd:element ref="nc:IdentificationJurisdiction"/>-->
+				<xsd:element ref="nc:ItemOwnershipCategoryText"/>
+				<xsd:element ref="nc:EffectiveDate"/>
+				<xsd:element ref="lns:LastChangedDate"/> <!--  OR nc:LastUpdatedDate -->
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SpecialConditions">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation>Parolee Special Condition Details</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element ref="lns:SpecialCondition"/>
+				<xsd:element ref="lns:LastChangedDate"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SpecialCondition">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:CommentText">
+					<xsd:annotation>
+						<xsd:documentation>Special Condition</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="StartDate">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="nc:StatusDate">
+					<xsd:annotation>
+						<xsd:documentation>Job Start Date</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EmployerAware" type="nc:TextType">
+		<xsd:annotation>
+			<xsd:documentation>Employer aware of parolee (TODO-Proper Element)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SMTCode">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- TODO correct the occurences -->
+				<xsd:element ref="nc:PhysicalFeatureCategory" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SMTPicture"/>
+	<xsd:element name="SMTText"/>
+	
+	<!-- TMP ADDED Needs proper NIEM Extension -->
+	<xsd:element name="LnsPersonBirthDate"/>
+	<xsd:element name="LnsPersonRaceCode"/>
+	<xsd:element name="LnsPersonEyeColorCode"/>
+	<xsd:element name="LnsPersonHeightValue"/>
+	<xsd:element name="LnsPersonWeightValue"/>
+	<xsd:element name="LnsPersonHairColorCode"/>
+	<xsd:element name="LnsParoleDate"/>
+
+	<xsd:element name="LnsVehicleMakeCode" type="nc:TextType"/>
+	<xsd:element name="LnsVehicleModelCode" type="nc:TextType"/>
+	<xsd:element name="LnsVehicleStyleCode" type="nc:TextType"/>
+	<xsd:element name="LnsVehicleCategoryCode" type="nc:TextType"/>
+	<xsd:element name="LnsItemModelYearDate" type="nc:TextType"/>
+	<xsd:element name="LnsVehicleColorPrimaryCode" type="nc:TextType"/>
+	<xsd:element name="LnsVehicleColorSecondaryCode" type="nc:TextType"/>
+	
+</xsd:schema>

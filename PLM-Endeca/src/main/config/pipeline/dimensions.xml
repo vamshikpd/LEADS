@@ -1,0 +1,2599 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE DIMENSIONS SYSTEM "dimensions.dtd">
+<DIMENSIONS VERSION="1.0.0">
+
+  <DIMENSION NAME="Birth Year" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8050"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8050"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Birth Year</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8051"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1921-1940</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1921"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1940"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8074"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1941-1960</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1941"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1960"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8075"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1961-1980</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1961"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1980"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8076"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1981-2000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1981"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8077"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">2001-2020</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2020"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8099"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">2021-9999</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2021"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="9999"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8256"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1900-1920</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1900"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1920"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Gender" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8052"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8052"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Gender</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Ethnicity" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8053"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8053"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Ethnicity</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Eye Color" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8054"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8054"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Eye Color</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Height (+/- 2 inches)" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8055"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8055"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Height (+/- 2 inches)</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8100"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">3'10"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="44"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="50"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8101"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">3'8"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="42"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="46"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8102"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">4'2"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="48"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="52"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8103"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">4'</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="46"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="50"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8104"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">4'4"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="50"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="54"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8105"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">4'6"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="52"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="56"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8106"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">4'8"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="54"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="58"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8107"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">4'10"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="56"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="60"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8108"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">5'</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="58"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="62"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8113"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">5'2"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="60"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="64"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8203"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">5'4"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="62"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="66"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8204"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">5'6"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="64"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="68"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8205"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">5'8"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="66"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="70"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8206"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">5'10"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="68"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="72"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8207"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">6'</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="70"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="74"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8208"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">6'2"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="72"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="76"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8209"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">6'4"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="74"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="78"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8210"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">6'6"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="76"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="80"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8211"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">6'8"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="78"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="82"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8213"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">7'</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="82"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="86"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8214"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">7'2"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="84"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="88"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8215"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">7'4"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="86"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="90"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8216"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">7'6"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="88"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="92"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8217"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">7'8"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="90"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="94"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8218"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">8'</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="94"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="98"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8219"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">8'2"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="96"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="100"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8220"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">8'4"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="98"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="102"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8221"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">8'6"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="100"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="104"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8222"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">8'8"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="102"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="106"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8223"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">8'10"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="104"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="108"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8212"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">6'10"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="80"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="84"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8224"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">7'10"</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="92"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="96"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8255"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">9' and above</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="106"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="200"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8270"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">3'6" and below</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="42"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Weight (+/- 10 lb)" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8056"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8056"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Weight (+/- 10 lb)</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8088"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">60 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="51"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="70"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8089"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">70 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="61"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="80"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8090"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">80 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="71"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="90"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8091"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">90 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="81"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="100"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8092"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">100 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="91"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="110"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8093"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">110 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="101"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="120"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8094"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">120 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="111"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="130"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8095"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">130 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="121"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="140"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8096"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">140 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="131"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="150"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8197"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">150 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="141"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="160"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8198"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">160 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="151"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="170"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8199"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">170 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="161"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="180"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8200"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">180 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="171"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="190"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8201"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">190 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="181"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="200"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8202"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">200 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="191"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="210"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8225"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">210 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="201"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="220"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8226"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">220 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="211"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="230"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8227"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">230 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="221"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="240"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8228"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">240 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="231"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="250"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8229"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">250 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="241"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="260"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8230"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">260 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="251"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="270"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8231"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">270 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="261"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="280"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8232"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">280 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="271"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="290"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8233"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">290 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="281"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="300"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8234"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">300 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="291"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="310"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8235"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">310 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="301"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="320"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8236"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">320 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="311"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="330"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8237"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">330 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="321"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="340"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8238"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">340 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="331"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="350"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8239"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">350 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="341"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="360"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8240"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">360 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="351"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="370"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8241"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">370 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="361"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="380"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8242"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">380 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="371"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="390"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8243"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">390 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="381"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="400"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8244"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">400 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="391"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="410"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8245"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">410 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="401"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="420"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8246"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">420 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="411"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="430"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8247"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">430 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="421"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="440"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8248"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">440 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="431"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="450"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8249"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">450 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="441"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="460"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8250"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">460 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="451"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="470"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8251"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">470 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="461"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="480"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8252"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">480 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="471"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="490"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8253"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">490 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="481"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="500"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8254"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">500 lb</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="491"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="510"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Hair Color" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8057"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8057"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Hair Color</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Parole Date Range" SRC_TYPE="INTERNAL">
+    <DIMENSION_ID ID="8058"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8058"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Parole Date Range</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Supervision Level" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8059"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8059"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Supervision Level</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Make" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8060"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8060"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Make</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Model" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8061"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8061"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Model</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Class" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8062"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8062"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Class</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Style" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8063"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8063"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Style</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Year" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8064"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8064"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Year</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8083"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1921-1940</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1921"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1940"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8084"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1941-1960</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1941"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1960"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8085"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1961-1980</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1961"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1980"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8086"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1981-2000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1981"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8087"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">2001-2020</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2020"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8097"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">2021-9999</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2021"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="9999"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8268"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1900-1920</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1900"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1920"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Color1" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8065"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8065"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Color1</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="SMT Code" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8066"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8066"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">SMT Code</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Commitment Offense" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8068"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8068"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Commitment Offense</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Parole Year" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8069"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8069"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Parole Year</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8078"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1921-1940</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1921"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1940"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8079"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1941-1960</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1941"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1960"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8080"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1961-1980</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1961"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1980"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8081"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">1981-2000</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="1981"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8082"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">2001-2020</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2001"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2020"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="SIFT">
+          <DVAL_ID ID="8098"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">2021-9999</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="2021"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="9000"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Res City" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8070"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8070"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Res City</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Res County" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8071"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8071"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Res County</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle Color2" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8072"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8072"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle Color2</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Vehicle State" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8073"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8073"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Vehicle State</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Parole Unit" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8109"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8109"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Parole Unit</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Parole State" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8110"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8110"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Parole State</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Parole Status" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8111"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8111"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Parole Status</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Primary_Dimension" SRC_TYPE="INTERNAL">
+    <DIMENSION_ID ID="8112"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8112"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Primary_Dimension</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Parolee Age (+/- 3 yrs)" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8114"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8114"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Parolee Age (+/- 3 yrs)</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8115"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">18</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="15"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="21"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8116"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">19</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="16"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="22"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8117"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">20</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="17"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="23"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8118"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">21</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="18"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="24"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8119"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">22</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="19"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="25"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8120"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">23</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="20"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="26"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8121"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">24</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="21"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="27"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8122"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">25</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="22"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="28"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8123"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">26</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="23"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="29"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8125"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">28</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="25"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="31"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8126"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">29</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="26"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="32"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8127"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">30</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="27"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="33"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8128"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">31</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="28"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="34"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8129"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">32</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="29"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="35"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8130"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">33</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="30"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="36"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8131"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">34</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="31"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="37"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8132"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">35</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="32"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="38"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8133"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">36</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="33"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="39"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8134"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">37</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="34"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="40"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8135"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">38</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="35"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="41"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8136"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">39</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="36"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="42"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8124"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">27</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="24"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="30"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8137"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">40</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="37"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="43"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8138"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">41</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="38"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="44"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8139"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">42</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="39"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="45"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8140"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">43</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="40"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="46"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8141"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">44</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="41"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="47"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8142"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">45</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="42"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="48"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8143"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">46</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="43"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="49"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8144"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">47</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="44"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="50"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8145"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">48</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="45"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="51"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8146"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">49</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="46"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="52"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8147"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">50</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="47"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="53"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8148"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">51</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="48"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="54"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8149"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">52</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="49"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="55"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8150"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">53</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="50"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="56"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8151"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">54</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="51"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="57"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8152"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">55</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="52"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="58"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8153"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">56</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="53"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="59"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8154"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">57</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="54"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="60"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8155"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">58</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="55"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="61"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8156"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">59</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="56"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="62"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8157"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">60</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="57"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="63"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8158"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">61</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="58"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="64"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8159"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">62</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="59"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="65"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8160"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">63</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="60"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="66"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8161"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">64</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="61"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="67"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8162"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">65</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="62"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="68"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8163"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">66</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="63"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="69"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8164"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">67</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="64"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="70"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8165"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">68</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="65"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="OPEN" TYPE="INTEGER" VALUE="71"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8166"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">69</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="66"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="72"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8167"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">70</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="67"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="73"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8168"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">71</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="68"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="74"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8169"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">72</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="69"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="75"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8170"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">73</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="70"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="76"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8171"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">74</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="71"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="77"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8172"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">75</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="72"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="78"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8173"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">76</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="73"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="79"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8174"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">77</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="74"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="80"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8175"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">78</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="75"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="81"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8176"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">79</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="76"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="82"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8177"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">80</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="77"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="83"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8178"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">81</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="78"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="84"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8179"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">82</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="79"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="85"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8180"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">83</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="80"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="86"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8181"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">84</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="81"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="87"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8182"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">85</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="82"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="88"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8183"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">86</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="83"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="89"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8184"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">87</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="84"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="90"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8185"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">88</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="85"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="91"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8186"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">89</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="86"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="92"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8187"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">90</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="87"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="93"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8188"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">91</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="88"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="94"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8189"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">92</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="89"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="95"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8190"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">93</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="90"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="96"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8191"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">94</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="91"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="97"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8192"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">95</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="92"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="98"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8193"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">96</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="93"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="99"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8194"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">97</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="94"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="100"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8195"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">98</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="95"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="101"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8196"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">99</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="96"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="102"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8257"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">100</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="97"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="103"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8258"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">101</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="98"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="104"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8259"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">102</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="99"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="105"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8260"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">103</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="100"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="106"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8261"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">104</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="101"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="107"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8262"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">105</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="102"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="108"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8263"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">106</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="103"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="109"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8264"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">107</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="104"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="110"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8265"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">108</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="105"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="111"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8266"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">109</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="106"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="112"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="RANGE">
+          <DVAL_ID ID="8267"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">110</SYN>
+          <LBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="107"/>
+          </LBOUND>
+          <UBOUND>
+            <BOUND CLOSURE="CLOSED" TYPE="INTEGER" VALUE="113"/>
+          </UBOUND>
+        </DVAL>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="Birth State" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8269"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8269"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Birth State</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+  <DIMENSION NAME="CountyOfLastLegalResidence" SRC_TYPE="AUTOGEN">
+    <DIMENSION_ID ID="8271"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="8271"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">CountyOfLastLegalResidence</SYN>
+      </DVAL>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+</DIMENSIONS>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE DIMENSIONS SYSTEM "dimensions.dtd">
+<DIMENSIONS VERSION="1.0.0">
+
+  <DIMENSION NAME="Wine Type" SRC_TYPE="INTERNAL">
+    <DIMENSION_ID ID="6200"/>
+    <DIMENSION_NODE>
+      <DVAL TYPE="EXACT">
+        <DVAL_ID ID="6200"/>
+        <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="TRUE">Wine Type</SYN>
+      </DVAL>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="8021"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Red</SYN>
+        </DVAL>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8023"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Beaujolais</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8022"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Bordeaux</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8026"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Cabernet Franc</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8025"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Merlot</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8024"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Pinot Noir</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8027"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Port</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8028"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Zinfandel</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="6204"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Sparkling</SYN>
+        </DVAL>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="6202"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Blanc de Blancs</SYN>
+            <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="TRUE">Blanc de Blanc</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8011"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Blanc de Noirs</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8005"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brut</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8010"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brut Blanc de Blancs</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8009"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brut Blanc de Noirs</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8012"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brut de Noirs</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8008"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brut Ros</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8004"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Brut Rose</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8007"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Extra Brut</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8006"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Rose</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+      </DIMENSION_NODE>
+      <DIMENSION_NODE>
+        <DVAL TYPE="EXACT">
+          <DVAL_ID ID="8013"/>
+          <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">White</SYN>
+        </DVAL>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8017"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Chablis</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8015"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Chardonnay</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8018"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Gewurztraminer</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8014"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Pinot Blanc</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8039"/>
+            <SYN CLASSIFY="FALSE" DISPLAY="TRUE" SEARCH="FALSE">Pinot Grigio</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8020"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Sauvignon Blanc</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+        <DIMENSION_NODE>
+          <DVAL TYPE="EXACT">
+            <DVAL_ID ID="8019"/>
+            <SYN CLASSIFY="TRUE" DISPLAY="TRUE" SEARCH="TRUE">Semillon Chardonnay</SYN>
+            <SYN CLASSIFY="TRUE" DISPLAY="FALSE" SEARCH="TRUE">Semillon-Chardonnay</SYN>
+          </DVAL>
+        </DIMENSION_NODE>
+      </DIMENSION_NODE>
+    </DIMENSION_NODE>
+  </DIMENSION>
+
+</DIMENSIONS>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema id="ParoleeDataSet" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		xmlns:tns="http://www.plm/ws/mtom/paroleedata"
+		xmlns:xmime="http://www.w3.org/2005/05/xmlmime" 
+		elementFormDefault="qualified"
+		targetNamespace="http://www.plm/ws/mtom/paroleedata" 
+		xmlns="http://www.plm/ws/mtom/paroleedata">
+		
+	<xs:element name="parolee">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:identity" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:registration-notice" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:special-conditions" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:addresses" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:smts" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:aliases" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:monikers" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:commitment-offenses" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:jobs" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:vehicles" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="tns:other-special-conditions" minOccurs="0" maxOccurs="1" />
+				<xs:element name="comments" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="identity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="last-name" type="xs:string" minOccurs="0" />
+				<xs:element name="first-name" type="xs:string" minOccurs="0" />
+				<xs:element name="middle-name" type="xs:string" minOccurs="0" />
+				<xs:element name="cdc-num" type="xs:string" minOccurs="0" />
+				<xs:element name="parole-status" type="xs:string" minOccurs="0" />
+				<xs:element name="parole-date" type="xs:string" minOccurs="0" />
+				<xs:element name="max-discharge-date" type="xs:string" minOccurs="0" />
+				<xs:element name="revocation-release-date" type="xs:string" minOccurs="0" />
+				<xs:element name="supervision-level" type="xs:string" minOccurs="0" />
+				<xs:element name="commitment-county" type="xs:string" minOccurs="0" />
+				<xs:element name="parole-unit" type="xs:string" minOccurs="0" />
+				<xs:element name="agent-name" type="xs:string" minOccurs="0" />
+				<xs:element name="agent-phone" type="xs:string" minOccurs="0" />
+				<xs:element name="agent-email" type="xs:string" minOccurs="0" />
+				<xs:element name="birth-date" type="xs:string" minOccurs="0" />
+				<xs:element name="birth-state" type="xs:string" minOccurs="0" />
+				<xs:element name="gender" type="xs:string" minOccurs="0" />
+				<xs:element name="ethnicity" type="xs:string" minOccurs="0" />
+				<xs:element name="height" type="xs:string" minOccurs="0" />
+				<xs:element name="weight" type="xs:string" minOccurs="0" />
+				<xs:element name="hair-color" type="xs:string" minOccurs="0" />
+				<xs:element name="eye-color" type="xs:string" minOccurs="0" />
+				<xs:element name="fbi-num" type="xs:string" minOccurs="0" />
+				<xs:element name="cii-num" type="xs:string" minOccurs="0" />
+				<xs:element name="ssa-num" type="xs:string" minOccurs="0" />
+				<xs:element name="driver-license-num" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="registration-notice">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="hs-11590-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="hs-11590-reg-date" type="xs:string" minOccurs="0" />
+				<xs:element name="pc-290-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="pc-290-reg-date" type="xs:string" minOccurs="0" />
+				<xs:element name="pc-457.1-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="pc-457.1-reg-date" type="xs:string" minOccurs="0" />
+				<xs:element name="pc-3058.6-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="pc-3058.6-reg-date" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="special-conditions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="drug-test-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="no-alc-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="psych-outpatient-clinic-flag" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	
+	<xs:element name="addresses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:address" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="address">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="active-date" type="xs:string" minOccurs="0" />
+				<xs:element name="care-of" type="xs:string" minOccurs="0" />
+				<xs:element name="street" type="xs:string" minOccurs="0" />
+				<xs:element name="city" type="xs:string" minOccurs="0" />
+				<xs:element name="county" type="xs:string" minOccurs="0" />
+				<xs:element name="state" type="xs:string" minOccurs="0" />
+				<xs:element name="zip" type="xs:string" minOccurs="0" />
+				<xs:element name="zip4" type="xs:string" minOccurs="0" />
+				<xs:element name="phone" type="xs:string" minOccurs="0" />
+				<xs:element name="map-ref" type="xs:string" minOccurs="0" />
+				<xs:element name="msg-phone" type="xs:string" minOccurs="0" />
+				<xs:element name="geo-codes" type="xs:string" minOccurs="0" />
+				<xs:element name="resident-status" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="smts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:smt" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="smt">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="loc" type="xs:string" minOccurs="0" />
+				<xs:element name="pic-text" type="xs:string" minOccurs="0" />
+				<xs:element name="smt-text" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="aliases">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:alias" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="alias">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="last-name" type="xs:string" minOccurs="0" />
+				<xs:element name="first-name" type="xs:string" minOccurs="0" />
+				<xs:element name="middle-name" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="monikers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:moniker" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="moniker">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="desc" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="commitment-offenses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:commitment-offense" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="commitment-offense">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="code" type="xs:string" minOccurs="0" />
+				<xs:element name="desc" type="xs:string" minOccurs="0" />
+				<xs:element name="control-offense-flag" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="jobs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:job" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="job">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employer" type="xs:string" minOccurs="0" />
+				<xs:element name="street" type="xs:string" minOccurs="0" />
+				<xs:element name="city" type="xs:string" minOccurs="0" />
+				<xs:element name="state" type="xs:string" minOccurs="0" />
+				<xs:element name="zip" type="xs:string" minOccurs="0" />
+				<xs:element name="phone" type="xs:string" minOccurs="0" />
+				<xs:element name="aware-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="start-date" type="xs:string" minOccurs="0" />
+				<xs:element name="unit" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="vehicles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:vehicle" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="vehicle">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="make" type="xs:string" minOccurs="0" />
+				<xs:element name="model" type="xs:string" minOccurs="0" />
+				<xs:element name="style" type="xs:string" minOccurs="0" />
+				<xs:element name="class" type="xs:string" minOccurs="0" />
+				<xs:element name="year" type="xs:string" minOccurs="0" />
+				<xs:element name="color-1" type="xs:string" minOccurs="0" />
+				<xs:element name="color-2" type="xs:string" minOccurs="0" />
+				<xs:element name="license-plate" type="xs:string" minOccurs="0" />
+				<xs:element name="state" type="xs:string" minOccurs="0" />
+				<xs:element name="owned-flag" type="xs:string" minOccurs="0" />
+				<xs:element name="unit" type="xs:string" minOccurs="0" />
+				<xs:element name="start-date" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="other-special-conditions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:other-special-condition" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="other-special-condition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="special-comment" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="ParoleeDataSet">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="tns:parolee" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

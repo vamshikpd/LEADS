@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<link version="1.0">
+ <linkitem topic="alinkexamples">
+   <linkentry target="ohff_alinkex1_html" text="Associative Link Example Topic 1" />
+   <linkentry target="ohff_alinkex2_html" text="Associative Link Example Topic 2" />
+   <linkentry target="ohff_alinkex3_html" text="Associative Link Example Topic 3" />
+ </linkitem>
+</link>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.plm/ws/mtom/datacheck" 
+		xmlns:tns="http://www.plm/ws/mtom/datacheck" 
+		xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+		
+	<element name="InternalParoleeDataCheckRequest" type="tns:internalParoleeDataCheckRequest"/>
+	<element name="InternalParoleeDataCheckResponse" type="tns:internalParoleeDataCheckResponse"/>
+	<complexType name="internalParoleeDataCheckRequest">
+		<sequence>
+			<element ref="tns:SearchCriteria" minOccurs="1" maxOccurs="1"/>
+			<element name="CaseNumber" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element name="Reason" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element name="Username" type="string"  minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	<element name="SearchCriteria">
+		<complexType>
+			<sequence>
+				<element name="LastUpdateDate" type="string" minOccurs="1" maxOccurs="1"/>
+				<element name="CDCNumber" type="string" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="internalParoleeDataCheckResponse">
+		<sequence>
+			<element name="TxnStatus" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element ref="tns:Error" minOccurs="0" maxOccurs="1"/>
+			<element ref="tns:UpdateAvailable" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<element name="UpdateAvailable">
+		<simpleType>
+			<restriction base="string">
+				<enumeration value="data" />
+				<enumeration value="photo" />
+				<enumeration value="both" />
+				<enumeration value="none" />
+			</restriction>
+		</simpleType>
+	</element>
+	
+	<element name="Error">
+		<complexType>
+			<sequence>
+				<element name="ErrorCode" type="string"/>
+				<element name="ErrorMessage" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

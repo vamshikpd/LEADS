@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROLE-MANAGER>
+	<GROUP name="App-CDCR-LEADS-Default" type="default">
+		<DOWNLOAD view="false"/>
+		<QUERY view="false"/>
+		<VIEWMAPS view="false"/>
+		<AMS view="false"/>
+		<USER type="user"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-Downloaders">
+		<DOWNLOAD view="true"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="false"/>
+		<AMS view="false"/>
+		<USER type="user" />
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-MapUsers">
+		<DOWNLOAD view="false"/>
+		<QUERY view="true" />
+		<VIEWMAPS view="true"/>
+		<AMS view="false"/>
+		<USER type="user" />
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-Mobile">
+		<DOWNLOAD view="false"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="false"/>
+		<USER type="user"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-Query">
+		<DOWNLOAD view="false"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="false"/>
+		<AMS view="false"/>
+		<USER type="user"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-Authors">
+		<DOWNLOAD view="false"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="false"/>
+		<USER type="author"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-AccountAdmins">
+		<DOWNLOAD view="true"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="true"/>
+		<USER type="user"/>
+	</GROUP>
+	<GROUP name="LEADSAccountAdminsT">
+		<DOWNLOAD view="true"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="true"/>
+		<USER type="user"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-CDCRAccountAdmins">
+    	<DOWNLOAD view="true"/>
+        <QUERY view="true"/>
+        <VIEWMAPS view="true"/>
+        <AMS view="true"/>
+        <USER type="admin"/>
+    </GROUP>
+	<GROUP name="CDCRAccountAdminsT">
+		<DOWNLOAD view="true"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="true"/>
+		<USER type="admin"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-PasswordAdmins">
+		<DOWNLOAD view="false"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="true"/>
+		<USER type="user"/>
+	</GROUP>
+	<GROUP name="App-CDCR-LEADS-CDCRPasswordAdmins">
+		<DOWNLOAD view="true"/>
+		<QUERY view="true"/>
+		<VIEWMAPS view="true"/>
+		<AMS view="true"/>
+		<USER type="user"/>
+	</GROUP>
+</ROLE-MANAGER>

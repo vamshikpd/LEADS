@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE MERCHSTYLES SYSTEM "merchstyles.dtd">
+<MERCHSTYLES>
+
+  <STYLE ALLOW_ADD_PROPS="TRUE" MAX_RECS="8" MIN_RECS="4" NAME="Style 3" TITLE="Style Three Title"/>
+
+  <STYLE ALLOW_ADD_PROPS="TRUE" MAX_RECS="3" MIN_RECS="1" NAME="Style 2" TITLE="Style Two Title"/>
+
+  <STYLE ALLOW_ADD_PROPS="TRUE" MAX_RECS="1" MIN_RECS="1" NAME="Style 1" TITLE="Style One Title"/>
+
+</MERCHSTYLES>

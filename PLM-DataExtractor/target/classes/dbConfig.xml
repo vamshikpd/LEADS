@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="calparoleDB" class="com.plm.dataextract.cfg.DBConfig" lazy-init="true">
+		<property name="dsTxnManager" ref="txnManager"/>
+	</bean>
+	
+	<bean id="txnManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=10.224.2.142)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=10.224.2.143)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=somsenfc.jps.local)(SERVER=DEDICATED)))" />
+		<property name="username" value="cpowner" />
+		<property name="password" value="p2ssw0rd" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.plm/ws/mtom/photo"
+		xmlns:tns="http://www.plm/ws/mtom/photo"
+		xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+	
+	<element name="InternalParoleePhotoRequest" type="tns:internalParoleePhotoRequest"/>
+	<element name="InternalParoleePhotoResponse" type="tns:internalParoleePhotoResponse"/>
+	
+	<complexType name="internalParoleePhotoRequest">
+		<sequence>
+			<element ref="tns:SearchCriteria" minOccurs="1" maxOccurs="1"/>
+			<element name="CaseNumber" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element name="Reason" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element name="Username" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element name="ResponseFieldsReturned" type="string" minOccurs="0" maxOccurs="1">			
+				<annotation>
+					<documentation>
+						Possible values would be ADD, JOB, PAR.RACE_CODE and so on. 
+						ADD - Address History, JOB - Job History, ALI - Alias, MON - Moniker, OFF - Offense, PAR - Parolee Information, SMT - Scars, Marks and Tattoos, SPC - Special Conditions of Parole, VEH - Vehicle History.
+						For individual fields in the Parolee Information the user specifies PAR.RACE_CODE. 
+						Refer to the PAROLE LEADS DATA DOWNLOAD GUIDE for more information.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="IncludeStateWidePAL" type="string" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Possible values Y or N \n
+						Y to include State wide parolees who are PAL
+						N to eliminate State wide parolees who are PAL
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<element name="SearchCriteria">
+		<complexType>
+			<sequence>
+				<element name="LastUpdateDate" type="string" minOccurs="0" maxOccurs="1"/>
+				<element name="City" type="string" minOccurs="0" maxOccurs="1"/>
+				<element name="County" type="string" minOccurs="0" maxOccurs="unbounded">
+					<annotation>
+						<documentation>
+							Possible values would be ALA,ALP,AMA where ALA stands for ALAMEDA. Following is the list of all counties.
+							ALA - ALAMEDA,ALP - ALPINE,AMA - AMADOR,BUT - BUTTE,CAL - CALAVERAS,CC - CONTRA COSTA,COL - COLUSA,DN - DEL NORTE,ED - EL DORADO,FRE - FRESNO,GLE - GLENN,HUM - HUMBOLDT,IMP - IMPERIAL,INY - INYO,KER - KERN,KIN - KINGS,LA - LOS ANGELES,LAK - LAKE,LAS - LASSEN,MAD - MADERA,MAR - MARIN,MEN - MENDOCINO,MER - MERCED,MNO - MONO,MOD - MODOC,MON - MONTEREY,MPA - MARIPOSA,NAP - NAPA,NEV - NEVADA,ORA - ORANGE,PLA - PLACER,PLU - PLUMAS,RIV - RIVERSIDE,SAC - SACRAMENTO,SB - SANTA BARBARA,SBD - SAN BERNARDINO,SBT - SAN BENITO,SCL - SANTA CLARA,SCR - SANTA CRUZ,SD - SAN DIEGO,SF - SAN FRANCISCO,SHA - SHASTA,SIE - SIERRA,SIS - SISKIYOU,SJ - SAN JOAQUIN,SLO - SAN LUIS OBISPO,SM - SAN MATEO,SOL - SOLANO,SON - SONOMA,STA - STANISLAUS,SUT - SUTTER,TEH - TEHAMA,TRI - TRINITY,TUL - TULARE,TUO - TUOLUMNE,VEN - VENTURA,YOL - YOLO,YUB - YUBA
+						</documentation>
+					</annotation>
+				</element>
+				<element name="IsParoleePAL" type="string" minOccurs="0" maxOccurs="1">
+					<annotation>
+						<documentation>
+							Possible values Y or N \n
+							Y to specify that the Parolee is a PAL
+							N to specify that the Parolee is not a PAL
+						</documentation>
+					</annotation>
+				</element>
+				<element name="CDCNumber" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="LastName" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="FirstName" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="MiddleName" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="AliasLastName" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="AliasFirstName" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="Moniker" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="Zip" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="BirthState" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="HeightInInches" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="Weight" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="SSN" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="CIINumber" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="FBINumber" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="LicensePlate" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="DateOfBirth" type="string" minOccurs="0" maxOccurs="1" />
+				<element ref="tns:ParoleeReleaseDate" minOccurs="0" maxOccurs="1" />
+				<element ref="tns:VehicleYear" minOccurs="0" maxOccurs="1" />
+				<element name="Ethnicity" type="string" minOccurs="0" maxOccurs="1" >
+				<annotation>
+						<documentation>
+							Possible values 
+							WHI--WHITE
+							BLA--BLACK
+							HIS--HISPANIC
+							CHI--CHINESE
+							JPN--JAPANESE
+							AMI--AMERICAN INDIAN
+							FIL--FILIPINO
+							HAW--HAWAIIAN
+							OTH--OTHER
+						</documentation>
+					</annotation>
+				</element>
+				<element name="HairColor" type="string" minOccurs="0" maxOccurs="1" >
+				<annotation>
+						<documentation>
+							Possible values 
+							BAL--BALD
+							BLK--BLACK
+							BLN--BLN/STRWBY
+							BRO--BROWN
+							GRY--GRAY/PRTLY
+							RED--RED/AUBURN
+							SDY--SANDY
+							WHI--WHITE
+							XXX--UK/BALD
+							BLU--BLUE
+							GRN--GREEN
+							ONG--ORANGE
+							PLE--PURPLE
+							PNK--PINK
+						</documentation>
+					</annotation>
+				</element>
+				<element name="PC290SexOff" type="string" minOccurs="0" maxOccurs="1" >
+				<annotation>
+						<documentation>
+							Possible values Y or N
+							Y to specify that the Parolee is a PC290 Sex offender
+							N to specify that the Parolee is not a PC290 Sex offender
+						</documentation>
+					</annotation>
+				</element>
+				<element name="PC4571Arson" type="string" minOccurs="0" maxOccurs="1" >
+				<annotation>
+						<documentation>
+							Possible values Y or N
+							Y to specify that the Parolee has a PC4571 Arson Violation
+							N to specify that the Parolee does not have a PC4571 Arson Violation
+						</documentation>
+					</annotation>
+				</element>
+				<element name="PC11590Drugs" type="string" minOccurs="0" maxOccurs="1" >
+				<annotation>
+						<documentation>
+							Possible values Y or N
+							Y to specify that the Parolee has a PC11590 Violation
+							N to specify that the Parolee does not have a PC11590 Violation
+						</documentation>
+					</annotation>
+				</element>
+				<element name="PC30586FelonyViolation" type="string" minOccurs="0" maxOccurs="1" >
+				<annotation>
+						<documentation>
+							Possible values Y or N
+							Y to specify that the Parolee has a PC30586 FelonyViolation
+							N to specify that the Parolee does not have a PC30586 FelonyViolation
+						</documentation>
+					</annotation>
+				</element>
+				<element ref="tns:SMT" minOccurs="0" maxOccurs="1" />
+				<element name="CommitmentOffense" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="CountyOfLLR" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="UnitCode" type="string" minOccurs="0" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ParoleeReleaseDate">
+		<annotation>
+			<documentation>Enter Dates in YYYYMMDD Format</documentation>
+		</annotation>
+		<complexType>
+			<sequence>
+				<element name="FromDate" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="ToDate" type="string" minOccurs="0" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="VehicleYear">
+		<annotation>
+			<documentation>Enter Year in YYYY Format</documentation>
+		</annotation>
+		<complexType>
+			<sequence>
+				<element name="FromYear" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="ToYear" type="string" minOccurs="0" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="SMT">
+		<complexType>
+			<sequence>
+				<element name="TypeOrLocation" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="PictureOfTattoo" type="string" minOccurs="0" maxOccurs="1" />
+				<element name="TextOfTattoo" type="string" minOccurs="0" maxOccurs="1" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<complexType name="internalParoleePhotoResponse">
+		<sequence>
+			<element name="TxnStatus" type="string"  minOccurs="1" maxOccurs="1"/>
+			<element ref="tns:DataAttachment" minOccurs="0" maxOccurs="1"/>
+			<element ref="tns:Error" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	<element name="DataAttachment">
+		<complexType>
+			<sequence>
+				<element name="filename" type="string"/>
+				<element name="data" type="base64Binary" xmime:expectedContentTypes="application/octet-stream"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="Error">
+		<complexType>
+			<sequence>
+				<element name="ErrorCode" type="string"/>
+				<element name="ErrorMessage" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

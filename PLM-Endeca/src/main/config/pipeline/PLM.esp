@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE STUDIO_PROJECT SYSTEM "studio_project.dtd">
+<STUDIO_PROJECT APP_VERSION="5.1" NAME="Sample Updates Reference" VERSION="500">
+
+  <PROJECT_MANAGER_CONFIG APPLICATION="PLM" PORT="8888" URL="HEMANT"/>
+
+  <PROJECT_PIPELINE URL="pipeline.epx"/>
+
+  <PROJECT_PIPELINE TYPE="PARTIAL" URL="partial_pipeline.epx"/>
+
+  <PROJECT_FILE TYPE="ANALYTICS_CONFIG" URL="PLM.analytics_config.xml"/>
+
+  <PROJECT_FILE TYPE="DERIVED_PROPS" URL="PLM.derived_props.xml"/>
+
+  <PROJECT_FILE TYPE="DIMENSION_GROUPS" URL="PLM.dimension_groups.xml"/>
+
+  <PROJECT_FILE TYPE="DIMENSION_REFS" URL="PLM.dimension_refs.xml"/>
+
+  <PROJECT_FILE TYPE="DIMSEARCH_CONFIG" URL="PLM.dimsearch_config.xml"/>
+
+  <PROJECT_FILE TYPE="DIMSEARCH_INDEX" URL="PLM.dimsearch_index.xml"/>
+
+  <PROJECT_FILE TYPE="DVAL_RANKS" URL="PLM.dval_ranks.xml"/>
+
+  <PROJECT_FILE TYPE="DVAL_REFS" URL="PLM.dval_refs.xml"/>
+
+  <PROJECT_FILE HIGHEST_ID="2" TYPE="MERCH_RULES" URL="PLM.merch_rules.xml"/>
+
+  <PROJECT_FILE TYPE="MERCHSTYLES" URL="PLM.merchstyles.xml"/>
+
+  <PROJECT_FILE TYPE="MERCHZONES" URL="PLM.merchzones.xml"/>
+
+  <PROJECT_FILE TYPE="PRECEDENCE_RULES" URL="PLM.precedence_rules.xml"/>
+
+  <PROJECT_FILE TYPE="PROP_REFS" URL="PLM.prop_refs.xml"/>
+
+  <PROJECT_FILE TYPE="RECORD_FILTER" URL="PLM.record_filter.xml"/>
+
+  <PROJECT_FILE TYPE="RECORD_SORT_CONFIG" URL="PLM.record_sort_config.xml"/>
+
+  <PROJECT_FILE TYPE="RECORD_SPEC" URL="PLM.record_spec.xml"/>
+
+  <PROJECT_FILE TYPE="RECSEARCH_CONFIG" URL="PLM.recsearch_config.xml"/>
+
+  <PROJECT_FILE TYPE="RECSEARCH_INDEXES" URL="PLM.recsearch_indexes.xml"/>
+
+  <PROJECT_FILE TYPE="REFINEMENTS_CONFIG" URL="PLM.refinement_config.xml"/>
+
+  <PROJECT_FILE TYPE="RELRANK_STRATEGIES" URL="PLM.relrank_strategies.xml"/>
+
+  <PROJECT_FILE TYPE="RENDER_CONFIG" URL="PLM.render_config.xml"/>
+
+  <PROJECT_FILE TYPE="ROLLUPS" URL="PLM.rollups.xml"/>
+
+  <PROJECT_FILE TYPE="SEARCH_CHARS" URL="PLM.search_chars.xml"/>
+
+  <PROJECT_FILE TYPE="STOP_WORDS" URL="PLM.stop_words.xml"/>
+
+  <PROJECT_FILE TYPE="THESAURUS" URL="PLM.thesaurus.xml"/>
+
+  <PROJECT_FILE TYPE="STEMMING" URL="PLM.stemming.xml"/>
+
+  <PROJECT_FILE TYPE="PROFILES" URL="PLM.profiles.xml"/>
+
+  <PROJECT_FILE TYPE="PHRASES" URL="PLM.phrases.xml"/>
+
+  <PROJECT_FILE TYPE="KEY_PROPS" URL="PLM.key_props.xml"/>
+
+  <PROJECT_FILE TYPE="LANGUAGES" URL="PLM.languages.xml"/>
+
+  <PROJECT_FILE TYPE="CRAWLER_GLOBAL_CONFIG" URL="PLM.crawler_global_config.xml"/>
+
+  <PROJECT_FILE TYPE="CRAWLER_DEFAULTS" URL="PLM.crawler_defaults.properties"/>
+
+  <PROJECT_FILE TYPE="CRAWL_PROFILES" URL="PLM.crawl_profiles.xml"/>
+
+  <PROJECT_FILE TYPE="CRAWL_PROFILE" URL="crawl_profile_1.xml"/>
+
+</STUDIO_PROJECT>

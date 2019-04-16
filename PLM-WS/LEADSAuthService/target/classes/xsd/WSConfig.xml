@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="wsCfg" class="com.plm.dataretrival.cfg.WSConfig" lazy-init="true">
+		<property name="maxNoOfDaysOfDownloadAllowed" value="30" />
+	</bean>
+
+    <bean id="wsErrMessages" class="com.plm.dataretrival.cfg.WSErrorMessages" lazy-init="true">
+		<property name="errorMessageMap">
+			<map>
+				<entry key="ERR001" value="Invalid Request" />
+				<entry key="ERR002" value="CDC Number not specified" />
+				<entry key="ERR003" value="Reason not specified" />
+				<entry key="ERR004" value="City not specified" />
+				<entry key="ERR005" value="County not specified" />
+				<entry key="ERR006" value="Last Update Date not specified" />
+				<entry key="ERR007" value="Invalid Last update date specified" />
+				<entry key="ERR008" value="Last update date is Future Date." />
+				<entry key="ERR009" value="Invalid date format specified" />
+				<entry key="ERR010" value="Last update date can not be previous to {0}" />
+				<entry key="ERR011" value="No Data Available" />
+				<entry key="ERR012" value="No Group Code specified" />
+			</map>
+		</property>
+	</bean>
+	
+</beans>

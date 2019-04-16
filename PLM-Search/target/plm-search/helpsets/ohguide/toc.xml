@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<toc version="1.0">
+  <tocitem text="Parole LEADS2.0 Help Overview">    
+    <tocitem target="training_and_testing" text="Training and Testing" />
+    <tocitem target="search" text="Search" />
+    <tocitem target="user_management" text="User Management" />
+    <tocitem target="system_monitoring" text="System Monitoring" />
+    <tocitem target="help" text="Help" />
+  </tocitem>
+    
+  <tocitem text="Parole LEADS2.0 Search">    
+    <tocitem target="step1" text="Step1:Case # and Reason for Search" />
+    <tocitem target="step2" text="Step2:Search" />
+  	<tocitem target="keyword_search" text="Keyword Search" />
+    <tocitem target="advance_search" text="Quick Search" />
+    <tocitem target="radial_search" text="Radial Search" />
+    <tocitem target="save_search" text="Save Search" />
+    <tocitem target="discharge_notification" text="Discharge Notification" />
+    <tocitem target="registrant_notification" text="Registrant Notification" />
+    <tocitem target="step3" text="Step3:Search Results" />
+    <tocitem target="refine_by" text="Refine By" />
+    <tocitem target="parolee_details" text="Parolee Details" />
+    <tocitem target="parolee_photo_gallery" text="Parolee Photo Gallery" />
+    <tocitem target="parolee_photo_lineup" text="Parolee Photo Lineup" />
+    <tocitem target="data_download" text="Data Download" />
+    <tocitem target="email_agent" text="Email Agent" />
+  </tocitem>
+  
+  <tocitem text="Parole LEADS 2.0 Learning Management System Help">    
+    <!-- <tocitem target="general_questions" text="General Questions" /> -->
+    <!-- <tocitem target="registration_user_account" text="Registration and User Accounts" /> -->
+    <!-- <tocitem target="user_settings" text="User Settings" /> -->
+    <tocitem target="general_questions" text="General Questions" /> 
+    <tocitem target="info_student" text="Information For Students" />
+    <tocitem target="general_info_authors" text="General Information for Authors" />
+    <tocitem target="configuration_course" text="Configuration of a Course" />   
+  </tocitem>
+  
+  <tocitem text="Parole LEADS 2.0 FAQ">    
+    <tocitem target="faq" text="Parole LEADS 2.0 FAQ" />
+  </tocitem>
+
+  <tocitem text="Parole LEADS 2.0 Password Policy">    
+    <tocitem target="password_policy" text="Parole LEADS 2.0 Password Policy" />
+  </tocitem>
+  
+</toc>

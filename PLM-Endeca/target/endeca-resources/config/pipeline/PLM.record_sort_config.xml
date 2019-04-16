@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE RECORD_SORT_CONFIG SYSTEM "record_sort_config.dtd">
+<RECORD_SORT_CONFIG>
+
+  <RECORD_SORT NAME="CDC Number"/>
+
+  <RECORD_SORT NAME="Last Name"/>
+
+  <RECORD_SORT NAME="First Name"/>
+
+  <RECORD_SORT NAME="Sex"/>
+
+  <RECORD_SORT NAME="Race"/>
+
+  <RECORD_SORT NAME="Eyecolor"/>
+
+  <RECORD_SORT NAME="P_Height"/>
+
+  <RECORD_SORT NAME="P_Weight"/>
+
+  <RECORD_SORT NAME="Haircolor"/>
+
+  <RECORD_SORT NAME="City"/>
+
+  <RECORD_SORT NAME="Zip"/>
+
+  <RECORD_SORT NAME="Unit Name"/>
+
+  <RECORD_SORT NAME="Status"/>
+
+  <RECORD_SORT NAME="HRSO"/>
+
+  <RECORD_SORT NAME="GPS"/>
+
+  <RECORD_SORT NAME="Action Date Search"/>
+
+  <RECORD_SORT NAME="Address Changed Date Search"/>
+
+  <RECORD_SORT NAME="Birth Date Search"/>
+
+  <RECORD_SORT NAME="Alias First Name"/>
+
+  <RECORD_SORT NAME="Alias Last Name"/>
+
+  <RECORD_SORT NAME="Alias Middle Name"/>
+
+</RECORD_SORT_CONFIG>

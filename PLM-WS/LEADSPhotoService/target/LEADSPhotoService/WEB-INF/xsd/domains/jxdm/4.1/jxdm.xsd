@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://niem.gov/niem/domains/jxdm/4.1" version="1" xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:ucr="http://niem.gov/niem/ucr/2.0" xmlns:niem-xsd="http://niem.gov/niem/proxy/xsd/2.0" xmlns:j="http://niem.gov/niem/domains/jxdm/4.1" xmlns:fbi="http://niem.gov/niem/fbi/2.0" xmlns:i="http://niem.gov/niem/appinfo/2.0">
+  <xsd:annotation>
+    <xsd:documentation>Justice</xsd:documentation>
+    <xsd:appinfo>
+      <i:ConformantIndicator>true</i:ConformantIndicator>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:import schemaLocation="../../../structures/2.0/structures.xsd" namespace="http://niem.gov/niem/structures/2.0"/>
+  <xsd:import schemaLocation="../../../appinfo/2.0/appinfo.xsd" namespace="http://niem.gov/niem/appinfo/2.0"/>
+  <xsd:import schemaLocation="../../../fbi/2.0/fbi.xsd" namespace="http://niem.gov/niem/fbi/2.0"/>
+  <xsd:import schemaLocation="../../../niem-core/2.0/niem-core.xsd" namespace="http://niem.gov/niem/niem-core/2.0"/>
+  <xsd:import schemaLocation="../../../proxy/xsd/2.0/xsd.xsd" namespace="http://niem.gov/niem/proxy/xsd/2.0"/>
+  <xsd:import schemaLocation="../../../ucr/2.0/ucr.xsd" namespace="http://niem.gov/niem/ucr/2.0"/>
+  <xsd:complexType name="EnforcementUnitType">
+    <xsd:annotation>
+      <xsd:documentation>A data type for a unit of an agency responsible for enforcing the law and maintaining peace.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:namespace="http://niem.gov/niem/niem-core/2.0" i:name="OrganizationType"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="nc:OrganizationType">
+        <xsd:sequence>
+          <xsd:element ref="j:EnforcementUnitIdentification" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element ref="j:EnforcementUnitName" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnforcementOfficialBadgeIdentification" type="nc:IdentificationType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>An identifier used to refer to an enforcement official.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="EnforcementUnitIdentification" type="nc:IdentificationType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>An identifier of an enforcement unit.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="EnforcementUnitName" type="nc:TextType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A name of an enforcement unit.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OffenseAttemptedIndicator" type="niem-xsd:boolean" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>True if an offense was attempted but not completed; false otherwise.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OffenseCategory" abstract="true">
+    <xsd:annotation>
+      <xsd:documentation>A kind of offense.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element substitutionGroup="j:OffenseCategory" name="OffenseCategoryText" type="nc:TextType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A kind of offense.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="OffenseCategory"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OffenseLevel" abstract="true">
+    <xsd:annotation>
+      <xsd:documentation>A level of an offense, such as a felony or misdemeanor.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element substitutionGroup="j:OffenseLevel" name="OffenseLevelText" type="nc:TextType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A level of an offense, such as a felony or misdemeanor.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="OffenseLevel"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="OffenseSeverityLevelText" type="nc:TextType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A description of the level of severity of an offense.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="PersonBirthPlaceCode" type="fbi:POBCodeType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A state or country of a person's birth.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="StatuteOffenseCode" abstract="true">
+    <xsd:annotation>
+      <xsd:documentation>A criminal offense within a code book.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element substitutionGroup="j:StatuteOffenseCode" name="StatuteOffenseUCRCode" type="ucr:OffenseCodeType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A criminal offense within a code book.</xsd:documentation>
+      <xsd:appinfo>
+        <i:Base i:name="StatuteOffenseCode"/>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SupervisionCautionText" type="nc:TextType" nillable="true">
+    <xsd:annotation>
+      <xsd:documentation>A warning, caution, or risk associated with supervising a person.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

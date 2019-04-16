@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="wsCfg" class="com.plm.dataretrival.cfg.WSConfig" lazy-init="true">
+		<property name="endecaHost" value="${eneconnection.hostname}" />
+		<property name="endecaPorts" value="${eneconnection.port}" />
+		<!-- 
+		This recordPerPage must match with the Endeca Setting of Records Per Page.
+		By default Endeca has RecordsPerPage count is 25.
+		 -->
+		<property name="recordsPerPage" value="1000" />
+		<property name="dateTimeFormat" value="dd-MMM-yyyy_hh.mm.ss.S" />
+		<property name="sqlInParameterLimit" value="10" />
+		<!-- 
+		Temporary folder path where - web service extract/creates the actual data file (.xml or csv) and then creates the Zip file.
+		And finally send as a response.
+		 -->
+		<property name="fileOutputPath" value="${file.output.path}"/>
+		<property name="paroleePhotoFilename" value="{USERNAME}-Photo-{TIMESTAMP}-{COUNTER}" />
+	</bean>
+
+    <bean id="wsErrMessages" class="com.plm.dataretrival.cfg.WSErrorMessages" lazy-init="true">
+		<property name="errorMessageMap">
+			<map>
+				<entry key="ERR001" value="Internal Server Error. Please contact CDCR Administrator." />
+				<entry key="ERR002" value="Internal Database Down. Please contact CDCR Administrator." />
+				<entry key="ERR003" value="Internal Search Engine Down. Please contact CDCR Administrator." />
+				<entry key="ERR004" value="Invalid Request" />
+				
+				<entry key="ERR101" value="Case Number not specified" />
+				<entry key="ERR102" value="Reason not specified" />
+				<entry key="ERR103" value="City not specified" />
+				<entry key="ERR104" value="County not specified" />
+				<entry key="ERR105" value="Last Update Date not specified" />
+				<entry key="ERR106" value="Username not specified" />
+				<entry key="ERR107" value="No Group Code specified" />
+				<entry key="ERR108" value="CDC Number/s not specified" />
+				
+				<entry key="ERR201" value="Invalid Last update date specified" />
+				<entry key="ERR202" value="Last update date is Future Date" />
+				<entry key="ERR203" value="Invalid format specified for date" />
+				<entry key="ERR204" value="Last update date cannot be previous to 01/01/1900" />
+				
+				<entry key="ERR301" value="No Data Available" />
+				<entry key="ERR302" value="No Photo Available" />
+				
+				<entry key="ERR401" value="Process already in progress, please wait till the existing process completes." />
+				<entry key="ERR402" value="Existing process is hung. Please contact CDCR Administrator." />
+				
+				<entry key="ERR501" value="Error creating InProgress file. Please contact CDCR Administrator." />
+				<entry key="ERR502" value="Error creating Output folder. Please contact CDCR Administrator." />
+				<entry key="ERR503" value="Error creating zip file. Please contact CDCR Administrator." />
+				<entry key="ERR504" value="Error deleting user exception file. Please contact CDCR Administrator." />
+				<entry key="ERR505" value="Error deleting zip file. Please contact CDCR Administrator." />
+				<entry key="ERR506" value="Error renaming zip file. Please contact CDCR Administrator." />
+				<entry key="ERR507" value="Error deleting user folder. Please contact CDCR Administrator." />
+				<entry key="ERR508" value="Error deleting InProgress file. Please contact CDCR Administrator." />
+				
+				<entry key="ERR601" value="Error auditing this request. Please contact CDCR Administrator." />
+				<entry key="ERR602" value="Error writing Photo to a file. Please contact CDCR Administrator." />
+				<entry key="ERR603" value="Error retrieving Photo from the DB. Please contact CDCR Administrator." />
+				<entry key="ERR604" value="Error formatting data. Pleae contact CDCR Administrator" />
+				
+				<entry key="ERR999" value="Unknown Error. Please contact CDCR Administrator." />
+			</map>
+		</property>
+	</bean>
+	
+</beans>

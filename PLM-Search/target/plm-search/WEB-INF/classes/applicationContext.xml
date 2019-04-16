@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="clientData" abstract="true">    	
+        <property name="defaultUri" value="https://ws-leads-lperf.cdcr.ca.gov:8080/LEADSDataService/ws/data.wsdl"/>
+    </bean>
+
+    <bean id="axiomDataClient" class="org.springframework.ws.soap.axiom.AxiomMtomClient" parent="clientData">
+        <constructor-arg index="0">
+            <bean class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"/>
+        </constructor-arg>
+        <constructor-arg index="1" value="Data"/>
+    </bean>
+
+    <bean id="clientPhoto" abstract="true">    	
+        <property name="defaultUri" value="https://ws-leads-lperf.cdcr.ca.gov:8080/LEADSPhotoService/ws/photo.wsdl"/>
+    </bean>
+    
+    <bean id="axiomPhotoClient" class="org.springframework.ws.soap.axiom.AxiomMtomClient" parent="clientPhoto">
+        <constructor-arg index="0">
+            <bean class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"/>
+        </constructor-arg>
+        <constructor-arg index="1" value="Photo"/>
+    </bean>
+
+    <!--<bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+        <constructor-arg>
+            <bean class="org.springframework.ws.soap.axiom.AxiomSoapMessageFactory"/>
+        </constructor-arg>
+        <property name="marshaller" ref="marshaller" />
+        <property name="unmarshaller" ref="marshaller" />
+        <property name="messageSender">
+            <bean class="my.example.ws.NullHostVerifierHttpsMessageSender"/>
+        </property>
+    </bean>-->
+    
+</beans>

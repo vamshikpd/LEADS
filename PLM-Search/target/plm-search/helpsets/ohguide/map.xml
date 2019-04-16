@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<map version="1.0"> 
+  <mapID target="training_and_testing" url="training_and_testing_rd.htm" />
+  <mapID target="search" url="search_rd.htm" />
+  <mapID target="user_management" url="user_management_rd.htm" />  
+  <mapID target="system_monitoring" url="system_monitoring_rd.htm" />   
+  <mapID target="help" url="help_rd.htm" />
+  <mapID target="step1" url="step1_rd.htm" />
+  <mapID target="step2" url="step2_rd.htm" />
+  <mapID target="keyword_search" url="keyword_search_rd.htm" />  
+  <mapID target="advance_search" url="advance_search_rd.htm" />
+  <mapID target="radial_search" url="radial_search_rd.htm" />    
+  <mapID target="save_search" url="save_search_rd.htm" />
+  <mapID target="discharge_notification" url="discharge_notification_rd.htm" />
+  <mapID target="registrant_notification" url="registrant_notification_rd.htm" />
+  <mapID target="step3" url="step3_rd.htm" />
+  <mapID target="refine_by" url="refine_by_rd.htm" />
+  <mapID target="parolee_details" url="parolee_details_rd.htm" />    
+  <mapID target="parolee_photo_gallery" url="parolee_photo_gallery_rd.htm" />
+  <mapID target="parolee_photo_lineup" url="parolee_photo_lineup_rd.htm" />
+  <mapID target="data_download" url="data_download_rd.htm" />
+  <mapID target="email_agent" url="email_agent_rd.htm" />        
+  <mapID target="general_questions" url="general_questions.htm" />
+  <!-- <mapID target="registration_user_account" url="registration_user_account.htm" /> -->
+  <mapID target="info_student" url="info_student.htm" />
+  <mapID target="general_info_authors" url="general_info_authors.htm" />
+  <mapID target="general_questions" url="general_questions.htm" />
+  <mapID target="configuration_course" url="configuration_course.htm" />
+  <!-- <mapID target="user_settings" url="user_settings.htm" /> -->
+  <mapID target="faq" url="LEADS_20_FAQ.htm" />
+  <mapID target="password_policy" url="LEADS_20_Password_Policy.htm" />
+ </map>

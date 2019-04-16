@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>Reference UI</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Excel Output mappings -->
+	<servlet>
+		<servlet-name>exportExcel</servlet-name>
+		<servlet-class>com.endeca.ui.export.ExcelExportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>exportExcel</servlet-name>
+		<url-pattern>/exportExcel</url-pattern>
+	</servlet-mapping>
+
+	<!-- PDF Output mappings -->
+	<servlet>
+		<servlet-name>exportPDF</servlet-name>
+		<servlet-class>com.endeca.ui.export.PDFExportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>exportPDF</servlet-name>
+		<url-pattern>/exportPDF</url-pattern>
+	</servlet-mapping>
+
+	<!-- XML Query mappings -->
+	<servlet>
+		<servlet-name>xmlQuery</servlet-name>
+		<servlet-class>com.endeca.ui.ENEQueryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xmlQuery</servlet-name>
+		<url-pattern>/xmlQuery</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Modified XML Query mappings -->
+	<servlet>
+		<servlet-name>skillnetXMLQuery</servlet-name>
+		<servlet-class>com.skillnet.endeca.ui.EndecaXMLQuery</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>skillnetXMLQuery</servlet-name>
+		<url-pattern>/advancedxmlQuery</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- Email mappings -->
+	<servlet>
+		<servlet-name>email</servlet-name>
+		<servlet-class>com.endeca.ui.export.EmailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>email</servlet-name>
+		<url-pattern>/email</url-pattern>
+	</servlet-mapping>
+
+	<!-- RSS Servlet mappings -->
+	<servlet>
+		<servlet-name>rss</servlet-name>
+		<servlet-class>com.endeca.ui.export.RssServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rss</servlet-name>
+		<url-pattern>/rss</url-pattern>
+	</servlet-mapping>
+
+</web-app>

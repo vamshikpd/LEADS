@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<index version="1.0">
+  <indexitem text="Advance Search">
+    <indexentry text="ABC" target="advance_search" /> 
+    <indexentry text="cde" target="advance_search" />
+    <indexentry text="fgh" target="advance_search" />
+    <indexentry text="ijk" target="advance_search" />
+    <indexentry text="lmn" target="advance_search" />
+    <indexentry text="opq" target="advance_search" />
+  </indexitem>  
+  <indexitem text="Radial Search">
+    <indexentry text="ABC" target="radial_search" /> 
+    <indexentry text="cde" target="radial_search" />
+    <indexentry text="fgh" target="radial_search" />
+    <indexentry text="ijk" target="radial_search" />
+    <indexentry text="lmn" target="radial_search" />
+    <indexentry text="opq" target="radial_search" />
+  </indexitem> 
+  <indexitem text="Save Search">
+    <indexentry text="ABC" target="save_search" /> 
+    <indexentry text="cde" target="save_search" />
+    <indexentry text="fgh" target="save_search" />
+    <indexentry text="ijk" target="save_search" />
+    <indexentry text="lmn" target="save_search" />
+    <indexentry text="opq" target="save_search" />
+  </indexitem> 
+  <indexitem text="Reason For Search">
+    <indexentry text="ABC" target="reason_for_search" /> 
+    <indexentry text="cde" target="reason_for_search" />
+    <indexentry text="fgh" target="reason_for_search" />
+    <indexentry text="ijk" target="reason_for_search" />
+    <indexentry text="lmn" target="reason_for_search" />
+    <indexentry text="opq" target="reason_for_search" />
+  </indexitem>
+   <indexitem text="Discharge Notification">
+    <indexentry text="ABC" target="discharge_notification" /> 
+    <indexentry text="cde" target="discharge_notification" />
+    <indexentry text="fgh" target="discharge_notification" />
+    <indexentry text="ijk" target="discharge_notification" />
+    <indexentry text="lmn" target="discharge_notification" />
+    <indexentry text="opq" target="discharge_notification" />
+  </indexitem> 
+  <indexitem text="Registrant Notification">
+    <indexentry text="ABC" target="registrant_notification" /> 
+    <indexentry text="cde" target="registrant_notification" />
+    <indexentry text="fgh" target="registrant_notification" />
+    <indexentry text="ijk" target="registrant_notification" />
+    <indexentry text="lmn" target="registrant_notification" />
+    <indexentry text="opq" target="registrant_notification" />
+  </indexitem>     
+</index>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<helpConfiguration
+  version="2.0"
+  xmlns="http://xmlns.oracle.com/help/web/config">
+
+  <!-- Page branding based on ResourceBundle -->
+  <brandings>
+    <branding text="LEADS2.0 Search Application HELP" />
+  </brandings>
+
+  <!-- Different locale setups. -->
+  <locales>
+  
+    <!-- English: -->
+    <locale language="en">
+      <books>
+        <helpSet id="ohguide" location="ohguide/ohguide.hs"/>
+      </books>
+    </locale>
+    
+  </locales>
+
+  <!-- Navigator aliases - to allow for legacy navigator names. -->
+  <navigatorAliases>
+
+    <!-- Uncomment for Tree Based TOC Navigator
+    <alias name="oracle.help.navigator.tocNavigator.TOCNavigator" 
+           value="oracle.help.web.navigator.tocNavigator.TOCTreeNavigator" /> -->
+
+  </navigatorAliases>
+
+  <parameters>
+    <combineBooks>false</combineBooks>
+    <useLabelInfo>true</useLabelInfo>
+    
+    <!-- 
+      Number of locales that are kept in memory all the time. 
+      Please see the OHW documentation for more information on
+      this parameter.
+      <cacheSize>3</cacheSize>
+    -->
+  </parameters>
+
+</helpConfiguration>

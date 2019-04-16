@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE RECORD_FILTER SYSTEM "record_filter.dtd">
+<RECORD_FILTER>
+
+  <PROPNAME>Birth_Yr</PROPNAME>
+
+  <PROPNAME>geocode</PROPNAME>
+
+  <PROPNAME>Parole_Date_Search</PROPNAME>
+
+  <PROPNAME>Parole Data Change Date</PROPNAME>
+
+  <PROPNAME>Veh_Year</PROPNAME>
+
+  <PROPNAME>Revocation_Release_Date_Search</PROPNAME>
+
+</RECORD_FILTER>

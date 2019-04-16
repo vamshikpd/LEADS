@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="lmsConnection" class="com.plm.PLMConnection" lazy-init="true" >
+		<property name="lmsDsTxnManager" ref="lmsTxnManager"/>
+	</bean>
+	
+	<bean id="lmsTxnManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="lmsDataSource" ref="lmsDataSource"/>
+	</bean>
+	 
+	<bean id="lmsDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"><value>oracle.jdbc.driver.OracleDriver</value></property>
+        <property name="url"><value>${jdbc.lmsdatasource.url}</value></property>
+        <property name="username"><value>${jdbc.lmsdatasource.username}</value></property>
+        <property name="password"><value>${jdbc.lmsdatasource.password}</value></property>
+    </bean>
+
+    <bean id="lmsPool" class="org.apache.commons.pool.impl.GenericObjectPool">
+        <property name="minEvictableIdleTimeMillis"><value>300000</value></property>
+        <property name="timeBetweenEvictionRunsMillis"><value>60000</value></property>
+    </bean>
+
+    <bean id="lmsDsConnectionFactory" class="org.apache.commons.dbcp.DataSourceConnectionFactory">
+        <constructor-arg><ref bean="lmsDataSource"/></constructor-arg>
+    </bean>
+
+    <bean id="lmsPoolableConnectionFactory" class="org.apache.commons.dbcp.PoolableConnectionFactory">
+        <constructor-arg index="0"><ref bean="lmsDsConnectionFactory"/></constructor-arg>
+        <constructor-arg index="1"><ref bean="lmsPool"/></constructor-arg>
+        <constructor-arg index="2"><null/></constructor-arg>
+        <constructor-arg index="3"><null/></constructor-arg>
+        <constructor-arg index="4"><value>false</value></constructor-arg>
+        <constructor-arg index="5"><value>true</value></constructor-arg>
+    </bean>
+
+    <bean id="lmsPooledDS" class="org.apache.commons.dbcp.PoolingDataSource" depends-on="lmsPoolableConnectionFactory">
+        <constructor-arg><ref bean="lmsPool"/></constructor-arg>
+    </bean>
+
+</beans>

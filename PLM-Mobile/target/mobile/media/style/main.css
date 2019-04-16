@@ -1,0 +1,139 @@
+body {
+	margin: 0;
+	background-color:#b2bfcf;
+}
+
+body,div,p,li,a,span,b,div {
+	font-family:Verdana,Arial,Verdana,sans-serif;
+	color: #36769c;
+	font-size:12px;
+}
+
+img {
+	border: none;
+}
+
+input {
+border:1px solid #b3b3b3; color:#8499af;
+}
+select {
+border:1px solid #b3b3b3; color:#8499af
+}
+#Maindiv {float:none; text-align:left; margin:0 2%}
+#Container {float:left; width:100%; display:block; clear:both; padding-top:10px; border: 1px #889 solid; border-top: 0;}
+#MainContainer {float:none; padding:7px;}
+#Header {float:left; width:100%; clear:both; background-color:#216b92}
+#Middle {float:none; width:100%; display:table; clear:both; background-color:#FFFFFF;}
+#Footer {padding: 0px; float: left; background-color:#4C7FA5; height: 10px; width: 100%;}
+#Middle .caseandreasonform {float:left; background-color:#D8D8D8 ; width:100%; padding:0px; margin-bottom:7px;}
+#Middle .formbox {padding:5px; background-color:#b2b0b0}
+#Middle .formboxtitle {color:#FFFFFF; font-size:15px; font-weight:bold; font-family:Arial, Helvetica, sans-serif; padding:0px}
+.header1 {
+font-size:14px; font-weight:bold; text-align:center; padding:5px 0px; color:#fff;
+}
+.value {padding:10px 0px}
+.value input{width:99%}
+.password {float:left; width:87%}
+.password input{float:left; width:97%}
+.password select{float:left; width:97%}
+#MainContainer .gobutton {float:right; text-align:right; clear:both; width:100%}
+#MainContainer .gobutton .viewcriteria{float:left;}
+.gobutton input{ background-color:#E07C38;
+border:1px solid #cc7941;
+color:#FFFFFF;
+font-weight:bold;
+width:auto; border-color:#f8d4c2 #cc7941 #cc7941 #f8d4c2; font-family:Arial,Verdana,sans-serif}
+#MainContainer .keywordinput {padding:0px}
+#MainContainer .keywordinput input {width:99%}
+.top {float:right; font-size:11px; font-weight:bold; text-align:center; padding:8px 0px;}
+#MainContainer .pagination {float:left; padding:0px; width:100%}
+#MainContainer .topleft {float:right; font-size:11px; font-weight:bold; text-align:center; padding:5px 0px;}
+#MainContainer .topleft span {font-size:17px}
+#MainContainer .searchresultheader div.matchrecords {float:right; font-size:12px; margin-right:10px; font-weight:normal; margin-top:2px}
+.back {float:left; padding-left:5px; padding-right:5px; border-right:1px solid #4c819a; }
+.home {float:right; padding-right:5px; padding-left:5px; text-align:right}
+a:link {text-decoration:underline; color:#36769C}
+a:visited {text-decoration:underline; color:#36769C}
+.top a:link {text-decoration:none; color:#BADBED}
+.top a:visited {text-decoration:none; color:#BADBED}
+.logo {float:left; padding:5px 0; padding-left:5px; font-family:Arial, Helvetica, sans-serif; position:relative;
+z-index:1;}
+.logo span { font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;}
+.logo1 {color:#FFFFFF}
+.logo2 {color:#ffb823}
+.top .logout {float:right; padding-right:5px; padding-left:5px; border-left:1px solid #4c819a;}
+#MainContainer .case{float:left; width:100%;}
+#MainContainer .casetext {width:20%; padding:8px 0}
+.caseinput {width:78%}
+.case div{float:left;}
+.case div div{float:left;}
+.case div input{float:right; width:100%}
+#MainContainer .searchreasondrop {float:left; clear:both; width:100%; padding:0px}
+.searchreasondrop select {width:100%}
+.searchtype {float:left; clear:both; width:100%}
+.searchtype ul {padding-left:15px; line-height:25px; margin-top:0px}
+.searchtype li {color:#E17236;}
+#MainContainer div {padding:8px 0px}
+#MainContainer .searchresulttable div {font-size:11px}
+#MainContainer .searchresulttable div a {display:block; float:left; text-decoration:none; width:100%; cursor:pointer}
+.gmaptext {font-size:10px; font-weight:normal; color:#636363; text-decoration:underline}
+#MainContainer div.searchresulttable {float:left; width:100%; padding:0; margin-bottom:7px;}
+#MainContainer .searchresultheader {background-color:#9aa0a7; float:left; width:99%; border:2px solid #b0b5bf; padding:5px 0}
+#MainContainer .searchresultheader div {float:left; padding:0 0 0 5px; font-size:15px; color:#FFFFFF; font-weight:bold; font-family:Arial,Helvetica,sans-serif}
+#MainContainer div.searchresulttable div {float:left; clear:both; width:100%; padding:0px}
+#MainContainer div.searchresulttable div.tableheader {background-color:#EAEAEB; border-bottom:1px solid #CCCCCC; color:#37428C; padding:2px 0; font-weight:bold}
+#MainContainer div.searchresulttable div.tableheader .name, #MainContainer div.searchresulttable div.tableheader .caseno, #MainContainer div.searchresulttable div.tableheader .nametext, #MainContainer div.searchresulttable div.tableheader .fullname {color:#36769C}
+#MainContainer div.searchresulttable div.row1 {background-color:#FFFFFF; border-bottom:1px solid #CCCCCC; color:#E17236; clear:both; width:100%; padding:4px 0}
+#MainContainer div.searchresulttable div.row2 {background-color:#F7F7F7; border-bottom:1px solid #CCCCCC; color:#E17236; clear:both; width:100%; padding:4px 0}
+#MainContainer div.searchresulttable div div{float:left; width:auto; clear:none}
+#MainContainer div.searchresulttable .name {width:62%; padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .nametext {width:11%; padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .fullname {width:67%; padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .caseno {width:32%; padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .cdcnum {padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .viewmenu {width:98%; padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .cdcnumheader {width:37%; padding:4px; color:#E17236; background-color:#D8D8D8; padding-top:8px; padding-bottom:8px}
+#MainContainer div.searchresulttable .nameheader {width:58%; padding:4px; color:#E17236; background-color:#D8D8D8; padding-top:8px; padding-bottom:8px}
+#MainContainer div.searchresulttable .name1 {width:37%; padding:4px; color:#E17236}
+#MainContainer div.searchresulttable .value1 {width:56%; padding:4px; color:#636363;}
+#MainContainer div.searchresulttable div.photo {width:inherit; text-align:center;}
+#MainContainer div.searchresulttable div.photo img {border:1px solid #ccc}
+#MainContainer div.detailspage div.row1, #MainContainer div.detailspage div.row2, #MainContainer div.detailspage div.tableheader {border:none}
+#MainContainer div.detailspage div.tableheader {background-color:#9AA0A7; border:2px solid #b0b5bf; border-left:none; border-right:none}
+#MainContainer div.detailspage .cdcnum {color:#eee; font-size:12px}
+#MainContainer div.detailspage .cdcnum span {color:#fff;}
+#MainContainer div.detailspage .cdcnumheader span, #MainContainer div.detailspage .nameheader span {color:#636363; font-size:11px}
+#MainContainer div.detailspage .cdcnum.floatright {float:right}
+#resultpagenumber {
+float:right;
+margin-top:10px;
+padding-right:10px;
+font-weight:bold;
+}
+.pagenumber a.selected:link {
+margin:2px;
+}
+.pagenumber a.selected:visited {
+margin:2px;
+}
+
+.pagenumber a:link {
+margin:2px;
+}
+.pagenumber a:visited {
+margin:2px;
+}
+
+
+#mapimage {
+clear:both;
+float:left;
+padding-left:10px;
+padding-top:5px;
+width:auto; height:480px; top:10px; float:none; margin-bottom:23px;
+}
+#MainContainer #emailAgentTop div {padding:0px}
+#MainContainer #emailAgentTop div div {clear:both; padding:2px 0px}
+#MainContainer #emailAgentTop div div div{clear:none}
+#MainContainer .searchresulttable div a.backtoresult {color:#9AA0A7; font-size:11px; text-align:right; text-decoration:none;}
+.termsnormaltext {font-size:10px}

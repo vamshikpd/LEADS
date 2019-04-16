@@ -1,0 +1,757 @@
+body {
+	margin: 0;
+	background-color:#b2bfcf;
+}
+
+body,div,p,li,a,span,b,div {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color: #36769c;
+	font-size:12px;
+}
+
+img {
+	border: none;
+}
+
+input {
+border:1px solid #b3b3b3; color:#8499af
+}
+select {
+border:1px solid #b3b3b3; color:#8499af
+}
+#Maindiv {width:997px; float:none; text-align:left}
+#Container {float:left; clear:both; width:997px; padding-top:10px; border: 1px #889 solid; border-top: 0;}
+#Header {float:left; clear:both; width:100%; height:110px}
+#Middle {float:left; clear:both; width:100%; background-color:#FFFFFF}
+#Footer {float:left; clear:both; width:997px; margin-top:75px; background-color:#4c7fa5; height:17px;}
+#Footercenter {width:775px; float:none; text-align:center}
+#Footercenterhowto {width:579px; float:none; text-align:center}
+#Top {float:left; clear:both; width:100%; background:url(../images/global/header_bg.jpg) no-repeat; height:41px}
+#logoimg {float:left; padding-left:12px; clear:both; position:absolute; z-index:1}
+.headerNav {float:left; width:100%; height:41px}
+#GlobalNav {float:left; clear:both; width:100%; background:transparent url(../images/global/top_nav_bg.gif) repeat-x scroll 0 50%; height:33px;}
+#rightmainleft {width:579px; float:left}
+#rightmainright {width:190px; float:left; padding-left:5px}
+#topglobalnav {float:left; clear:both; width:997px; position:absolute; margin-top:35px}
+.content_box {padding: 0px;	margin: 0px; width:960px;	padding-top:10px;}
+#rightmain {float:left; padding-left:10px; width:775px}
+#middlebottom {float:left; padding-left:10px;}
+#GlobalNavButton {	list-style: none;
+	padding: 0;
+	margin: 0; padding-left:135px;
+}
+#GlobalNavButton li{display:inline;}
+#GlobalNavButton li a:link {height:33px; margin:0px 5px 0px 0px;}
+#GlobalNavButton li a:visited {height:33px; margin:0px 5px 0px 0px;}
+#GlobalNavButton li a img {height:33px;}
+#welcomett_nav a img{width:136px;}
+#welcomett_nav a:link {background:url(../images/global/welcome_tt_nav.gif) no-repeat top; float:left}
+#welcomett_nav a:visited {background:url(../images/global/welcome_tt_nav.gif) no-repeat top; float:left}
+#welcomett_nav a:hover, #welcomett_nav.selected a:link, #welcomett_nav.selected a:visited {background:url(../images/global/welcome_tt_nav_on.gif) no-repeat top; float:left}
+
+#seach_nav a img{width:79px;}
+#seach_nav a:link {background:url(../images/global/search_nav.gif) no-repeat top; float:left}
+#seach_nav a:visited {background:url(../images/global/search_nav.gif) no-repeat top; float:left}
+#seach_nav a:hover, #seach_nav.selected a:link, #seach_nav.selected a:visited {background:url(../images/global/search_nav_on.gif) no-repeat top; float:left}
+
+#usermanagement_nav a img{width:156px;}
+#usermanagement_nav a:link {background:url(../images/global/user_management_nav.gif) no-repeat top; float:left}
+#usermanagement_nav a:visited {background:url(../images/global/user_management_nav.gif) no-repeat top; float:left}
+#usermanagement_nav a:hover, #usermanagement_nav.selected a:link, #usermanagement_nav.selected a:visited {background:url(../images/global/user_management_nav_on.gif) no-repeat top; float:left}
+
+#sysadmin_nav a img{width:184px;}
+#sysadmin_nav a:link {background:url(../images/global/system_admin_nav.gif) no-repeat top; float:left}
+#sysadmin_nav a:visited {background:url(../images/global/system_admin_nav.gif) no-repeat top; float:left}
+#sysadmin_nav a:hover, #sysadmin_nav.selected a:link, #sysadmin_nav.selected a:visited {background:url(../images/global/system_admin_nav_on.gif) no-repeat top; float:left}
+
+#auditreporting_nav a img{width:135px;}
+#auditreporting_nav a:link {background:url(../images/global/audit_reporting_nav.gif) no-repeat top; float:left}
+#auditreporting_nav a:visited {background:url(../images/global/audit_reporting_nav.gif) no-repeat top; float:left}
+#auditreporting_nav a:hover, #auditreporting_nav.selected a:link, #auditreporting_nav.selected a:visited {background:url(../images/global/audit_reporting_nav_on.gif) no-repeat top; float:left}
+
+#help_nav a img{width:59px;}
+#help_nav a:link {background:url(../images/global/help_nav.gif) no-repeat top; float:left}
+#help_nav a:visited {background:url(../images/global/help_nav.gif) no-repeat top; float:left}
+#help_nav a:hover, #help_nav.selected a:link, #help_nav.selected a:visited {background:url(../images/global/help_nav_on.gif) no-repeat top; float:left}
+#paroleesearch_text {float:left; padding:0px 0px 0px 116px;}
+#welcomelogin_text {float:right; padding-right:12px; font-size:15px; color:#FFFFFF; font-weight:bold; padding-top:15px; height:26px}
+#welcomelogin_text a:link {color:#FFFFFF; text-decoration:none; padding:3px 8px; font-size:15px}
+#welcomelogin_text a:visited {color:#FFFFFF; text-decoration:none; padding:3px 8px; font-size:15px}
+#welcomelogin_text a:hover {color:#FFFFFF; text-decoration:none; background-color:#d26931;}
+#middletopleft {float:left}
+#middletopright {float:left; padding-left:4px; width:810px}
+#paroleedetailspage #middletopright {float:left; padding-left:4px; width:988px}
+#step1div {width:166px; float:left; padding-left:10px}
+#step1divmiddlepart {background-color:#d8d8d8; padding:8px; float:left; width:150px}
+#step1divmiddlepart div {padding:0px 0px 8px 0px; line-height:17px; float:left; width:150px}
+#step1divmiddlepart div div{width:auto}
+#step1divmiddlepart input {width:137px; padding:5px;}
+#step1divmiddlepart select {width:150px;}
+#step1divmiddlepart div div {float:left; padding:0px}
+#step1divmiddlepart div.helpicon {float:left; padding:0px padding-left:8px;}
+
+#savedsearchesdiv {width:166px; float:left; padding-left:10px; clear:both; padding-top:10px}
+#savedsearchesdivmiddlepart {background-color:#d8d8d8; padding:8px; float:left; width:150px}
+#savedsearchesdivmiddlepart div {padding:0px 0px 8px 0px; line-height:17px; float:left;}
+.savedname {width:100px}
+.deletelink {width:50px}
+#savedsearchesdivmiddlepart input {width:137px; padding:5px;}
+#savedsearchesdivmiddlepart select {width:150px;}
+#savedsearchesdivmiddlepart div div {float:left; padding:0px}
+#savedsearchesdivmiddlepart div.helpicon {float:left; padding:0px padding-left:8px;}
+#savedsearchesdivmiddlepart div.orangearrow img{padding-top:2px; padding-right:7px;}
+
+#step2div {float:left; width:100%}
+#step2divtop {float:left; clear:both; width:100%}
+#step2divtopleft {float:left}
+#step2divtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:794px}
+#step2divtopright {float:left}
+#step2textdiv {float:left}
+#savesearchdiv {float:right; padding-right:7px}
+#savesearchdiv a:link {text-decoration:none; color:#FFFFFF}
+#savesearchdiv a:visited {text-decoration:none; color:#FFFFFF}
+#savesearchdiv a:hover {text-decoration:none; color:#fed804}
+#savesearchdiv span{float:left; padding-left:5px}
+#saveseachtext {padding-top:8px; font-weight:bold; color:#FFFFFF}
+#savesearchdiv select{width:133px; margin-left:13px; margin-top:5px;}
+#step2divgroupstate {color:#c6632e; font-weight:normal; float:left; clear:both; width:100%}
+#step2divgroupstate div{padding:12px 0px 5px 108px;}
+#step2divgroupstate input {border:none}
+#step2divsearchdiv {float:left; clear:both; width:100%; padding-top:20px}
+#step2divsearchdiv div {padding-left:12px; float:left}
+#step2divsearchdiv div input{width:449px; background:url(../images/global/search_input_bg.gif) repeat-x; padding:2px 0; border-width:2px}
+#step2divsearchdiv div div div{padding-top:5px; padding-left:0px}
+#step2divsearchdiv div.searchtext {padding-top:5px;}
+#step2divsearchdiv div.orangearrow {padding-top:5px; padding-top:0px; width:131px}
+#step2divsearchdiv div.orangearrow img{padding-top:2px; padding-right:7px;}
+#step2divsearchdiv div.advancesearchtext {padding-top:2px; padding-left:2px; width:100px}
+
+#refinebydivtop {float:left; clear:both; width:100%; padding-top:20px}
+#refinebydivtopleft {float:left}
+#refinebydivtopmiddle {background:url(../images/global/refine_by_box_bg.gif) repeat-x; float:left; height:32px; width:791px}
+#refinebydivtopright {float:left}
+#step2textdiv {float:left}
+#savesearchdiv {float:right; padding-right:7px}
+#savesearchdiv a:link {text-decoration:none; color:#FFFFFF}
+#savesearchdiv a:visited {text-decoration:none; color:#FFFFFF}
+#savesearchdiv a:hover {text-decoration:none; color:#fed804}
+#savesearchdiv span{float:left; padding-left:5px}
+#saveseachtext {padding-top:8px; font-weight:bold; color:#FFFFFF}
+#savesearchdiv select{width:133px; margin-left:13px; margin-top:5px;}
+#refinebydivgroupstate {color:#c6632e; font-weight:normal; float:left; clear:both; width:100%}
+#refinebydivgroupstate div{padding:12px 0px 5px 108px;}
+#refinebydivgroupstate input {border:none}
+#refinebydivsearchdiv {float:left; clear:both; width:100%}
+#refinebydivsearchdiv div {padding-left:12px; float:left}
+#refinebydivsearchdiv div input{width:449px; background:url(../images/global/search_input_bg.gif) repeat-x; padding:2px 0; border-width:2px}
+#refinebydivsearchdiv div.searchtext {padding-top:5px;}
+#refinebydivsearchdiv div.orangearrow {padding-top:5px;}
+#refinebydivsearchdiv div.advancesearchtext {padding-top:2px;}
+#refinebybutton {	list-style: none;
+	padding: 0;
+	margin: 0; padding-left:135px;
+}
+#refinebybutton li{display:inline;}
+#refinebybutton li a:link {margin:3px 1px 0 0; padding:7px;}
+#refinebybutton li a:visited {margin:3px 1px 0 0; padding:7px;}
+#refinebybutton li a img {height:33px;}
+#refinebybutton a img{width:136px;}
+#refinebybutton a:link {background:#bfc0c2; float:left; color:#FFFFFF}
+#refinebybutton a:visited {background:#bfc0c2; float:left; color:#FFFFFF}
+#refinebybutton a:hover, #refinebybutton .selected a:link, #refinebybutton .selected a:visited {background::#bfc0c2; no-repeat top; float:left; color:#545d69}
+#refinebybuttondiv {float:right; padding-right:1px}
+#refinebybuttondiv a:link {text-decoration:none;}
+#refinebybuttondiv a:visited {text-decoration:none;}
+#refinebybuttondiv span{float:left; padding-left:5px}
+#refinebybuttondiv {font-weight:bold;}
+#refinebybuttondiv select{width:133px; margin-left:13px; margin-top:5px;}
+#refinebydivsearchdiv div {float:left; clear:both; padding-top:20px; width:780px}
+#refinebydivsearchdiv select {width:141px; margin-right:65px;}
+#refinebydivsearchdiv select.right {width:141px; margin-right:0px;}
+
+
+#step3divtop {float:left; clear:both; width:100%; padding-top:10px;}
+#step3divtopleft {float:left}
+#step3divtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:765px}
+#step3divtopright {float:left}
+#step2textdiv {float:left}
+#savesearchdiv {float:right; padding-right:7px}
+#savesearchdiv a:link {text-decoration:none; color:#FFFFFF}
+#savesearchdiv a:visited {text-decoration:none; color:#FFFFFF}
+#savesearchdiv a:hover {text-decoration:none; color:#fed804}
+#savesearchdiv span{float:left; padding-left:5px}
+#saveseachtext {padding-top:8px; font-weight:bold; color:#FFFFFF}
+#savesearchdiv select{width:133px; margin-left:13px; margin-top:5px;}
+
+#stepsortNavButton {	list-style: none;
+	padding: 0;
+	margin: 0; padding-left:0px;
+}
+#stepsortNavButton li{display:inline;}
+#stepsortNavButton li a:link {height:32px; margin:0px 0px 0px 1px;}
+#stepsortNavButton li a:visited {height:32px; margin:0px 0px 0px 1px;}
+#stepsortNavButton li a img {height:32px;}
+#stepsortNavButton #list_nav a img{width:41px;}
+#stepsortNavButton #list_nav a:link {background:url(../images/global/list_button.gif) no-repeat top; float:left; margin-top:2px}
+#stepsortNavButton #list_nav a:visited {background:url(../images/global/list_button.gif) no-repeat top; float:left; margin-top:2px}
+#stepsortNavButton #list_nav a:hover, #stepsortNavButton #list_nav.selected a:link, #stepsortNavButton #list_nav.selected a:visited {background:url(../images/global/list_button_on.gif) no-repeat top; float:left; margin-top:2px}
+
+#stepsortNavButton #listphoto_nav a img{width:98px;}
+#stepsortNavButton #listphoto_nav a:link {background:url(../images/global/list_and_photo_button.gif) no-repeat top; float:left; margin-top:2px}
+#stepsortNavButton #listphoto_nav a:visited {background:url(../images/global/list_and_photo_button.gif) no-repeat top; float:left; margin-top:2px}
+#stepsortNavButton #listphoto_nav a:hover, #stepsortNavButton #listphoto_nav.selected a:link, #stepsortNavButton #listphoto_nav.selected a:visited {background:url(../images/global/list_and_photo_button_on.gif) no-repeat top; float:left; ; margin-top:2px}
+
+#stepsortNavButton #map_nav a img{width:61px;}
+#stepsortNavButton #map_nav a:link {background:url(../images/global/map_button.gif) no-repeat top; float:left; margin-top:2px}
+#stepsortNavButton #map_nav a:visited {background:url(../images/global/map_button.gif) no-repeat top; float:left; margin-top:2px}
+#stepsortNavButton #map_nav a:hover, #stepsortNavButton #map_nav.selected a:link, #stepsortNavButton #map_nav.selected a:visited {background:url(../images/global/map_button_on.gif) no-repeat top; float:left; ; margin-top:2px}
+
+
+ul#refinmentsbutton{	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#refinmentsbutton li{display:inline;}
+#refinmentsbutton li {margin:3px 1px 0 0; padding:7px;}
+#refinmentsbutton li a img {height:10px;}
+#refinmentsbutton a img{width:12px;}
+#refinmentsbutton li {background:#4c7fa5; float:left; color:#FFFFFF}
+#refinmentsbutton li.selected {background:#d26931; no-repeat top; float:left; color:#fff}
+#refinmentsbutton a:link {background:#4c7fa5;  color:#FFFFFF; padding:1px 3px}
+#refinmentsbutton a:visited {background:#4c7fa5;  color:#FFFFFF; padding:1px 3px}
+#refinmentsbutton a:hover, #refinmentsbutton .selected a:link, #refinmentsbutton .selected a:visited {background:#d26931; no-repeat top; color:#fff}
+#refinmentsbuttondiv {float:left; padding-right:1px}
+#refinmentsbuttondiv a:link {text-decoration:none;}
+#refinmentsbuttondiv a:visited {text-decoration:none;}
+#refinmentsbuttondiv span{float:left; padding-left:5px}
+#refinmentsbuttondiv {font-weight:bold;}
+#refinmentsbuttondiv select{width:133px; margin-left:13px; margin-top:5px;}
+
+#resultpagenumber {float:right; padding-right:10px; margin-top:10px;}
+.pagenumber a:link.selected  {margin:2px;}
+.pagenumber a:visited.selected  {margin:2px;}
+.pagenumber a:hover.selected  {margin:2px;}
+.pagenumber a:link {margin:2px;}
+.pagenumber a:visited {margin:2px;}
+.pagenumber a:hover {margin:2px;}
+
+#paroleeresultslist2 {padding-left:10px; padding-top:40px; float:left; clear:both}
+.clearboth {clear:both; padding:0px; margin:0px;}
+#advsearchbody {background-color:#FFFFFF}
+#advSearchTop {padding:8px; padding-left:25px;}
+#advSearchTop div#advSearchTopfirstrow{padding-top:0px; float:left; clear:both; width:100%}
+#advSearchTop div{padding-top:12px; float:left; clear:both; width:100%;}
+#advSearchTop div div{padding-top:21px; float:left; clear:none; width:auto}
+#advSearchTop div div {padding:0px 0px 0px 0px; line-height:17px; float:left; clear:none}
+#advSearchTop #advSearchTopMiddle div {padding:0px 0px 0px 0px; line-height:17px; float:left; padding:0px 54px}
+#advSearchTop input {width:137px; padding:5px;}
+#advSearchTop select {width:150px; height:26px}
+#advSearchTop #advSearchTopMiddlelast{padding:0px 0px 0px 0px; line-height:17px; float:left; padding:0 22px 0 54px}
+#advSearchTop #advSearchTopMiddlelast span{padding-top:6px; clear:both; float:left; color:#555555}
+#advSearchTop #advSearchToprightlast input {width:59px; margin-right:6px}
+.w90 {width:90px}
+#advSearchTop input.w90 {width:80px}
+#advSearchMiddle1 {float:left; clear:both; padding:12px;}
+#regFelonyNotify {float:left; clear:both; background-color:#cac8c9; width:588px;}
+#regFelonyNotify div {float:left;}
+#regFelonyNotify div.middle{width:568px; padding-left:10px;}
+#regFelonyNotify1 {float:left; clear:both; background-color:#e8e6e7; width:588px;}
+#regFelonyNotify1 div {float:left}
+#regFelonyNotify1 div.middle{width:568px; padding-left:10px; padding-top:6px}
+.mt23 {margin-top:23px}
+#regFelonyNotify1 input.firstinput {margin:0px; border:none; margin-left:0px; margin-right:3px;}
+#regFelonyNotify1 input {margin:0px; border:none; margin-left:5px; margin-right:3px; padding:0px}
+#advSearchMiddle2 {float:left; clear:both; width:572px; padding-left:26px}
+#advSearchMiddle2 div{Width:286px; float:left}
+#advSearchMiddle2 div div{Width:auto; float:none}
+#advSearchMiddle2 select {width:114px; height:26px}
+#advSearchMiddle2 input {width:114px; height:26px}
+#advSearchMiddle2 img {vertical-align:top; padding-left:18px}
+#advSearchMiddle2 input.radio {border:none; vertical-align:top; width:auto; height:auto}
+#advSearchMiddle2 span {vertical-align:top; padding-left:18px}
+#advSearchMiddle2 #refinmentsbuttondiv {padding-top:20px; width:284px}
+#advSearchMiddle2 #refinmentsbuttondiv img {vertical-align:top; padding-left:0px}
+#advSearchMiddle2 #refinmentsbuttondiv li {padding:3px}
+#advSearchMiddle2 #refinmentsbuttondiv li.selected {padding:0px}
+
+
+#advSearchbottom1 {float:left; clear:both; padding:12px;}
+#regFelonyNotify {float:left; clear:both; background-color:#cac8c9; width:588px;}
+#regFelonyNotify div {float:left;}
+#regFelonyNotify div.bottom{width:568px; padding-left:10px;}
+#regFelonyNotify1 {float:left; clear:both; background-color:#e8e6e7; width:588px;}
+#regFelonyNotify1 div {float:left}
+#regFelonyNotify1 div.bottom{width:568px; padding-left:10px; padding-top:6px}
+.mt23 {margin-top:23px}
+#regFelonyNotify1 input.firstinput {margin:0px; border:none; margin-left:0px; margin-right:3px;}
+#regFelonyNotify1 input {margin:0px; border:none; margin-left:5px; margin-right:3px; padding:0px}
+#advSearchbottom2 {float:left; clear:both; width:572px; background-color:#E8E6E7}
+#advSearchbottom2 div{width:264px; float:left; margin:4px}
+#advSearchbottom2 div div{Width:auto; float:none}
+#advSearchbottom2 select {width:114px; height:26px}
+#advSearchbottom2 img {vertical-align:top; padding-left:18px}
+#advSearchbottom2 input.radio {border:none; vertical-align:top}
+#advSearchbottom2 span {vertical-align:top; padding-left:18px}
+#advSearchbottom2 #refinmentsbuttondiv {padding-top:20px; width:240px}
+#advSearchbottom2 #refinmentsbuttondiv img {vertical-align:top; padding-left:0px}
+#advSearchbottom2 #refinmentsbuttondiv li {padding:3px}
+#advSearchbottom2 #refinmentsbuttondiv li.selected {padding:0px}
+#advSearchbottom2 div#advSearchbottom2top {float:left; clear:both; padding:0px; margin:0px; width:572px}
+#advSearchbottom2 #advSearchbottom2top div {float:left; clear:none; padding:0px; margin:0px; height:4px}
+#advSearchbottom2 #advSearchbottom2top img {padding:0px; margin:0px; height:4px;}
+#advSearchbottom2 #advSearchbottom2top .middle {width:564px; height:4px}
+
+.searchbutton {width:100%; text-align:center; margin-top:10px; float:left}
+div#advSearchbottom2main {padding-left:12px; padding-top:10px; float:left; clear:both}
+#advSearchbottom2top {height:4px;}
+.greylefttopcurve {background:url(../images/global/lightgrey_box_curve_top_left.gif) top no-repeat}
+.greyrighttopcurve {background:url(../images/global/lightgrey_box_curve_top_right.gif) top no-repeat right}
+.greyleftbottomcurve {background:url(../images/global/lightgrey_box_curve_bottom_left.gif) bottom no-repeat}
+.greyrightbottomcurve {background:url(../images/global/lightgrey_box_curve_bottom_right.gif) bottom no-repeat right}
+
+#advSearchTop #helpdiv {float:left; padding:0px; width:100%; clear:both; text-align:right}
+
+#suspectinfodiv {width:166px; float:left; padding-left:10px}
+#suspectinfodivmiddlepart {background-color:#d8d8d8; padding:8px 8px 8px 24px; float:left; width:133px; height:111px}
+#suspectinfodivmiddlepart div {padding:0px 0px 8px 0px; line-height:17px; float:left; color:#306289; font-size:11px;}
+#suspectinfodivmiddlepart input {width:137px; padding:5px;}
+#suspectinfodivmiddlepart select {width:150px;}
+#suspectinfodivmiddlepart div div {float:left; padding:0px}
+#suspectinfodivmiddlepart div.helpicon {float:left; padding:0px padding-left:8px;}
+#suspectinfodivmiddlepart .photo {position:absolute; float:left; padding:3px}
+#suspectinfodivmiddlepart .frame {position:absolute;}
+.suspectinfodivinfo {font-size:11px; float:left; clear:both; padding:10px 25px; line-height:19px}
+
+.photo {position:absolute; float:left; padding:3px; margin:auto;}
+.frame {position:absolute;}
+
+#essenceinfodivtop {float:left; clear:both; width:100%;}
+#essenceinfodivtopleft {float:left}
+#essenceinfodivtopmiddle {background:url(../images/global/refine_by_box_bg.gif) repeat-x; float:left; height:32px; width:798px}
+#paroleedetailspage #essenceinfodivtopmiddle {width:99%}
+#essenceinfodivtopright {float:left}
+#essenceinfotextdiv {padding-left:10px}
+
+#parolledetailsdiv {float:left; width:100%}
+#parolledetailsdivtop {float:left; clear:both; width:100%}
+#parolledetailsdivtopleft {float:left}
+#parolledetailsdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:791px}
+#paroleedetailspage #parolledetailsdivtopmiddle {width:98%}
+#parolledetailsdivtopright {float:left}
+#parolleheadertextdiv {float:left; padding-left:7px; color:#FFFFFF; padding-top:9px; font-weight:bold}
+
+#paroleedetailstopbutton {float:left; width:100%}
+#paroleedetailstopNavButton {	list-style: none;
+	padding: 0 0 0 151px;
+	margin: 0; 
+}
+.floatr {float:right; text-align:right}
+#paroleedetailstopNavButton li{display:inline;}
+#paroleedetailstopNavButton li a:link {height:28px; margin:0px 0px 0px 1px;}
+#paroleedetailstopNavButton li a:visited {height:28px; margin:0px 0px 0px 1px;}
+#paroleedetailstopNavButton li a img {height:28px;}
+#paroleedetailstopNavButton #parolee_info_nav a img{width:139px;}
+#paroleedetailstopNavButton #parolee_info_nav a:link {background:url(../images/parolee_details/parolee_info_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #parolee_info_nav a:visited {background:url(../images/parolee_details/parolee_info_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #parolee_info_nav a:hover, #paroleedetailstopNavButton #parolee_info_nav.selected a:link, #paroleedetailstopNavButton #parolee_info_nav.selected a:visited {background:url(../images/parolee_details/parolee_info_button_on.gif) no-repeat top; float:left; margin-top:2px}
+
+#paroleedetailstopNavButton #photo_gallery_nav a img{width:97px;}
+#paroleedetailstopNavButton #photo_gallery_nav a:link {background:url(../images/parolee_details/photo_gallery_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_gallery_nav a:visited {background:url(../images/parolee_details/photo_gallery_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_gallery_nav a:hover, #paroleedetailstopNavButton #photo_gallery_nav.selected a:link, #paroleedetailstopNavButton #photo_gallery_nav.selected a:visited {background:url(../images/parolee_details/photo_gallery_button_on.gif) no-repeat top; float:left; ; margin-top:2px}
+
+#paroleedetailstopNavButton #photo_lineup_nav a img{width:91px;}
+#paroleedetailstopNavButton #photo_lineup_nav a:link {background:url(../images/parolee_details/photo_lineup_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_lineup_nav a:visited {background:url(../images/parolee_details/photo_lineup_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_lineup_nav a:hover, #paroleedetailstopNavButton #photo_lineup_nav.selected a:link, #paroleedetailstopNavButton #photo_lineup_nav.selected a:visited {background:url(../images/parolee_details/photo_lineup_button_on.gif) no-repeat top; float:left; ; margin-top:2px}
+#parolledetailsdivcontent{float:left; width:100%;}
+.row1 {float:left; clear:both; background-color:#f7f7f7; width:100%}
+.row2 {float:left; clear:both; background-color:#ffffff; width:100%}
+.paroleedetailsname {float:left; color:#e17236; padding:10px 0px 10px 10px}
+.paroleedetailsvalue {float:left; color:#636363; padding:10px 0px 10px 10px}
+.paroleedetailsphoto {float:left; height:105px}
+
+#parolledetailsdivcontent .col1 {width:11%}
+#parolledetailsdivcontent .col2 {width:16%}
+#parolledetailsdivcontent .col3 {width:11%}
+#parolledetailsdivcontent .col4 {width:16%}
+#parolledetailsdivcontent .col5 {width:11%}
+#parolledetailsdivcontent .col6 {width:16%}
+#parolledetailsdivcontent .col7 {width:35px}
+#parolledetailsdivcontent .col8 {width:70px}
+
+#parolledetailsdivcontent .firsttworowphoto .col1 {width:12%}
+#parolledetailsdivcontent .firsttworowphoto .col2 {width:18%}
+#parolledetailsdivcontent .firsttworowphoto .col3 {width:12%}
+#parolledetailsdivcontent .firsttworowphoto .col4 {width:18%}
+#parolledetailsdivcontent .firsttworowphoto .col5 {width:12%}
+#parolledetailsdivcontent .firsttworowphoto .col6 {width:18%}
+
+.paroleedetailsphoto .photo {position:absolute; float:left; padding:3px}
+.paroleedetailsphoto .frame {position:absolute;}
+
+
+paroleeaddressesdiv {float:left; width:100%}
+#paroleeaddressesdivtop {float:left; clear:both; width:100%}
+#paroleeaddressesdivtopleft {float:left}
+#paroleeaddressesdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:791px}
+#paroleedetailspage #paroleeaddressesdivtopmiddle {width:98%}
+#paroleeaddressesdivtopright {float:left}
+#paroleeaddressestextdiv {float:left; padding-left:7px}
+
+#paroleedetailstopbutton {float:left; width:100%}
+#paroleedetailstopNavButton {	list-style: none;
+	padding: 0 0 0 151px;
+	margin: 0; 
+}
+#paroleedetailspage #paroleedetailstopNavButton {	list-style: none;
+	padding: 0 0 0 0px;
+	margin: 0; 
+}
+.floatr {float:right; text-align:right}
+#paroleedetailstopNavButton li{display:inline;}
+#paroleedetailstopNavButton li a:link {height:28px; margin:0px 0px 0px 1px;}
+#paroleedetailstopNavButton li a:visited {height:28px; margin:0px 0px 0px 1px;}
+#paroleedetailstopNavButton li a img {height:28px;}
+#paroleedetailstopNavButton #parolee_info_nav a img{width:139px;}
+#paroleedetailstopNavButton #parolee_info_nav a:link {background:url(../images/parolee_details/parolee_info_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #parolee_info_nav a:visited {background:url(../images/parolee_details/parolee_info_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #parolee_info_nav a:hover, #paroleedetailstopNavButton #parolee_info_nav.selected a:link, #paroleedetailstopNavButton #parolee_info_nav.selected a:visited {background:url(../images/parolee_details/parolee_info_button_on.gif) no-repeat top; float:left; margin-top:2px}
+
+#paroleedetailstopNavButton #photo_gallery_nav a img{width:97px;}
+#paroleedetailstopNavButton #photo_gallery_nav a:link {background:url(../images/parolee_details/photo_gallery_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_gallery_nav a:visited {background:url(../images/parolee_details/photo_gallery_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_gallery_nav a:hover, #paroleedetailstopNavButton #photo_gallery_nav.selected a:link, #paroleedetailstopNavButton #photo_gallery_nav.selected a:visited {background:url(../images/parolee_details/photo_gallery_button_on.gif) no-repeat top; float:left; ; margin-top:2px}
+
+#paroleedetailstopNavButton #photo_lineup_nav a img{width:91px;}
+#paroleedetailstopNavButton #photo_lineup_nav a:link {background:url(../images/parolee_details/photo_lineup_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_lineup_nav a:visited {background:url(../images/parolee_details/photo_lineup_button.gif) no-repeat top; float:left; margin-top:2px}
+#paroleedetailstopNavButton #photo_lineup_nav a:hover, #paroleedetailstopNavButton #photo_lineup_nav.selected a:link, #paroleedetailstopNavButton #photo_lineup_nav.selected a:visited {background:url(../images/parolee_details/photo_lineup_button_on.gif) no-repeat top; float:left; ; margin-top:2px}
+#paroleeaddressesdivcontent{float:left; width:100%;}
+.row1 {float:left; clear:both; background-color:#f7f7f7; width:100%}
+.row2 {float:left; clear:both; background-color:#ffffff; width:100%}
+.paroleedetailsname {float:left; color:#e17236; padding:10px 0px 10px 10px}
+.paroleedetailsvalue {float:left; color:#636363; padding:10px 0px 10px 10px}
+.paroleedetailsphoto {float:left; height:105px}
+.firsttworow {float:left; width:85%; padding-top:19px}
+#paroleedetailspage .firsttworow {float:left; width:90%; padding-top:19px}
+.firsttworowphoto {float:left; clear:both; width:100%}
+#paroleeaddressesdivcontent .col1 {width:15%}
+#paroleeaddressesdivcontent .col2 {width:33%}
+#paroleeaddressesdivcontent .col3 {width:15%}
+#paroleeaddressesdivcontent .col4 {width:33%}
+#paroleeaddressesdivcontent .col5 {width:80px}
+#paroleeaddressesdivcontent .col6 {width:137px}
+#paroleeaddressesdivcontent .col7 {width:35px}
+#paroleeaddressesdivcontent .col8 {width:70px}
+
+.paroleedetailsphoto .photo {position:absolute; float:left; padding:3px}
+.paroleedetailsphoto .frame {position:absolute;}
+
+
+
+#middletoprightbottom {float:left; clear:both; width:100%}
+
+#parolleprintpreviewdiv {float:left; width:50%}
+#parolleprintpreviewdivtop {float:left; clear:both; width:100%}
+#parolleprintpreviewdivtopleft {float:left}
+#parolleprintpreviewdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:97%}
+#parolleprintpreviewdivtopright {float:left}
+#parolleprintpreviewtextdiv {float:left; padding-left:7px}
+#parolleprintpreviewdivcontent {background-color:#e5e5e6; margin-right:2px; float:left; width:99%}
+
+.parolleprintpreviewphotobuttom {float:left; width:100%; background-color:#e5e5e6; padding:10px 0}
+.parolleprintpreviewphoto {float:left; width:62%; height:178px; padding-left:10px}
+
+.parolleprintpreviewbutton {float:right; padding-right:10px; background-color:#e5e5e6; width:130px}
+
+.parolleprintpreviewphoto .photo {position:absolute; float:left; padding:3px}
+.parolleprintpreviewphoto .frame {position:absolute;}
+
+
+#mugsmtdiv {float:left; width:50%;}
+
+#mugshotselecteddiv {float:left; width:100%}
+#mugshotselecteddivtop {float:left; clear:both; width:100%}
+#mugshotselecteddivtopleft {float:left}
+#mugshotselecteddivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:97%}
+#mugshotselecteddivtopright {float:left}
+#mugshotselectedtextdiv {float:left; padding-left:7px}
+
+#smtphotosdiv {float:left; width:100%}
+#smtphotosdivtop {float:left; clear:both; width:100%}
+#smtphotosdivtopleft {float:left}
+#smtphotosdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:97%}
+#smtphotosdivtopright {float:left}
+#smtphotostextdiv {float:left; padding-left:7px}
+
+.parolleprintpreviewcontent {float:left; clear:both; width:100%; background-color:#E5E5E6; line-height:23px; padding:6px 0px}
+.parolleprintpreviewcontent div{padding:2px 10px}
+.print_preview_photo_button {float:right; clear:both;}
+.print_preview_gallery_button {float:right; clear:both; padding:53px 0px}
+.print_preview_nist_button {float:right; clear:both;}
+
+div#mugshotselecteddivcontent {float:left; clear:both; width:100%; padding:30px 0px 0; background-color:#E5E5E6; height:140px; overflow:auto; position:relative}
+.middlephoto {padding:0px 45px}
+.mugshotselectedrow1 {padding-bottom:10px; float:left; clear:both; width:100%; height:100px; position:relative}
+.mugshotselectedphoto {float:left; height:105px; width:100px; position:relative; padding:9px}
+.mugshotselectedphoto .photo {position:relative; float:left; padding:3px}
+.mugshotselectedphoto .frame {position:relative; margin-top:-100px; float:left}
+
+div#smtphotosdivcontent {float:left; clear:both; width:100%; padding:30px 0px 0; background-color:#E5E5E6; height:140px; overflow:auto; position:relative}
+.smtphotosrow1 {padding-bottom:10px; float:left; clear:both; width:100%; height:100px; position:relative}
+.smtphotosphoto {float:left; height:105px; width:100px; padding:9px}
+.smtphotosphoto .photo {position:relative; float:left; padding:3px}
+.smtphotosphoto .frame {position:relative; margin-top:-100px; float:left}
+
+input.checkbox {border:none;}
+.essenceinfodivboxcontent {padding:10px;}
+#essenceinfodivboxrow {padding:10px 0px; float:left}
+#essenceinfodivboxrow div {float:left;}
+#essenceinfodivboxrow .col1 {width:170px}
+#essenceinfodivboxrow .col2 {width:164px}
+#essenceinfodivboxrow .col3 {width:279px}
+#essenceinfodivboxrow .col4 {width:170px}
+
+.essenceinfoname {color:#E17236}
+
+.similersearchboxcontent {padding:10px;}
+#similersearchboxrow {padding:10px 0px; float:left}
+#similersearchboxrow div {float:left;}
+#similersearchboxrow .col1 {width:170px}
+#similersearchboxrow .col2 {width:164px}
+#similersearchboxrow .col3 {width:279px}
+#similersearchboxrow .col4 {width:170px}
+
+#currentsimilarresultdiv {float:left; width:54%}
+#currentsimilarresultdivtop {float:left; clear:both; width:100%}
+#currentsimilarresultdivtopleft {float:left}
+#currentsimilarresultdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:97%}
+#currentsimilarresultdivtopright {float:left}
+#currentsimilarresulttextdiv {float:left; padding-left:7px}
+#currentsimilarresultdivcontent {background-color:#e5e5e6; float:left; width:99%; background-color:#E5E5E6; height:351px; overflow:auto; position:relative}
+
+.currentsimilarresultphotobuttom {margin-top:20px; margin-left:auto; margin-right:auto; width:70%}
+.currentsimilarresultphoto {float:left; position:relative; padding:6px 0 6px 6px}
+
+.currentsimilarresultbutton {float:right}
+
+.currentsimilarresultphoto .photo {position:relative; float:left; padding:4px}
+.currentsimilarresultphoto .frame {position:relative; margin-left:-155px; float:left}
+
+#photoselecteddiv {float:left; width:45%; padding-left:5px}
+
+#photoselectedinnerdiv {float:left; width:100%}
+#photoselectedinnerdivtop {float:left; clear:both; width:100%; height:31px}
+#photoselectedinnerdivtop div {padding:0px; margin:0px;}
+#photoselectedinnerdivtopleft {float:left}
+#photoselectedinnerdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:97%}
+#photoselectedinnerdivtopright {float:left}
+#photoselectedinnertextdiv {float:left; padding-left:7px}
+div#photoselectedinnerdivcontent {float:left; clear:both; width:99%; background-color:#E5E5E6; height:355px; overflow:auto; position:relative;}
+
+.photoselectedinnerrow1 {padding-bottom:29px; margin:0 auto; clear:both; width:390px; position:relative; height:auto}
+.photoselectedinnerrow1 div{height:auto; float:left}
+.photoselectedinnerrow1 div div{height:auto}
+.photoselectedinnerrow1 div.photoselectedinnerphoto {float:left; width:100px; position:relative; height:auto}
+.photoselectedinnerrow1 div.photoselectedinnerphoto .photo {position:relative; float:left; padding:3px}
+.photoselectedinnerrow1 div.photoselectedinnerphoto .frame {position:relative;  float:left; margin-top:-100px}
+
+.photoselectedinnerrow2 { margin:0 auto; clear:both; width:390px; position:relative; height:auto}
+.photoselectedinnerrow2 div{height:auto; float:left}
+.photoselectedinnerrow2 div div{height:auto}
+.photoselectedinnerrow2 div.photoselectedinnerphoto {float:left; width:100px; position:relative; height:auto}
+.photoselectedinnerrow2 div.photoselectedinnerphoto .photo {position:relative; float:left; padding:3px}
+.photoselectedinnerrow2 div.photoselectedinnerphoto .frame {position:relative;  float:left; margin-top:-100px}
+
+.specifiypositionfield {margin:0 auto; clear:both; width:390px; padding:10px; text-align:right; border-bottom:1px solid #a6aec3}
+.numbering {padding:5px; width:20px}
+
+.photoselectedinnernumber {width:100%}
+.w74 {width:74px; text-align:center}
+
+.photoselectedinnerbutton{ padding:7px 0px; width:410px; margin:15px auto}
+.photoselectedinnerbuttonmiddle {padding:0px 32px;}
+.photoselectedinnerbutton div{float:left}
+
+#paroleeresultslist {float:left; clear:both; width:975px; padding-top:40px; font-size:11px}
+#paroleeresultslist div, #paroleeresultslist a{font-size:11px}
+.paroleeresultslistheader {float:left; clear:both}
+#paroleeresultslist .col {width:69px; margin:0 2px 0 0}
+#paroleeresultslist div.toolhead {width:40px}
+#paroleeresultslist div.thumbnailhead {width:50px}
+#paroleeresultslist a:link {text-decoration:none}
+#paroleeresultslist a:visited {text-decoration:none}
+#paroleeresultslist a:hover {text-decoration:none}
+#paroleeresultslist .toolicon {text-align:center; float:left; padding:10px 0 10px 5px; width:38px}
+#paroleeresultslist .thumbnail {text-align:center; float:left; padding:10px 0 10px 5px; width:50px}
+.paroleedetailshead {float:left; color:#555555; padding:0px 0px 0px 5px}
+.paroleedetailshead a:link {color:#555555; text-decoration:none; padding-right:10px}
+.paroleedetailshead a:visited {color:#555555; text-decoration:none; padding-right:10px}
+.paroleedetailshead a:hover {color:#555555; text-decoration:none; padding-right:10px}
+.up {background:url(../images/global/sorting_up_arrow.gif) no-repeat right top; display:table-caption}
+.down {background:url(../images/global/sorting_down_arrow.gif) no-repeat right top; display:table-caption}
+.close {background:url(../images/global/close_icon.gif) no-repeat right top; display:table-caption}
+.row1 div, .row2 div {padding:10px 0 10px 5px;}
+#paroleeresultslist .row1 { border-bottom:1px solid #ccc;}
+#paroleeresultslist .row2 { border-bottom:1px solid #ccc;}
+
+#paroleeresultslist .thumbnail img {border:1px solid #ccc}
+.searchsimilarbutton {clear:both; margin-right:10px; margin-bottom:10px}
+
+#notificationsdiv {float:left; width:400px}
+#notificationsinnerdiv  {float:left; width:400px}
+#notificationsdivtop {float:left; clear:both; width:400px}
+#notificationsdivtop div {padding:0px; margin:0px;}
+#notificationsdivtopleft {float:left}
+#notificationsdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:388px}
+#notificationsdivtopright {float:left}
+#notificationstextdiv {float:left; padding-left:7px}
+#notificationsdivcontent {background-color:#e5e5e6; min-height:76px; height:auto !important; height:76px; float:left; width:377px; background-color:#E5E5E6; padding:10px; margin:0px 1px;}
+#notificationsdivcontent ul {list-style:outside; margin-left:7px; padding-left:7px; list-style-image:url(../images/global/orange_arrow_button_trans.gif)}
+#notificationsdivcontent ul li {padding-bottom:10px}
+
+#agencyalertsdiv {float:right; width:400px}
+#agencyalertsinnerdiv  {float:left; width:400px}
+#agencyalertsdivtop {float:left; clear:both; width:400px}
+#agencyalertsdivtop div {padding:0px; margin:0px;}
+#agencyalertsdivtopleft {float:left}
+#agencyalertsdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:388px}
+#agencyalertsdivtopright {float:left}
+#agencyalertstextdiv {float:left; padding-left:7px}
+#agencyalertsdivcontent {background-color:#e5e5e6;  min-height:76px; height:auto !important; height:76px; float:left; width:377px; background-color:#E5E5E6; padding:10px; margin:0px 1px;}
+#agencyalertsdivcontent ul {list-style:outside; margin-left:7px; padding-left:7px; list-style-image:url(../images/global/orange_arrow_button_trans.gif)}
+#agencyalertsdivcontent ul li {padding-bottom:10px}
+
+#step1divmiddlepart ul{list-style:none}
+
+#coursesdivtop {float:left; clear:both; width:100%;}
+#coursesdivtop div {padding:0px; margin:0px;}
+#coursesdivtopleft {float:left}
+#coursesdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:790px}
+#coursesdivtopright {float:left}
+
+#middlebottomwelcome {float:left; padding-top:10px}
+
+#coursestableresultslist {float:left; clear:both; width:800px; font-size:11px}
+#coursestableresultslist div, #coursestableresultslist a{font-size:11px}
+.coursestableresultslistheader {float:left; clear:both}
+#coursestableresultslist .coursestableresultslistheader .col  {background-color:#596677; color:#FFFFFF; font-weight:bold}
+#coursestableresultslist .col {width:154px; margin:0 1px 0 0; float:left; text-align:center}
+#coursestableresultslist div.toolhead {width:40px}
+#coursestableresultslist a:link {text-decoration:none}
+#coursestableresultslist a:visited {text-decoration:none}
+#coursestableresultslist a:hover {text-decoration:none}
+#coursestableresultslist .toolicon {text-align:center; float:left; padding:10px 0 10px 5px; width:38px}
+.coursestabledetailshead {float:left; color:#555555; padding:5px 0 5px 5px}
+#coursestableresultslist .col a:link {color:#36769C; text-decoration:none; padding-right:10px}
+#coursestableresultslist .col a:visited {color:#36769C; text-decoration:none; padding-right:10px}
+#coursestableresultslist .col a:hover {color:#D26931 ; text-decoration:none; padding-right:10px}
+.up {background:url(../images/global/sorting_up_arrow.gif) no-repeat right top; display:table-caption}
+.down {background:url(../images/global/sorting_down_arrow.gif) no-repeat right top; display:table-caption}
+.close {background:url(../images/global/close_icon.gif) no-repeat right top; display:table-caption}
+.row1 div, .row2 div {padding:10px 0 10px 5px;}
+#coursestableresultslist .row1 { border-bottom:1px solid #ccc;}
+#coursestableresultslist .row2 { border-bottom:1px solid #ccc;}
+
+#advSearchTop div div.inputname {width:68px; padding-bottom:25px}
+#advSearchTop div div.inputnameforsavesearch {width:auto; padding-bottom:25px; padding-right:10px;}
+
+#radialSearchbody {background-color:#FFFFFF}
+#radialSearchTop {padding:8px; padding-left:25px;}
+#radialSearchTop div#radialSearchTopfirstrow{padding-top:0px; float:left; clear:both; width:100%}
+#radialSearchTop div{padding-top:12px; float:left; clear:both; width:100%;}
+#radialSearchTop div div{padding-top:21px; float:left; clear:none; width:auto}
+#radialSearchTop div div {padding:0px 0px 0px 0px; line-height:17px; float:left; clear:none}
+#radialSearchTop #radialSearchTopMiddle div {padding:0px 0px 0px 0px; line-height:17px; float:left; padding:0px 24px}
+#radialSearchTop input {width:137px; padding:5px;}
+#radialSearchTop select {width:150px; height:26px}
+#radialSearchTop #radialSearchTopMiddlelast{padding:0px 0px 0px 0px; line-height:17px; float:left; padding:0 22px 0 54px}
+#radialSearchTop #radialSearchTopMiddlelast span{padding-top:6px; clear:both; float:left; color:#555555}
+#radialSearchTop #radialSearchToprightlast input {width:59px; margin-right:6px}
+.w90 {width:90px}
+#radialSearchTop input.w90 {width:80px}
+#radialSearchMiddle1 {float:left; clear:both; padding:12px;}
+#radialSearchTop #helpdiv {float:left; padding:0px; width:100%; clear:both; text-align:right}
+
+#emailAgentTop {padding:8px; padding-left:25px;}
+#emailAgentTop div#emailAgentTopfirstrow{padding-top:0px; float:left; clear:both; width:100%}
+#emailAgentTop div{padding-top:12px; float:left; clear:both; width:100%;}
+#emailAgentTop div div{padding-top:21px; float:left; clear:none; width:auto}
+#emailAgentTop div div {padding:0px 0px 0px 0px; line-height:17px; float:left; clear:none}
+#emailAgentTop #emailAgentTopMiddle div {padding:0px 0px 0px 0px; line-height:17px; float:left; padding:0px 54px}
+#emailAgentTop input {width:137px; padding:5px;}
+#emailAgentTop div div.inputnamesubject input {width:365px;}
+#emailAgentTop div div.inputnameMessage textarea {width:376px; border:1px solid #B3B3B3; color:#8499AF}
+#emailAgentTop select {width:150px; height:26px}
+#emailAgentTop #emailAgentTopMiddlelast{padding:0px 0px 0px 0px; line-height:17px; float:left; padding:0 22px 0 54px}
+#emailAgentTop #emailAgentTopMiddlelast span{padding-top:6px; clear:both; float:left; color:#555555}
+#emailAgentTop #emailAgentToprightlast input {width:59px; margin-right:6px}
+#emailAgentTop div div.inputname {width:68px; padding-bottom:25px}
+#emailAgentTop div div.inputnameforsavesearch {width:auto; padding-bottom:25px; padding-right:10px;}
+#emailAgentTop #helpdiv {float:left; padding:0px; width:100%; clear:both; text-align:right}
+
+
+#printpreviewpopupdiv {float:left; width:364px}
+#printpreviewpopupdivtop {float:left; clear:both; width:100%}
+#printpreviewpopupdivtopleft {float:left}
+#printpreviewpopupdivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:352px}
+#printpreviewpopupdivtopright {float:left}
+#printpreviewpopuptextdiv {float:left; padding-left:7px}
+#printpreviewpopupdivcontent {background-color:#e5e5e6}
+
+.printpreviewpopupphotobuttom {float:left; width:261px; background-color:#E5E5E6; padding:10px 10px 10px 93px;}
+.printpreviewpopupphoto {float:left; width:100%}
+
+.printpreviewpopupbutton {float:right}
+
+.printpreviewpopupphoto .photo {position:absolute; float:left; padding:3px}
+.printpreviewpopupphoto .frame {position:absolute;}
+.printpreviewpopupcontent {float:left; clear:both; width:324px; background-color:#E5E5E6; padding:20px; line-height:23px; padding-top:173px}
+.printpreviewpopupcontent div {float:left; clear:both; width:100%}
+.printpreviewpopupcontent div div{float:left; clear:none; width:140px}
+
+#printgallerysmtdiv {float:left; width:620px; padding-left:5px}
+
+#printgalleryshotselecteddiv {float:left; width:620px}
+#printgalleryshotselecteddivtop {float:left; clear:both; width:100%}
+#printgalleryshotselecteddivtopleft {float:left}
+#printgalleryshotselecteddivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:420px}
+#printgalleryshotselecteddivtopright {float:left}
+#printgalleryshotselectedtextdiv {float:left; padding-left:7px}
+
+div#printgalleryshotselecteddivcontent {float:left; clear:both; width:620px; padding:30px 10px 0; background-color:#E5E5E6; height:220px; overflow:auto; position:relative}
+.middlephoto {padding:0px 45px}
+.printgalleryshotselectedrow1 {padding-bottom:10px; float:left; clear:both; width:600px; height:200px; position:relative}
+.printgalleryshotselectedphoto {float:left; height:175px; width:170px; position:relative}
+.printgalleryshotselectedphoto .photo {position:relative; float:left; padding:3px}
+.printgalleryshotselectedphoto .frame {position:relative; margin-top:-183px; float:left}
+
+#printlineupsmtdiv {float:left; width:620px; padding-left:5px}
+
+#printlineupshotselecteddiv {float:left; width:720px}
+#printlineupshotselecteddivtop {float:left; clear:both; width:100%}
+#printlineupshotselecteddivtopleft {float:left}
+#printlineupshotselecteddivtopmiddle {background:url(../images/global/grey_blue_box_bg.gif) repeat-x; float:left; height:32px; width:420px}
+#printlineupshotselecteddivtopright {float:left}
+#printlineupshotselectedtextdiv {float:left; padding-left:7px}
+
+div.printlineupshotselecteddivcontent {float:left; clear:both; width:100%; padding:30px 10px 0; background-color:#E5E5E6; height:100%; overflow:auto; position:relative}
+.middlephoto {padding:0px 45px}
+.printlineupshotselectedrow1 {float:left; clear:both; width:720px; height:200px; position:relative}
+.printlineupshotselectedphoto {float:left; height:175px; width:90px; position:relative; padding-right:100px}
+.printlineupshotselectedphoto .photo {position:relative; float:left; padding:3px}
+.printlineupshotselectedphoto .frame {position:relative; margin-top:-183px; float:left}
+
+div.printlineupshotselecteddivcontentvertical {clear:both; width:560px; padding:30px 10px 0; background-color:#E5E5E6; height:480px; overflow:auto; position:relative; margin:auto}
+.printlineupshotselectedrow1vertical {float:left; clear:both; width:auto; height:200px; position:relative}
+
+.printlineupshotselecteddivcontentvertical div {width:auto}
+.printlineupshotselecteddivcontentvertical div div {clear:both; padding-bottom:25px; float:left; width:170px}
+
+.printlineupshotselecteddivcontentvertical div div div {clear:none; padding-bottom:3px; padding-right:0px;}
+
+#changeprintlayout input {border:none}
+
+.show {display:block}
+.hide {display:none}

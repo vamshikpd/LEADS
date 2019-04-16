@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	       					   http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+	<bean id = "redirectEndpoint" class="com.plm.ws.endpoint.RedirectEndPoint"/>
+
+	<bean class="org.springframework.ws.server.endpoint.adapter.GenericMarshallingMethodEndpointAdapter">
+		<constructor-arg ref="marshaller"/>
+	</bean>
+	<bean id="marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath" value="plm.ws.mtom.auth"/>
+		<property name="mtomEnabled" value="true"/>
+	</bean>
+
+	<bean id="auth" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+		<property name="schema" ref="schema"/>
+		<property name="portTypeName" value="Auth"/>
+		<property name="locationUri" value="${paroleedata.locationuri}"/>
+		<property name="targetNamespace" value="http://www.plm/ws/mtom/definitions"/>
+	</bean>
+	<bean id="schema" class="org.springframework.xml.xsd.SimpleXsdSchema">
+		<property name="xsd" value="/WEB-INF/paroleeInfoWsSchema.xsd"/>
+	</bean>
+
+	<bean id="endPointMapping" class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
+	        <description>
+	            Detects @PayloadRoot annotations on @Endpoint bean methods. The MarshallingAirlineEndpoint
+	            has such annotations. It uses two interceptors: one that logs the message payload, and the other validates
+	            it according to the '/WEB-INF/paroleeDataWsSchema.xsd' schema file.
+	        </description>
+	        <property name="interceptors">
+	            <list>
+	                <ref bean="loggingInterceptor"/>
+					<ref bean="wsSecurityInterceptor"/>
+	            </list>
+	        </property>
+	        <property name="order" value="1"/>
+	</bean>
+
+    <bean id="loggingInterceptor" class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor">
+		<property name="logRequest" value="true"/>
+		<property name="logResponse" value="true"/>
+    </bean>
+    <bean id="wsSecurityInterceptor" class="org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor">
+		<property name="policyConfiguration" value="classpath:securityPolicy.xml"/>
+		<property name="callbackHandlers">
+			<list>
+				<ref bean="springSecurityHandler"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="springSecurityHandler" class="org.springframework.ws.soap.security.xwss.callback.SpringPlainTextPasswordValidationCallbackHandler">
+		<property name="authenticationManager" ref="ldapAuthenticationManager"/>
+	</bean>
+	<bean id="ldapAuthenticationManager" class="com.plm.ws.ad.service.authentication.LDAPAuthenticationManager">
+		<property name="ldapTemplate" ref="singleLdapTemplate" />
+		<property name="ldapFilterPath" value="${ldapauthenticationmanager.ldapfilterpath}" />
+		<property name="ldapAuthSessionDuration" value="${ldapauthenticationmanager.sessionDuration}" />
+	</bean>
+	<bean id="singleLdapTemplate" class="org.springframework.ldap.core.LdapTemplate">
+		<constructor-arg ref="contextSourceTarget" />
+		<property name="ignorePartialResultException" value="true"/>
+	</bean>
+	<bean id="contextSourceTarget" class="org.springframework.ldap.core.support.LdapContextSource">
+        <property name="urls">
+            <list>
+                <value>${contextsourcetarget.url}</value>
+                <value>${contextsourcetarget.url2}</value>
+            </list>
+        </property>
+		<property name="base" value="${contextsourcetarget.base}" />
+		<property name="userDn" value="${contextsourcetarget.userdn}" />
+		<property name="password" value="${contextsourcetarget.password}" />
+		<property name="pooled" value="true" />
+		<property name="referral" value="follow" />
+	</bean>
+
+	<!--<bean id="springSecurityHandler" class="org.springframework.ws.soap.security.xwss.callback.SpringPlainTextPasswordValidationCallbackHandler">
+		<property name="authenticationManager" ref="idcsAuthenticationManager"/>
+	</bean>
+	<bean id="idcsAuthenticationManager" class="com.plm.ws.idcs.service.authentication.IDCSAuthenticationManager">		
+		<property name="idcsFilterPath" value="${idcsauthenticationmanager.idcsfilterpath}" />
+		<property name="user" value="${idcsauthenticationmanager.username}" />
+		<property name="password" value="${idcsauthenticationmanager.password}" />
+	</bean>	-->
+
+</beans>

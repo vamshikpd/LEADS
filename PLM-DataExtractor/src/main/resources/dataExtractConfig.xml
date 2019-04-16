@@ -1,0 +1,1871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="dataExtractor" class="com.plm.dataextract.cfg.DataExtractConfig" lazy-init="true">
+		<property name="extractionFiles">
+			<map>
+ 				<entry key="ParoleeData" value-ref="paroleeData" /> 
+				<entry key="ParoleeCurrentAddress" value-ref="paroleeCurrentAddress"/>
+ 				<entry key="ParoleePreviousAddress" value-ref="paroleePrevAddress"/>
+				<entry key="ParoleeAlias" value-ref="paroleeAlias"/>
+				<entry key="ParoleeJobInfo" value-ref="paroleeJobInfo"/>
+				<entry key="Moniker" value-ref="moniker"/>
+				<entry key="Offense" value-ref="offense"/>
+				<entry key="ProblemArea" value-ref="problemArea"/>  
+				<entry key="ParoleeSMT" value-ref="paroleeSMT"/> 
+ 				<entry key="SpecialCondition" value-ref="specialCondition"/>
+				<entry key="VehicleDetails" value-ref="vehicleDetails"/>  				
+			</map>	
+		</property>
+        <property name="fullOutputFolderPath">
+        	<value>D:/Apps/DataExtract/output/full</value>
+        </property>
+        <property name="partialOutputFolderPath">
+        	<value>D:/Apps/DataExtract/output/partial</value>
+        </property>
+        <property name="fieldSeparator">
+        	<value>|</value>
+        </property>
+        <property name="fieldSeparatorInEOL">
+        	<value>true</value>
+        </property>
+        <property name="noOfParallelThreads">
+        	<value>3</value>
+        </property>        
+		<property name="formatters">
+			<map>
+				<entry key="StringFormatter" value-ref="stringFormatter" />
+				<entry key="DateFormatter" value-ref="dateFormatter" />
+			</map>	
+		</property>
+    </bean>
+    
+    <!-- [Start] PAROLEE DETAILS -->
+    <bean id="paroleeData" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMParoleeDataSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>CASE WHEN P.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ACTION</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.CDC_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>CDC_NUM</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(P.LNAME) AS LNAME</value>
+					</property>
+					<property name="headerName">
+						<value>LNAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(P.FNAME) AS FNAME</value>
+					</property>
+					<property name="headerName">
+						<value>FNAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(NVL(P.MNAME, ' ')) AS MNAME</value>
+					</property>
+					<property name="headerName">
+						<value>MNAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.UNIT_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>UNIT_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(U.UNIT_NAME) AS UNIT_NAME</value>
+					</property>
+					<property name="headerName">
+						<value>UNIT_NAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.AGENT_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>AGENT_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>DECODE('(' || U.AREA_CODE || ')' || SUBSTR(U.PHONE,1,3) || '-' || SUBSTR(U.PHONE,4),'()-',' ','(0)0-',' ', '(' || U.AREA_CODE || ')' || SUBSTR(U.PHONE,1,3) || '-' || SUBSTR(U.PHONE,4)) AS AGENT_PHONE</value>
+					</property>
+					<property name="headerName">
+						<value>AGENT_PHONE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(NVL(A.LNAME, ' ')) || ', ' || TRIM(NVL(A.FNAME, ' ')) AS AGENT_NAME</value>
+					</property>
+					<property name="headerName">
+						<value>AGENT_NAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(A.EMAIL_ADDRESS,' ')</value>
+					</property>
+					<property name="headerName">
+						<value>AGENT_EMAIL</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CPOWNER.GETGROUPCODE(P.UNIT_CODE) as GROUP_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>GROUP_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>DECODE(P.STATUS_CODE,10,'PRE-PAROLE',50,'REVOCATION',55,'SUSPEND NO WNT',60,'SUSPENDED',65,'ACTIVE',70,'DISCHARGED') as STATUS_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>STATUS_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.BIRTH_DATE,'MM/DD/YYYY') as BIRTH_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>BIRTH_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.BIRTH_DATE,'YYYYMMDD') as BIRTH_DATE_YYYYMMDD</value>
+					</property>
+					<property name="headerName">
+						<value>BIRTH_DATE_YYYYMMDD</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>ROUND((SYSDATE-BIRTH_DATE)/365) AS AGE</value>
+					</property>
+					<property name="headerName">
+						<value>AGE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.BIRTH_DATE,'YYYY') AS BIRTH_YEAR</value>
+					</property>
+					<property name="headerName">
+						<value>BIRTH_YEAR</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.BIRTHSTATE_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>BIRTHSTATE_CODE</value>
+					</property>
+				</bean>	
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(S1.STATE_NAME,'UNKNOWN') AS BIRTHSTATE_NAME</value>
+					</property>
+					<property name="headerName">
+						<value>BIRTHSTATE_NAME</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>DECODE(P.SEX,'M','MALE','F','FEMALE') AS SEX</value>
+					</property>
+					<property name="headerName">
+						<value>SEX</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.HEIGHT_FEET</value>
+					</property>
+					<property name="headerName">
+						<value>HEIGHT_FEET</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.HEIGHT_INCHES</value>
+					</property>
+					<property name="headerName">
+						<value>HEIGHT_INCHES</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>((P.HEIGHT_FEET * 12) + P.HEIGHT_INCHES) AS TOTAL_HEIGHT_INCHES</value>
+					</property>
+					<property name="headerName">
+						<value>TOTAL_HEIGHT_INCHES</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.WEIGHT</value>
+					</property>
+					<property name="headerName">
+						<value>WEIGHT</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.RACE_CODE,'UNK') AS RACE_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>RACE_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(R.RACE_DESC,'UNKNOWN') AS RACE_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>RACE_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.EYECOLOR_CODE,'UNK') AS EYECOLOR_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>EYECOLOR_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(E.EYECOLOR_DESC,'UNKNOWN') AS EYECOLOR_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>EYECOLOR_DESC</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.HAIRCOLOR_CODE,'UNK') AS HAIRCOLOR_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>HAIRCOLOR_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(H.HAIRCOLOR_DESC,'UNKNOWN') AS HAIRCOLOR_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>HAIRCOLOR_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.CLASSIFICATION_CODE,'UNK') AS CLASSIFICATION_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>CLASSIFICATION_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>DECODE(NVL(P.CLASSIFICATION_CODE,'UNK'),'HR','Y','HX','Y','N') AS HRSO</value>
+					</property>
+					<property name="headerName">
+						<value>HRSO</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>DECODE(NVL(P.CLASSIFICATION_CODE,'UNK'),'AS','Y','AX','Y','PS','Y','PX','Y','N') AS GPS</value>
+					</property>
+					<property name="headerName">
+						<value>GPS</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(C.CLASSIFICATION_SUP_LEVEL,'UNKNOWN') AS CLASSIFICATION_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>CLASSIFICATION_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.PAROLE_DATE,'YYYYMMDD') as PAROLE_DATE_YYYYMMDD</value>
+					</property>
+					<property name="headerName">
+						<value>PAROLE_DATE_YYYYMMDD</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.PAROLE_DATE,'MM/DD/YYYY') as PAROLE_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>PAROLE_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.PAROLE_DATE,'YYYY') AS PAROLE_YEAR</value>
+					</property>
+					<property name="headerName">
+						<value>PAROLE_YEAR</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.CONTROL_DISCHRG_DATE,'MM/DD/YYYY') as CONTROL_DISCHRG_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>CONTROL_DISCHRG_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.DISCHARGED_DATE,'MM/DD/YYYY') as DISCHARGED_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>DISCHARGED_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.REVOC_RELS_DATE,'MM/DD/YYYY') as REVOC_RELS_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>REVOC_RELS_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.REVOC_RELS_DATE,'YYYYMMDD') as REVOC_RELS_DATE_YYYYMMDD</value>
+					</property>
+					<property name="headerName">
+						<value>REVOC_RELS_DATE_YYYYMMDD</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.HS_REQ, ' ') AS HS_REQ</value>
+					</property>
+					<property name="headerName">
+						<value>HS_REQ</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.HS_DATE,'MM/DD/YYYY') as HS_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>HS_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.PC_290_REQ, ' ') AS PC_290_REQ</value>
+					</property>
+					<property name="headerName">
+						<value>PC_290_REQ</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.PC_290_DATE,'MM/DD/YYYY') as PC_290_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>PC_290_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.PC_457_REQ,' ') AS PC_457_REQ</value>
+					</property>
+					<property name="headerName">
+						<value>PC_457_REQ</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.PC_457_DATE,'MM/DD/YYYY') as PC_457_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>PC_457_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.CII_NUM,' ') AS CII_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>CII_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.FBI_NUM,' ') AS FBI_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>FBI_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.SSA_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>SSA_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.COMMENTS</value>
+					</property>
+					<property name="headerName">
+						<value>COMMENTS</value>
+					</property>
+				</bean>	
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.USINS_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>USINS_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(P.DR_LIC_NUM,' ')</value>
+					</property>
+					<property name="headerName">
+						<value>DR_LIC_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>S.STATE_NAME</value>
+					</property>
+					<property name="headerName">
+						<value>PAROLE_STATE</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.PC_3058_REQ</value>
+					</property>
+					<property name="headerName">
+						<value>PC_3058_REQ</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.ANT_REQ</value>
+					</property>
+					<property name="headerName">
+						<value>ANT_REQ</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.NO_ALCOHOL</value>
+					</property>
+					<property name="headerName">
+						<value>NO_ALCOHOL</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.POC_REQ</value>
+					</property>
+					<property name="headerName">
+						<value>POC_REQ</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>P.COUNTY_COMMIT</value>
+					</property>
+					<property name="headerName">
+						<value>COUNTY_COMMIT</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>CT.COUNTY_NAME</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>COMMIT_COUNTY_NAME</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.PC_3058_DATE,'MM/DD/YYYY') as PC_3058_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>PC_3058_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.LAST_CHG_DATE,'MM/DD/YYYY') as LAST_CHG_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>LAST_CHG_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(P.LAST_UPDATED_DATE,'MM/DD/YYYY') as LAST_UPDATED_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>LAST_UPDATED_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(PC290.ACTION_DATE,'MM/DD/YYYY') as ACTION_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(PC290.ACTION_DATE,'YYYYMMDD') as ACTION_DATE_YYYYMMDD</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION_DATE_YYYYMMDD</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>PC290.ACTION_TYPE</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION_TYPE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(PC290.ADD_CHANGED_DATE,'MM/DD/YYYY') as ADD_CHANGED_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>ADD_CHANGED_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(PC290.ADD_CHANGED_DATE,'YYYYMMDD') as ADD_CHANGED_DATE_YYYYMMDD</value>
+					</property>
+					<property name="headerName">
+						<value>ADD_CHANGED_DATE_YYYYMMDD</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(PLM.LAST_CHG_DATE,'YYYYMMDD') as PAR_REC_CHG_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>PAR_REC_CHG_DATE</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>GETCOUNTIESFORUNIT(P.UNIT_CODE) as JURISDICTION_COUNTIES</value>
+					</property>
+					<property name="headerName">
+						<value>JURISDICTION_COUNTIES</value>
+					</property>
+				</bean>			
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>NVL(GETCOLLRCOUNTYNAME(NVL(P.COLLR_CODE,'XXX')),'UNKNOWN')</value>
+					</property>
+					<property name="headerName">
+						<value>COLLR_COUNTY</value>
+					</property>
+				</bean>	
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN P.PENDING_PAL IS NULL THEN 'N' ELSE P.PENDING_PAL END AS PENDING_PAL</value>
+					</property>
+					<property name="headerName">
+						<value>PENDING_PAL</value>
+					</property>
+				</bean>	
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN TO_CHAR(P.PENDING_PAL_DATE,'MM/DD/YYYY') IS NULL THEN ' ' ELSE TO_CHAR(P.PENDING_PAL_DATE,'MM/DD/YYYY') END AS PENDING_PAL_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>PENDING_PAL_DATE</value>
+					</property>
+				</bean>	
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        			CPOWNER.PAROLEE P,
+        			CPOWNER.PLM_CDC PLM,
+        			CPOWNER.PLM_PC290_INFO_VIEW PC290,
+        			CPOWNER.CLASSIFICATION C, 
+        			CPOWNER.EYECOLOR E, 
+        			CPOWNER.HAIRCOLOR H, 
+        			CPOWNER.RACE R,
+        			CPOWNER.AGENT A,        			 
+        			CPOWNER.UNIT U,         			        			 
+        			CPOWNER.STATE S,
+        			CPOWNER.STATE S1,
+        			CPOWNER.COUNTY CT
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		P.CDC_NUM = PLM.CDC_NUM
+        		AND P.CDC_NUM = PC290.CDC_NUM(+)
+        		AND P.CLASSIFICATION_CODE = C.CLASSIFICATION_CODE(+) 
+        		AND P.EYECOLOR_CODE = E.EYECOLOR_CODE(+) 
+        		AND P.HAIRCOLOR_CODE = H.HAIRCOLOR_CODE(+)
+        		AND P.RACE_CODE = R.RACE_CODE(+)
+        		AND P.AGENT_CODE = A.AGENT_CODE         		 
+        		AND P.UNIT_CODE = A.UNIT_CODE 
+        		AND A.UNIT_CODE = U.UNIT_CODE         			
+        		AND P.PAROLE_STATE = S.STATE_CODE
+        		AND P.BIRTHSTATE_CODE = S1.STATE_CODE(+)
+        		AND P.COUNTY_COMMIT = CT.COUNTY_CODE(+)        		
+			</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		P.CDC_NUM = PLM.CDC_NUM
+        		AND PLM.LAST_CHG_DATE>=TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS')
+        		AND P.CDC_NUM = PC290.CDC_NUM(+)
+        		AND P.CLASSIFICATION_CODE = C.CLASSIFICATION_CODE(+) 
+        		AND P.EYECOLOR_CODE = E.EYECOLOR_CODE(+) 
+        		AND P.HAIRCOLOR_CODE = H.HAIRCOLOR_CODE(+)
+        		AND P.RACE_CODE = R.RACE_CODE(+)
+        		AND P.AGENT_CODE = A.AGENT_CODE         		 
+        		AND P.UNIT_CODE = A.UNIT_CODE
+        		AND A.UNIT_CODE = U.UNIT_CODE
+        		AND P.PAROLE_STATE = S.STATE_CODE
+        		AND P.BIRTHSTATE_CODE = S1.STATE_CODE(+) 
+        		AND P.COUNTY_COMMIT = CT.COUNTY_CODE(+)
+			</value>
+        </property>
+        <property name="orderby">
+        	<value>
+				P.CDC_NUM
+			</value>
+        </property>
+    </bean>
+    <!-- [ End ] PAROLEE DETAILS -->
+    
+    
+    <!-- [Start] PAROLEE CURRENT ADDRESS -->
+    <bean id="paroleeCurrentAddress" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMAddressSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>CASE WHEN A.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ACTION</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>TO_CHAR(A.ADDRESS_EFF_DATE,'MM/DD/YYYY') as ADDRESS_EFF_DATE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ADDRESS_EFF_DATE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.CAREOF</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CAREOF</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.STREET</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>STREET</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.CITY_NAME</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CITY_NAME</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.STATE_CODE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>STATE_CODE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.COUNTY_CODE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>COUNTY_CODE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>NVL(C.COUNTY_NAME,'-No County-')</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>COUNTY_NAME</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.ZIP</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ZIP</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.ZIP4</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ZIP4</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>DECODE(A.LATITUDE, null,' ', A.LATITUDE||','||A.LONGITUDE) as GEOCODE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>GEOCODE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>DECODE('(' || A.AREA_CODE || ')' || SUBSTR(A.PHONE,1,3) || '-' || SUBSTR(A.PHONE,4),'()-',' ','(0)0',' ', '(' || A.AREA_CODE || ')' || SUBSTR(A.PHONE,1,3) || '-' || SUBSTR(A.PHONE,4)) AS FULL_PHONE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>FULL_PHONE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>DECODE('(' || A.MESSAGE_AREA_CODE || ')' || SUBSTR(A.MESSAGE_PHONE,1,3) || '-' || SUBSTR(A.MESSAGE_PHONE,4),'()-',' ','(0)0',' ', '(' || A.MESSAGE_AREA_CODE || ')' || SUBSTR(A.MESSAGE_PHONE,1,3) || '-' || SUBSTR(A.MESSAGE_PHONE,4)) AS MESSAGE_PHONE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>MESSAGE_PHONE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>A.MAP</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>MAP</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>		
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>TO_CHAR(A.LAST_CHG_DATE,'MM/DD/YYYY') as ADD_LAST_CHG_DATE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ADD_LAST_CHG_DATE</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>A.RSDNC_STATUS</value>
+					</property>
+					<property name="headerName">
+						<value>ADD_RES_STAT</value>
+					</property>
+					<property name="formatter">
+						<value>StringFormatter</value>
+					</property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.ADDRESS A,
+        		CPOWNER.PLM_CDC PLM, 
+        		CPOWNER.COUNTY C 
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		A.CDC_NUM = PLM.CDC_NUM
+        		AND A.COUNTY_CODE = C.COUNTY_CODE(+) 
+        		AND A.ADDRESS_EFF_DATE = (
+        			SELECT 
+        				MAX (B.ADDRESS_EFF_DATE) 
+        			FROM 
+        				CPOWNER.ADDRESS B 
+        			WHERE 
+        				A.CDC_NUM = B.CDC_NUM
+        		)
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		A.CDC_NUM = PLM.CDC_NUM
+        		AND A.COUNTY_CODE = C.COUNTY_CODE(+) 
+        		AND A.ADDRESS_EFF_DATE = (
+        			SELECT 
+        				MAX (B.ADDRESS_EFF_DATE) 
+        			FROM 
+        				CPOWNER.ADDRESS B 
+        			WHERE 
+        				A.CDC_NUM = B.CDC_NUM
+        		)
+        		AND (
+					A.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR A.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+				A.CDC_NUM, A.ADDRESS_EFF_DATE
+        	</value>
+        </property>
+    </bean>
+    <!-- [ End ] PAROLEE CURRENT ADDRESS -->
+
+
+    <!-- [Start] PAROLEE PREVIOUS ADDRESS -->
+    <bean id="paroleePrevAddress" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMPrevAddressSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN A.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>
+			        		TO_CHAR(A.ADDRESS_EFF_DATE,'MM/DD/YYYY')|| chr(176) ||
+			        		A.CAREOF|| chr(176) ||
+			        		A.STREET|| chr(176) ||
+			        		A.CITY_NAME|| chr(176) ||
+							A.STATE_CODE||chr(176)||
+							A.COUNTY_CODE||chr(176) ||
+							C.COUNTY_NAME||chr(176)||
+							A.ZIP||chr(176)||
+							A.ZIP4||chr(176)||
+							DECODE('(' || A.AREA_CODE || ')' || SUBSTR(A.PHONE,1,3) || '-' || SUBSTR(A.PHONE,4),'()-',' ','(0)0',' ', '(' || A.AREA_CODE || ')' || SUBSTR(A.PHONE,1,3) || '-' || SUBSTR(A.PHONE,4)) ||chr(176)||
+							DECODE('(' || A.MESSAGE_AREA_CODE || ')' || SUBSTR(A.MESSAGE_PHONE,1,3) || '-' || SUBSTR(A.MESSAGE_PHONE,4),'()-',' ','(0)0',' ', '(' || A.MESSAGE_AREA_CODE || ')' || SUBSTR(A.MESSAGE_PHONE,1,3) || '-' || SUBSTR(A.MESSAGE_PHONE,4)) ||chr(176)||
+							A.MAP||chr(176)||
+							TO_CHAR(A.LAST_CHG_DATE,'MM/DD/YYYY')
+							as PREV_ADDRESSES
+						</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>PREV_ADDRESSES</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.ADDRESS A, 
+        		CPOWNER.COUNTY C, 
+        		CPOWNER.PLM_CDC PLM
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		A.CDC_NUM = PLM.CDC_NUM 
+        		AND A.COUNTY_CODE = C.COUNTY_CODE(+) 
+        		AND A.ADDRESS_EFF_DATE &lt; (
+        			SELECT MAX (B.ADDRESS_EFF_DATE) FROM CPOWNER.ADDRESS B WHERE A.CDC_NUM = B.CDC_NUM
+        		) 
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		A.CDC_NUM = PLM.CDC_NUM 
+        		AND A.COUNTY_CODE = C.COUNTY_CODE(+) 
+        		AND A.ADDRESS_EFF_DATE &lt; (
+        			SELECT MAX (B.ADDRESS_EFF_DATE) FROM CPOWNER.ADDRESS B WHERE A.CDC_NUM = B.CDC_NUM
+        		) 
+        		AND (
+					A.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR A.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+        		A.CDC_NUM, 
+        		A.ADDRESS_EFF_DATE DESC
+        	</value>
+        </property>
+    </bean>
+    <!-- [ End ] PAROLEE PREVIOUS ADDRESS -->
+
+
+
+    <!-- [Start] SAMPLE CONCATANATION EXAMPLE -->
+    <bean id="paroleeAlias" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMAliasSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN A.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(A.LNAME) AS LNAME</value>
+					</property>
+					<property name="headerName">
+						<value>ALIAS_LNAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(A.FNAME) AS FNAME</value>
+					</property>
+					<property name="headerName">
+						<value>ALIAS_FNAME</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(NVL(A.MNAME, ' ')) AS MNAME</value>
+					</property>
+					<property name="headerName">
+						<value>ALIAS_MNAME</value>
+					</property>
+				</bean>				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>TRANSLATE(TRIM(NVL(A.LNAME,'')),'"',' ')||chr(176)||TRANSLATE(TRIM(NVL(A.FNAME,'')),'"',' ')||chr(176)||TRANSLATE(TRIM(NVL(A.MNAME,'')),'"',' ')||chr(176)||TO_CHAR(A.LAST_CHG_DATE,'MM/DD/YYYY')||chr(176) as ALIAS_INFO</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ALIAS_INFO</value>
+			        </property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.ALIAS A, 
+        		CPOWNER.PLM_CDC PLM
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		A.CDC_NUM = PLM.CDC_NUM 
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		A.CDC_NUM = PLM.CDC_NUM 
+        		AND (
+					A.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR A.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+        		A.CDC_NUM,
+        		A.LAST_CHG_DATE DESC
+        	</value>
+        </property>
+        
+    </bean>
+    <!-- [ End ] SAMPLE CONCATANATION EXAMPLE -->
+
+
+    <!-- [Start] PAROLEE JOB Information -->
+    <bean id="paroleeJobInfo" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMJobSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN J.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">		        
+			        	<value>J.EMPLOYER||chr(176)||J.STREET||chr(176)||J.CITY_NAME||chr(176)||J.STATE_CODE||chr(176)||J.COUNTY_CODE||chr(176)||J.ZIP||chr(176)||J.ZIP4||chr(176)||DECODE('(' || J.AREA_CODE || ')' || SUBSTR(J.PHONE,1,3) || '-' || SUBSTR(J.PHONE,4),'()-',' ','(0)0',' ', '(' || J.AREA_CODE || ')' || SUBSTR(J.PHONE,1,3) || '-' || SUBSTR(J.PHONE,4))||chr(176)||J.JOB_TITLE||chr(176)||J.EMP_AWARE||chr(176)||TO_CHAR(J.START_DATE,'MM/DD/YYYY')||chr(176)||TO_CHAR(J.LAST_CHG_DATE,'MM/DD/YYYY')||chr(176) AS EMPLOYER_INFO</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>EMPLOYER_INFO</value>
+			        </property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.JOB J, 
+        		CPOWNER.PLM_CDC PLM</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		J.CDC_NUM = PLM.CDC_NUM 
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		J.CDC_NUM = PLM.CDC_NUM 
+        		AND (
+					J.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR J.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+        		J.CDC_NUM, 
+        		J.START_DATE DESC
+        	</value>
+        </property>        
+    </bean>
+    <!-- [ End ] PAROLEE Job Information -->
+
+
+
+    <!-- [Start] PAROLEE Moniker Information -->
+    <bean id="moniker" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMMonikerSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>CASE WHEN M.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>ACTION</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>M.MONIKER</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>MONIKER</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>M.MONIKER ||chr(176)||TO_CHAR(M.LAST_CHG_DATE,'MM/DD/YYYY')||chr(176) AS MONIKER_INFO</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>MONIKER_INFO</value>
+			        </property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.MONIKER M, 
+        		CPOWNER.PLM_CDC PLM
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		M.CDC_NUM = PLM.CDC_NUM 
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		M.CDC_NUM = PLM.CDC_NUM 
+        		AND (
+					M.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR M.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+        		M.CDC_NUM, 
+        		M.LAST_CHG_DATE DESC
+        	</value>
+        </property>        
+    </bean>
+    <!-- [ End ] PAROLEE Moniker Information -->
+
+    <!-- [Start] PAROLEE Offense Information -->
+    <bean id="offense" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMOffenseSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN O.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>O.OFFENSE_CODE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>OFFENSE_CODE</value>
+			        </property>
+				</bean>
+<!--			
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>O.OFFENSE_CODE ||'-'|| T.OFFENSE_DESC AS OFFENSE_CODE_DESC</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>OFFENSE_CODE_DESC</value>
+			        </property>
+				</bean>
+-->				
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>O.OFFENSE_CODE||chr(176)||T.OFFENSE_DESC ||chr(176)|| T.TYPE ||chr(176)|| T.SEVERITY ||chr(176)|| O.CONTROLLING_OFFENSE ||chr(176)||TO_CHAR(O.LAST_CHG_DATE,'MM/DD/YYYY')||chr(176) AS OFFENSE_INFO</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>OFFENSE_INFO</value>
+			        </property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.OFFENSE O, 
+        		CPOWNER.OFFENSE_TYPE T, 
+        		CPOWNER.PLM_CDC PLM
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		O.CDC_NUM = PLM.CDC_NUM 
+        		AND O.OFFENSE_CODE = T.OFFENSE_CODE(+) 
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		O.CDC_NUM = PLM.CDC_NUM 
+        		AND O.OFFENSE_CODE = T.OFFENSE_CODE(+) 
+        		AND (
+					O.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR O.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+       			O.CDC_NUM, 
+       			O.LAST_CHG_DATE DESC
+        	</value>
+        </property>        
+        
+    </bean>
+    <!-- [ End ] PAROLEE Offense Information -->
+
+    
+    <!-- [Start] PAROLEE Problem Area Information -->
+    <bean id="problemArea" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMProblemAreaSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN P.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>PLM.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(P.PROBLEM_NARCOTIC,'|',',')</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>PROBLEM_NARCOTIC</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(P.PROBLEM_ALCOHOL,'|',',')</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>PROBLEM_ALCOHOL</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(P.PROBLEM_ASSAULT,'|',',')</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>PROBLEM_ASSAULT</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(P.PROBLEM_SEX,'|',',')</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>PROBLEM_SEX</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(P.PROBLEM_OTHER,'|',',')</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>PROBLEM_OTHER</value>
+			        </property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.PROBLEM_AREA P, 
+        		CPOWNER.PLM_CDC PLM
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		P.CDC_NUM = PLM.CDC_NUM 
+        		AND P.PROBLEM_NARCOTIC IS NOT NULL 
+        		AND P.PROBLEM_ALCOHOL IS NOT NULL 
+        		AND P.PROBLEM_ASSAULT IS NOT NULL 
+				AND P.PROBLEM_SEX IS NOT NULL 
+				AND P.PROBLEM_OTHER IS NOT NULL 
+			</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		P.CDC_NUM = PLM.CDC_NUM 
+        		AND P.PROBLEM_NARCOTIC IS NOT NULL 
+        		AND P.PROBLEM_ALCOHOL IS NOT NULL 
+        		AND P.PROBLEM_ASSAULT IS NOT NULL 
+				AND P.PROBLEM_SEX IS NOT NULL 
+				AND P.PROBLEM_OTHER IS NOT NULL 
+        		AND (
+					P.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR P.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+				P.CDC_NUM, 
+				P.LAST_CHG_DATE DESC
+        	</value>
+        </property>        
+        
+    </bean>
+    <!-- [ End ] PAROLEE Problem Area Information -->
+
+    <!-- [Start] PAROLEE Problem Area Information -->
+    <bean id="paroleeSMT" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMSMTSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN S.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>S.CDC_NUM</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>CDC_NUM</value>
+			        </property>
+			        <property name="formatter">
+			        	<value>StringFormatter</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">			        
+			        	<value>REPLACE(S.SMT_PICTURE,'|',',')||' '||REPLACE(S.SMT_TEXT,'|',',') AS TATTOO_PICT_TEXT</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>TATTOO_PICT_TEXT</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>S.SMT_CODE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>SMT_CODE</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(S.SMT_DESC,'|',',') AS SMT_DESC</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>SMT_DESC</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(S.SMT_PICTURE,'|',',') AS SMT_PICTURE</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>SMT_PICTURE</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(S.SMT_TEXT,'|',',') AS SMT_TEXT</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>SMT_TEXT</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>S.SMT_CODE ||chr(176)|| REPLACE(S.SMT_DESC,'|',',') ||chr(176)||REPLACE(S.SMT_PICTURE,'|',',') ||chr(176)|| REPLACE(S.SMT_TEXT,'|',',') || chr(176)|| TO_CHAR(S.LAST_CHG_DATE,'MM/DD/YYYY')||chr(176) AS SMT_INFO</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>SMT_INFO</value>
+			        </property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+			        <property name="fieldName">
+			        	<value>REPLACE(S.SMT_CODE,' ','_') || chr(176) || REPLACE(S.SMT_PICTURE,'|',',')||' '||REPLACE(S.SMT_TEXT,'|',',') AS SMT_DETAIL</value>
+			        </property>
+			        <property name="headerName">
+			        	<value>SMT_DETAIL</value>
+			        </property>
+				</bean>				
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.PLM_SMT_VIEW S
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+					S.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR S.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        	</value>
+        </property>        
+        <property name="orderby">
+        	<value>
+        		S.CDC_NUM, 
+        		S.LAST_CHG_DATE DESC
+        	</value>
+        </property>
+    </bean>
+    <!-- [ End ] PAROLEE SMT Information -->
+
+
+    <!-- [Start] PAROLEE SpecialCondition -->
+    <bean id="specialCondition" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMSpecialConditionSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN S.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>PLM.CDC_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>CDC_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>S.SPECIAL_COMMENT ||chr(176)||TO_CHAR(S.LAST_CHG_DATE,'MM/DD/YYYY')||chr(176) AS SPL_COMMENT_INFO</value>
+					</property>
+					<property name="headerName">
+						<value>SPL_COMMENT_INFO</value>
+					</property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.SPECIAL_CONDITION S, 
+        		CPOWNER.PLM_CDC PLM
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		S.CDC_NUM = PLM.CDC_NUM
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		S.CDC_NUM = PLM.CDC_NUM 
+        		AND (
+					S.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR S.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+        		S.CDC_NUM, 
+        		S.LAST_CHG_DATE DESC
+        	</value>
+        </property>
+    </bean>
+    <!-- [ End ] PAROLEE SpecialCondition -->
+
+    <!-- [Start] PAROLEE Vehicle Information -->
+    <bean id="vehicleDetails" class="com.plm.dataextract.cfg.FileDataConfig" lazy-init="true">
+        <property name="filename">
+        	<value>PLMVehicleSourceFile.txt</value>
+        </property>
+		<property name="fields">
+			<list>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>CASE WHEN V.CREATED_DATE >= TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') THEN  'A' ELSE 'U' END AS ACTION</value>
+					</property>
+					<property name="headerName">
+						<value>ACTION</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>PLM.CDC_NUM</value>
+					</property>
+					<property name="headerName">
+						<value>CDC_NUM</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(V.MAKE_CODE) AS MAKE_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>MAKE_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>VM.MAKE_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>MAKE_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TRIM(V.MODEL_CODE) AS MODEL_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>MODEL_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>VM.MODEL_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>MODEL_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.STYLE_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>STYLE_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>VS.STYLE_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>STYLE_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.VEHICLE_CLASS</value>
+					</property>
+					<property name="headerName">
+						<value>VEHICLE_CLASS</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.YEAR</value>
+					</property>
+					<property name="headerName">
+						<value>YEAR</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.COLOR1</value>
+					</property>
+					<property name="headerName">
+						<value>COLOR1</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>VC1.COLOR_DESC as COLOR1_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>COLOR1_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.COLOR2</value>
+					</property>
+					<property name="headerName">
+						<value>COLOR2</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>VC2.COLOR_DESC as COLOR2_DESC</value>
+					</property>
+					<property name="headerName">
+						<value>COLOR2_DESC</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.LICENSE_PLATE</value>
+					</property>
+					<property name="headerName">
+						<value>LICENSE_PLATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>S.STATE_NAME AS VEHICLE_STATE_CODE</value>
+					</property>
+					<property name="headerName">
+						<value>VEHICLE_STATE_CODE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(V.START_DATE,'MM/DD/YYYY') as START_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>START_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>TO_CHAR(V.LAST_CHG_DATE,'MM/DD/YYYY') as VEH_LAST_CHG_DATE</value>
+					</property>
+					<property name="headerName">
+						<value>VEH_LAST_CHG_DATE</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.VEHICLE_OWNED</value>
+					</property>
+					<property name="headerName">
+						<value>VEHICLE_OWNED</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.VEHICLE_MAKE_ID</value>
+					</property>
+					<property name="headerName">
+						<value>VEHICLE_MAKE_ID</value>
+					</property>
+				</bean>
+				<bean class="com.plm.dataextract.cfg.FieldConfig">
+					<property name="fieldName">
+						<value>V.MAKE_CODE ||chr(176)|| VM.MAKE_DESC ||chr(176)|| V.MODEL_CODE ||chr(176)|| VM.MODEL_DESC ||chr(176)||V.STYLE_CODE ||chr(176)|| VS.STYLE_DESC ||chr(176)|| V.VEHICLE_CLASS ||chr(176)|| V.YEAR ||chr(176)||V.COLOR1 ||chr(176)|| VC1.COLOR_DESC || chr(176)|| V.COLOR2 ||chr(176)|| VC2.COLOR_DESC ||chr(176)|| V.LICENSE_PLATE ||chr(176)|| V.STATE_CODE || chr(176) || S.STATE_NAME ||chr(176)|| TO_CHAR(V.START_DATE,'MM/DD/YYYY') ||chr(176)|| TO_CHAR(V.LAST_CHG_DATE,'MM/DD/YYYY') ||chr(176)|| V.VEHICLE_OWNED ||chr(176)|| V.VEHICLE_MAKE_ID ||chr(176) AS VEHICLE_INFO</value>
+					</property>
+					<property name="headerName">
+						<value>VEHICLE_INFO</value>
+					</property>
+				</bean>
+			</list>
+		</property>
+        <property name="table">
+        	<value>
+        		CPOWNER.VEHICLE V, 
+        		CPOWNER.VEHICLE_MAKE VM, 
+        		CPOWNER.VEHICLE_STYLE VS, 
+        		CPOWNER.VEHICLE_COLOR VC1, 
+        		CPOWNER.VEHICLE_COLOR VC2, 
+        		CPOWNER.PLM_CDC PLM, 
+        		CPOWNER.STATE S
+        	</value>
+        </property>
+        <property name="fullcondition">
+        	<value>
+        		V.CDC_NUM = PLM.CDC_NUM 
+        		AND (
+        			V.MAKE_CODE = VM.MAKE_CODE 
+        			AND V.MODEL_CODE = VM.MODEL_CODE
+        		) 
+        		AND (
+        			V.STYLE_CODE = VS.STYLE_CODE(+) 
+        		) 
+        		AND V.COLOR1 = VC1.COLOR_CODE(+) 
+        		AND V.COLOR2 = VC2.COLOR_CODE(+) 
+        		AND V.STATE_CODE = S.STATE_CODE(+) 
+        	</value>
+        </property>
+        <property name="partialcondition">
+        	<value>
+        		V.CDC_NUM = PLM.CDC_NUM 
+        		AND (
+        			V.MAKE_CODE = VM.MAKE_CODE 
+        			AND V.MODEL_CODE = VM.MODEL_CODE
+        		) 
+        		AND (
+        			V.STYLE_CODE = VS.STYLE_CODE(+) 
+        		) 
+        		AND V.COLOR1 = VC1.COLOR_CODE(+) 
+        		AND V.COLOR2 = VC2.COLOR_CODE(+) 
+        		AND V.STATE_CODE = S.STATE_CODE(+) 
+        		AND (
+					V.CREATED_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        			OR V.LAST_CHG_DATE > TO_DATE('${LAST_DATA_EXTRACT_UPTO_DATE}','DD-MM-YYYY HH24:MI:SS') 
+        		)  
+        	</value>
+        </property>
+        <property name="orderby">
+        	<value>
+        		V.CDC_NUM, 
+        		V.LAST_CHG_DATE DESC
+        	</value>
+        </property>
+    </bean>
+    <!-- [ End ] PAROLEE Vehicle Information -->
+    
+    <!-- [Start] VARIOUS FORMATTERS -->
+    <bean id="stringFormatter" class="com.plm.dataextract.formatter.StringFormatter" lazy-init="true">
+        <property name="formattingType">
+        	<value>FORMATTING_TYPE_VARIABLE_LENGTH</value>
+        </property>
+    </bean>
+    <bean id="dateFormatter" class="com.plm.dataextract.formatter.DateFormatter" lazy-init="true">
+        <property name="dateFormat">
+        	<value>dd-MMM-yyyy</value>
+        </property>
+    </bean>
+    <!-- [ End ] VARIOUS FORMATTERS -->
+    
+</beans>
